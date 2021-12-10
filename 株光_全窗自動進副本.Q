@@ -9,7 +9,7 @@ StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
 MacroID=f45091be-0f6f-4891-a98a-a634767bc958
-Description=®è¥ú_¥şµ¡¦Û°Ê¶i°Æ¥»
+Description=æ ªå…‰_å…¨çª—è‡ªå‹•é€²å‰¯æœ¬
 Enable=1
 AutoRun=0
 [Repeat]
@@ -24,46 +24,45 @@ SetupOCXFile=
 
 [Script]
 Dimenv Hwnd1
-Hwnd = Plugin.Window.Search("DawnRagnarok")//·j¯Á¼ĞÃD«ü©w¥y¬`  
-MyArray = Split(Hwnd, "|")//¤À³Î¦r¦ê
+Hwnd = Plugin.Window.Search("DawnRagnarok")//æœç´¢æ¨™é¡ŒæŒ‡å®šå¥æŸ„  
+MyArray = Split(Hwnd, "|")//åˆ†å‰²å­—ä¸²
 If UBound(MyArray) >= 0 Then
 	For i = 0 To UBound(MyArray) - 1
-		hwndEx = Clng(MyArray(i)) 
-		Hwnd1 = hwndEx
-		BeginThread ½uµ{¨ç¼Æ
+		Hwnd1 = Clng(MyArray(i))
+		BeginThread ç·šç¨‹å‡½æ•¸
 		Delay 100
 	Next  
 End If
 
-Sub ½uµ{¨ç¼Æ()
+Sub ç·šç¨‹å‡½æ•¸()
 	Hwnd = Hwnd1
-	call ¤jºz³]©w()
-	´_¬¡¿ï¶µ = 1
-	//0=Ãö³¬´_¬¡ 1=­«¥ÍÂI 2=­ì¦a´_¬¡
+	call å¤§æ¼ è¨­å®š()
+	å¾©æ´»é¸é … = 1
+	//0=é—œé–‰å¾©æ´» 1=é‡ç”Ÿé» 2=åŸåœ°å¾©æ´»
 	Do
-		now_map = Plugin.Memory.Read32Bit(Hwnd1, &H0015F258)
+		now_map = Plugin.Memory.Read32Bit(Hwnd, &H0015F258)
 		If now_map = 16 Then 
-			now_map_X = Plugin.Memory.Read32Bit(Hwnd1, &H010F07A8)
-			now_map_Y = Plugin.Memory.Read32Bit(Hwnd1, &H010F07AC)
-			³Ì¤j¦å = int(Plugin.Memory.Read32Bit(Hwnd1, &H01107BF0))
-			¦å = int(Plugin.Memory.Read32Bit(Hwnd1, &H01107BEC))
-			¦å¶q = fix((¦å / ³Ì¤j¦å) * 100)
-			If ¦å¶q < 1 Then 
+			now_map_X = Plugin.Memory.Read32Bit(Hwnd, &H010F07A8)
+			now_map_Y = Plugin.Memory.Read32Bit(Hwnd, &H010F07AC)
+			æœ€å¤§è¡€ = int(Plugin.Memory.Read32Bit(Hwnd, &H01107BF0))
+			è¡€ = int(Plugin.Memory.Read32Bit(Hwnd, &H01107BEC))
+			è¡€é‡ = fix((è¡€ / æœ€å¤§è¡€) * 100)
+			If è¡€é‡ < 1 Then 
 				Delay 1000
-				TracePrint "µ¡¤f:" & Hwnd & "¦å¶q:"&¦å¶q &" ³Ì¤j¦å:"& ³Ì¤j¦å &" ¦å:"& ¦å
-				Call ´_¬¡(1)
+				TracePrint "çª—å£:" & Hwnd & "è¡€é‡:"&è¡€é‡ &" æœ€å¤§è¡€:"& æœ€å¤§è¡€ &" è¡€:"& è¡€
+				Call å¾©æ´»(1)
 			ElseIf now_map_X <> 216 And now_map_Y <> 209 Then 
-				//Äİ¥ú¨é¦^¨ì°Æ¥»°Ï
-				call «öÁä(112,1,300)
-				call «öÁä(13,3,300)
+				//å±¬å…‰åˆ¸å›åˆ°å‰¯æœ¬å€
+				call æŒ‰éµ(112,1,300)
+				call æŒ‰éµ(13,3,300)
 			Else
 				down = -1
-				Val_inst = Plugin.Memory.Read32Bit(Hwnd1, &H01107FD0)
-				Call °Æ¥»¸ê°T(Val_inst)
+				Val_inst = Plugin.Memory.Read32Bit(Hwnd, &H01107FD0)
+				Call å‰¯æœ¬è³‡è¨Š(Val_inst)
 				
-				Npc_Msg = Plugin.Memory.Read32Bit(Hwnd1, &H00EB78B0)
+				Npc_Msg = Plugin.Memory.Read32Bit(Hwnd, &H00EB78B0)
 				If Npc_Msg > 0 Then 
-					call «öÁä(13,1,300)
+					call æŒ‰éµ(13,1,300)
 				End If
 				
 				If down > - 1  Then 
@@ -74,8 +73,8 @@ Sub ½uµ{¨ç¼Æ()
 						If intX > 0 And intY > 0 Then 
 							//dm.LeftClick 
 							dm.RightClick
-							call «öÁä(40,down,50)
-							Call «öÁä(13, 2, 300)
+							call æŒ‰éµ(40,down,50)
+							Call æŒ‰éµ(13, 2, 300)
 						End If
 					End If
 				End If
@@ -86,137 +85,137 @@ Sub ½uµ{¨ç¼Æ()
 	Loop
 End Sub
 
-Function °Æ¥»¸ê°T(Val_inst)
+Function å‰¯æœ¬è³‡è¨Š(Val_inst)
 	If Val_inst = 2780228778 Then
-		inst_name = "ªì¶¥¹DÀ]"
+		inst_name = "åˆéšé“é¤¨"
 		down = 0
-		inst = "¤@¯ë°Æ¥»"
-		npc = "°Æ¥»¶Ç°e­û"
+		inst = "ä¸€èˆ¬å‰¯æœ¬"
+		npc = "å‰¯æœ¬å‚³é€å“¡"
 	ElseIf Val_inst = 4004661672 Then
-		inst_name = "¨I²îÄ_ÂÃ"
+		inst_name = "æ²‰èˆ¹å¯¶è—"
 		down = 1
-		inst = "¤@¯ë°Æ¥»"
-		npc = "°Æ¥»¶Ç°e­û"
+		inst = "ä¸€èˆ¬å‰¯æœ¬"
+		npc = "å‰¯æœ¬å‚³é€å“¡"
 	ElseIf Val_inst = 1471307954 Then
-		inst_name = "²`²WÂå°|"
+		inst_name = "æ·±æ·µé†«é™¢"
 		down = 2
-		inst = "¤@¯ë°Æ¥»"
-		npc = "°Æ¥»¶Ç°e­û"
+		inst = "ä¸€èˆ¬å‰¯æœ¬"
+		npc = "å‰¯æœ¬å‚³é€å“¡"
 	ElseIf Val_inst = 1218739907 Then
-		inst_name = "Ã~¤HÄ_ÂÃ"
+		inst_name = "ç¸äººå¯¶è—"
 		down = 3
-		inst = "¤@¯ë°Æ¥»"
-		npc = "°Æ¥»¶Ç°e­û"
+		inst = "ä¸€èˆ¬å‰¯æœ¬"
+		npc = "å‰¯æœ¬å‚³é€å“¡"
 	ElseIf Val_inst = 3349806254 Then
-		inst_name = "®ü©ÇÄ_ÂÃ"
+		inst_name = "æµ·æ€ªå¯¶è—"
 		down = 4
-		inst = "¤@¯ë°Æ¥»"
-		npc = "°Æ¥»¶Ç°e­û"
+		inst = "ä¸€èˆ¬å‰¯æœ¬"
+		npc = "å‰¯æœ¬å‚³é€å“¡"
 	ElseIf Val_inst = 3953438386 Then
-		inst_name = "²®¤ë´ò¯`"
+		inst_name = "çšæœˆæ¹–ç•”"
 		down = 5
-		inst = "¤@¯ë°Æ¥»"
-		npc = "°Æ¥»¶Ç°e­û"
+		inst = "ä¸€èˆ¬å‰¯æœ¬"
+		npc = "å‰¯æœ¬å‚³é€å“¡"
 	ElseIf Val_inst = 1958760879 Then
-		inst_name = "¯QÀtÄ_ÂÃ"
+		inst_name = "çƒé¾œå¯¶è—"
 		down = 6
-		inst = "¤@¯ë°Æ¥»"
-		npc = "°Æ¥»¶Ç°e­û"
+		inst = "ä¸€èˆ¬å‰¯æœ¬"
+		npc = "å‰¯æœ¬å‚³é€å“¡"
 	ElseIf Val_inst = 1103063210 Then
-		inst_name = "ªh¿AÆsÀz"
+		inst_name = "æ²¼æ¾¤é±·åš"
 		down = 7
-		inst = "¤@¯ë°Æ¥»"
-		npc = "°Æ¥»¶Ç°e­û"
+		inst = "ä¸€èˆ¬å‰¯æœ¬"
+		npc = "å‰¯æœ¬å‚³é€å“¡"
 	ElseIf Val_inst = 1269331392 Then
-		inst_name = "Àu¨KÄ_ÂÃ"
+		inst_name = "å„ªæ²›å¯¶è—"
 		down = 8
-		inst = "¤@¯ë°Æ¥»"
-		npc = "°Æ¥»¶Ç°e­û"
+		inst = "ä¸€èˆ¬å‰¯æœ¬"
+		npc = "å‰¯æœ¬å‚³é€å“¡"
 	ElseIf Val_inst = 1789245371 Then
-		inst_name = "»·¥jª÷¦r¶ğ"
+		inst_name = "é å¤é‡‘å­—å¡”"
 		down = 9
-		inst = "¤@¯ë°Æ¥»"
-		npc = "°Æ¥»¶Ç°e­û"
+		inst = "ä¸€èˆ¬å‰¯æœ¬"
+		npc = "å‰¯æœ¬å‚³é€å“¡"
 	ElseIf Val_inst = 1288100537 Then
-		inst_name = "¹ÚÆL­×¹D°|"
+		inst_name = "å¤¢é­˜ä¿®é“é™¢"
 		down = 10
-		inst = "¤@¯ë°Æ¥»"
-		npc = "°Æ¥»¶Ç°e­û"
+		inst = "ä¸€èˆ¬å‰¯æœ¬"
+		npc = "å‰¯æœ¬å‚³é€å“¡"
 	ElseIf Val_inst = 1397968706 Then
-		inst_name = "BOSS¬¼ÂyÀ]"
+		inst_name = "BOSSç‹©çµé¤¨"
 		down = 0
-		inst = "¨C¤é°Æ¥»"
-		npc = "¨C¤é°Æ¥»"
+		inst = "æ¯æ—¥å‰¯æœ¬"
+		npc = "æ¯æ—¥å‰¯æœ¬"
 	ElseIf Val_inst = 123456789 Then
-		inst_name = "¤Q¤T¬P®c"
+		inst_name = "åä¸‰æ˜Ÿå®®"
 		down = 0
-		inst = "¨C©P°Æ¥»"
-		npc = "¨C©P°Æ¥»­û"
-	Else
-		//MsgBox "°Æ¥»ID: " & Val_inst
+		inst = "æ¯å‘¨å‰¯æœ¬"
+		npc = "æ¯å‘¨å‰¯æœ¬å“¡"
+	Else 
+		TracePrint "å‰¯æœ¬ID: " & Val_inst
 	End If
 	If inst <> "" Then 
-		TracePrint "µ¡¤f:" & Hwnd & "´M§ä:" & inst & "´M§ä:" & npc & "Val_inst:" & Val_inst	
+		TracePrint "çª—å£:" & Hwnd & "å°‹æ‰¾:" & inst & "å°‹æ‰¾:" & npc & "Val_inst:" & Val_inst	
 	End If
 End Function
 
-Function ´_¬¡(Run)
+Function å¾©æ´»(Run)
 	If Run >0 Then
-		Die = array("","²¾°Ê¨ìÀx¦s³õ©Ò","¦b­ì¦a´_")
+		Die = array("","ç§»å‹•åˆ°å„²å­˜å ´æ‰€","åœ¨åŸåœ°å¾©")
 		Do
 			dm.KeyPress 27
 			Delay 250
 			dm_ret = dm.FindStr(345, 435, 674, 565, Die(Run), "000000-313131", 1.0, intX, intY)
 		Loop Until intX > 0 And intY > 0
-		TracePrint "µ¡¤f:" & Hwnd & "§ä¨ìÃöÁä¦r: [²¾°Ê¨ìÀx¦s³õ©Ò]"
+		TracePrint "çª—å£:" & Hwnd & "æ‰¾åˆ°é—œéµå­—: [ç§»å‹•åˆ°å„²å­˜å ´æ‰€]"
 		If Run = 1 Then
 			Do
 				dm.MoveTo intX, intY
-    			Call ·Æ¹«("¥ª", 0, 1, 250)
-				dm_ret = dm.FindStr(352,289,661,435, "½T»{", "000000-313131", 1.0, intX2, intY2)
+    			Call æ»‘é¼ ("å·¦", 0, 1, 250)
+				dm_ret = dm.FindStr(352,289,661,435, "ç¢ºèª", "000000-313131", 1.0, intX2, intY2)
 			Loop Until intX2 > 0 And intY2 > 0
-			TracePrint "µ¡¤f:" & Hwnd & "§ä¨ìÃöÁä¦r: [½T»{]"
+			TracePrint "çª—å£:" & Hwnd & "æ‰¾åˆ°é—œéµå­—: [ç¢ºèª]"
 		ElseIf Run = 2 Then
 			intX2 = intX
 			intY2 = intY
 		End If
 		Do
 			dm.MoveTo intX2, intY2
-    		Call ·Æ¹«("¥ª", 0, 1, 250)
-			¦å = int(Plugin.Memory.Read32Bit(Hwnd1, &H01107BEC))
-		Loop Until ¦å > 1
-		TracePrint "µ¡¤f:" & Hwnd & "½T»{: [´_¬¡]"
+    		Call æ»‘é¼ ("å·¦", 0, 1, 250)
+			è¡€ = int(Plugin.Memory.Read32Bit(Hwnd, &H01107BEC))
+		Loop Until è¡€ > 1
+		TracePrint "çª—å£:" & Hwnd & "ç¢ºèª: [å¾©æ´»]"
 	End If
 	Delay 1000
 End Function
 
-Function «öÁä(«öÁä²Õ,¦¸¼Æ,©µ¿ğ)
+Function æŒ‰éµ(æŒ‰éµçµ„,æ¬¡æ•¸,å»¶é²)
 	Dim arr
-	arr = Split(«öÁä²Õ, ",")
-	If ¦¸¼Æ > 0 Then
-		For i = 1 To ¦¸¼Æ
-			TracePrint "µ¡¤f:" & Hwnd & "«ö:" & «öÁä²Õ & "¦¸¼Æ:" & i & "©µ¿ğ:" & ©µ¿ğ
-			dm.KeyPress «öÁä²Õ
-			Delay ©µ¿ğ
+	arr = Split(æŒ‰éµçµ„, ",")
+	If æ¬¡æ•¸ > 0 Then
+		For i = 1 To æ¬¡æ•¸
+			TracePrint "çª—å£:" & Hwnd & "æŒ‰:" & æŒ‰éµçµ„ & "æ¬¡æ•¸:" & i & "å»¶é²:" & å»¶é²
+			dm.KeyPress æŒ‰éµçµ„
+			Delay å»¶é²
 		Next
 	ElseIf UBOUND(arr) > 0 Then
 		For i = 0 To UBOUND(arr)
-			TracePrint "µ¡¤f:" & Hwnd & "«ö:" & arr(i) & "¦¸¼Æ:" & i+1 & "©µ¿ğ:" & ©µ¿ğ
+			TracePrint "çª—å£:" & Hwnd & "æŒ‰:" & arr(i) & "æ¬¡æ•¸:" & i+1 & "å»¶é²:" & å»¶é²
 			dm.KeyPress arr(i)
 			if arr(i) = 40 Then
 				Delay 30
 			Else
-				Delay ©µ¿ğ
+				Delay å»¶é²
 			End If
 		Next
 	End If
 End Function
 
-Function ¤jºz³]©w()
+Function å¤§æ¼ è¨­å®š()
 	set dm = createobject("dm.dmsoft")
-	base_path = dm.GetBasePath()//Àò¨údll¸ô®|
-	dm_ret = dm.SetPath(base_path)//¥ş§½¸ô®|
-	dm_ret = dm.SetDict(0,"pass.txt")//³]©w¦r®w
-	dm_ret = dm.BindWindow(Hwnd,"gdi","dx2","windows",4)//¸j©wµ¡¤f
-	TracePrint "µ¡¤f:" & Hwnd & " ¸j©wª¬ºA:" & dm_ret
+	base_path = dm.GetBasePath()//ç²å–dllè·¯å¾‘
+	dm_ret = dm.SetPath(base_path)//å…¨å±€è·¯å¾‘
+	dm_ret = dm.SetDict(0,"pass.txt")//è¨­å®šå­—åº«
+	dm_ret = dm.BindWindow(Hwnd,"gdi","dx2","windows",4)//ç¶å®šçª—å£
+	TracePrint "çª—å£:" & Hwnd & " ç¶å®šç‹€æ…‹:" & dm_ret
 End Function
