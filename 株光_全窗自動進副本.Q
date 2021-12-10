@@ -13,7 +13,7 @@ Description=株光_全窗自動進副本
 Enable=1
 AutoRun=0
 [Repeat]
-Type=1
+Type=0
 Number=1
 [SetupUI]
 Type=2
@@ -35,12 +35,8 @@ If UBound(MyArray) >= 0 Then
 	Next  
 End If
 
-Do  
-TracePrint "【無限循環】防止全部腳本停止"  
-	Delay 1000*30
-Loop
-
 Sub 線程函數()
+	Hwnd = Hwnd1
 	call 大漠設定()
 	復活選項 = 1
 	//0=關閉復活 1=重生點 2=原地復活
@@ -54,7 +50,7 @@ Sub 線程函數()
 			血量 = fix((血 / 最大血) * 100)
 			If 血量 < 1 Then 
 				Delay 1000
-				TracePrint "血量:"&血量 &" 最大血:"& 最大血 &" 血:"& 血
+				TracePrint "窗口:" & Hwnd & "血量:"&血量 &" 最大血:"& 最大血 &" 血:"& 血
 				Call 復活(1)
 			ElseIf now_map_X <> 216 And now_map_Y <> 209 Then 
 				//屬光券回到副本區
@@ -159,7 +155,9 @@ Function 副本資訊(Val_inst)
 	Else
 		//MsgBox "副本ID: " & Val_inst
 	End If
-	TracePrint "尋找:" & inst & "尋找:" & npc & "Val_inst:" & Val_inst
+	If inst <> "" Then 
+		TracePrint "窗口:" & Hwnd & "尋找:" & inst & "尋找:" & npc & "Val_inst:" & Val_inst	
+	End If
 End Function
 
 Function 復活(Run)
@@ -170,14 +168,14 @@ Function 復活(Run)
 			Delay 250
 			dm_ret = dm.FindStr(345, 435, 674, 565, Die(Run), "000000-313131", 1.0, intX, intY)
 		Loop Until intX > 0 And intY > 0
-		TracePrint "找到關鍵字: [移動到儲存場所]"
+		TracePrint "窗口:" & Hwnd & "找到關鍵字: [移動到儲存場所]"
 		If Run = 1 Then
 			Do
 				dm.MoveTo intX, intY
     			Call 滑鼠("左", 0, 1, 250)
 				dm_ret = dm.FindStr(352,289,661,435, "確認", "000000-313131", 1.0, intX2, intY2)
 			Loop Until intX2 > 0 And intY2 > 0
-			TracePrint "找到關鍵字: [確認]"
+			TracePrint "窗口:" & Hwnd & "找到關鍵字: [確認]"
 		ElseIf Run = 2 Then
 			intX2 = intX
 			intY2 = intY
@@ -187,7 +185,7 @@ Function 復活(Run)
     		Call 滑鼠("左", 0, 1, 250)
 			血 = int(Plugin.Memory.Read32Bit(Hwnd1, &H01107BEC))
 		Loop Until 血 > 1
-		TracePrint "確認: [復活]"
+		TracePrint "窗口:" & Hwnd & "確認: [復活]"
 	End If
 	Delay 1000
 End Function
@@ -197,13 +195,13 @@ Function 按鍵(按鍵組,次數,延遲)
 	arr = Split(按鍵組, ",")
 	If 次數 > 0 Then
 		For i = 1 To 次數
-			TracePrint "按:" & 按鍵組 & "次數:" & i & "延遲:" & 延遲
+			TracePrint "窗口:" & Hwnd & "按:" & 按鍵組 & "次數:" & i & "延遲:" & 延遲
 			dm.KeyPress 按鍵組
 			Delay 延遲
 		Next
 	ElseIf UBOUND(arr) > 0 Then
 		For i = 0 To UBOUND(arr)
-			TracePrint "按:" & arr(i) & "次數:" & i+1 & "延遲:" & 延遲
+			TracePrint "窗口:" & Hwnd & "按:" & arr(i) & "次數:" & i+1 & "延遲:" & 延遲
 			dm.KeyPress arr(i)
 			if arr(i) = 40 Then
 				Delay 30
@@ -214,35 +212,11 @@ Function 按鍵(按鍵組,次數,延遲)
 	End If
 End Function
 
-Function 滑鼠(左右, 類型, 次數, 延遲)
-	For i = 1 To 次數
-		If 左右 = 左 Then 
-			If 類型 = 0 Then 
-				dm.LeftClick
-			ElseIf 類型 = 1 Then
-				dm.LeftDown
-			ElseIf 類型 = 2 Then
-				dm.LeftUp
-			End If
-		ElseIf 左右 = 右 Then 
-			If 類型 = 0 Then 
-				dm.RightClick
-			ElseIf 類型 = 1 Then
-				dm.RightDown
-			ElseIf 類型 = 2 Then
-				dm.RightUp
-			End If
-		End If
-		Delay 延遲
-		TracePrint "按:" & 左右建 & "類型:" & 類型 & "次數:" & 次數 & "延遲:" & 延遲
-	Next
-End Function
-
 Function 大漠設定()
 	set dm = createobject("dm.dmsoft")
 	base_path = dm.GetBasePath()//獲取dll路徑
 	dm_ret = dm.SetPath(base_path)//全局路徑
 	dm_ret = dm.SetDict(0,"pass.txt")//設定字庫
-	dm_ret = dm.BindWindow(Hwnd1,"gdi","dx2","windows",4)//綁定窗口
-	TracePrint "綁定窗口:" & Hwnd1 & " 綁定狀態:" & dm_ret
+	dm_ret = dm.BindWindow(Hwnd,"gdi","dx2","windows",4)//綁定窗口
+	TracePrint "窗口:" & Hwnd & " 綁定狀態:" & dm_ret
 End Function
