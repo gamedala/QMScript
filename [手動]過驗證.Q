@@ -9,7 +9,7 @@ StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
 MacroID=8478bc89-6287-4612-b9ca-56bd5a3d1aec
-Description=[¤â°Ê]¦Û°Ê¹LÅçÃÒ
+Description=[æ‰‹å‹•]éŽé©—è­‰
 Enable=0
 AutoRun=0
 [Repeat]
@@ -23,27 +23,27 @@ SetupOCXFile=
 [Comment]
 
 [Script]
-Call ¤jºz³]©w()
-ÅçÃÒ¨÷¶b = 115
-call ÅçÃÒ()
+Call å¤§æ¼ è¨­å®š()
+é©—è­‰å·è»¸ = 115
+call é©—è­‰()
 
-Function ÅçÃÒ()
-	dm.KeyPress ÅçÃÒ¨÷¶b
+Function é©—è­‰()
+	dm.KeyPress é©—è­‰å·è»¸
 	Delay 100
-	dm_ret = dm.FindStr(0, 0, 1024, 768,"¡iÅçÃÒ¨t²Î¡j","000000-000000",1.0,intX,intY)
+	dm_ret = dm.FindStr(0, 0, 1024, 768,"ã€é©—è­‰ç³»çµ±ã€‘","000000-000000",1.0,intX,intY)
 	If intX > 0 And intY > 0 Then 
-		TracePrint "§ä¨ì: ¡iÅçÃÒ¨t²Î¡j"
+		TracePrint "æ‰¾åˆ°: ã€é©—è­‰ç³»çµ±ã€‘"
 		dm_ret = dm.FindStr(intX, intY, intX+280, intY+180, "=?", "000000-000000", 1.0, intX, intY)
 		If intX > 0 And intY > 0 Then 
-			TracePrint "§ä¨ì: =?"
+			TracePrint "æ‰¾åˆ°: =?"
 			Delay 500
 			Dim verify
-			¤å¦r = dm.Ocr(intX - 110, intY -7, intX , intY + 7,"000000-000000",1.0)
-			TracePrint "§ä¨ì: " & ¤å¦r
-			n = Len(¤å¦r)
+			æ–‡å­— = dm.Ocr(intX - 110, intY -7, intX , intY + 7,"000000-000000",1.0)
+			TracePrint "æ‰¾åˆ°: " & æ–‡å­—
+			n = Len(æ–‡å­—)
 			i = 1
 			For n
-				y = Mid(¤å¦r, i, 1)
+				y = Mid(æ–‡å­—, i, 1)
 				m = Asc(y)
 				If m >0 And m<>32 And y <> "=" Then
 					verify = verify & y
@@ -51,14 +51,14 @@ Function ÅçÃÒ()
 				i = i+1
 			Next
 			verify = Eval(verify)
-			TracePrint "ÅçÃÒ½X: " & verify
+			TracePrint "é©—è­‰ç¢¼: " & verify
 			Call Plugin.Bkgnd.SendString(Hwnd1, verify)
 			dm.KeyPress 13
 		End If
 	End If
 End Function
 
-Function ¤jºz³]©w()
+Function å¤§æ¼ è¨­å®š()
 	set dm = createobject("dm.dmsoft")
 	base_path = dm.GetBasePath()
 	dm_ret = dm.SetPath(base_path)
