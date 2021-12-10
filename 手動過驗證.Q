@@ -9,7 +9,7 @@ StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
 MacroID=8478bc89-6287-4612-b9ca-56bd5a3d1aec
-Description=[手動]過驗證
+Description=手動過驗證
 Enable=0
 AutoRun=0
 [Repeat]
