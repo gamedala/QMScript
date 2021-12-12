@@ -10,7 +10,7 @@ RunOnce=1
 EnableWindow=
 MacroID=f45091be-0f6f-4891-a98a-a634767bc958
 Description=株光_全窗自動進副本
-Enable=1
+Enable=0
 AutoRun=0
 [Repeat]
 Type=0
@@ -48,7 +48,7 @@ Sub 線程函數()
 			血 = int(Plugin.Memory.Read32Bit(Hwnd, &H01107BEC))
 			血量 = fix((血 / 最大血) * 100)
 			If 血量 < 1 Then 
-				Delay 1000
+				Delay 2000
 				TracePrint "窗口:" & Hwnd & "血量:"&血量 &" 最大血:"& 最大血 &" 血:"& 血
 				Call 復活(1)
 			ElseIf now_map_X <> 216 And now_map_Y <> 209 Then 
@@ -68,7 +68,7 @@ Sub 線程函數()
 				If down > - 1  Then 
 					dm_ret = dm.FindStr(176,89,821,293,inst,"ffffff-000000",0.9,intX,intY)
 					If intX > 0 And intY > 0 Then 
-						dm.MoveTo intX + 25, intY + 50
+						dm.MoveTo intX + 25, intY + 25
 						dm_ret = dm.FindStr(176,89,821,293,npc,"94bdf7-000000", 1, intX, intY)
 						If intX > 0 And intY > 0 Then 
 							//dm.LeftClick 
@@ -209,6 +209,30 @@ Function 按鍵(按鍵組,次數,延遲)
 			End If
 		Next
 	End If
+End Function
+
+Function 滑鼠(左右, 類型, 次數, 延遲)
+	For 次數
+		If 左右 = "左" Then 
+			If 類型 = 0 Then 
+				dm.LeftClick
+			ElseIf 類型 = 1 Then
+				dm.LeftDown
+			ElseIf 類型 = 2 Then
+				dm.LeftUp
+			End If
+		ElseIf 左右 = "右" Then 
+			If 類型 = 0 Then 
+				dm.RightClick
+			ElseIf 類型 = 1 Then
+				dm.RightDown
+			ElseIf 類型 = 2 Then
+				dm.RightUp
+			End If
+		End If
+		Delay 延遲
+		TracePrint "按:" & 左右 & "類型:" & 類型 & "次數:" & 次數 & "延遲:" & 延遲
+	Next
 End Function
 
 Function 大漠設定()
