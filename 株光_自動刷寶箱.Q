@@ -9,7 +9,7 @@ StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
 MacroID=48224ce0-b6a3-4e34-b9c1-e1f7677086d3
-Description=®è¥ú_¦Û°Ê¨êÄ_½c
+Description=æ ªå…‰_è‡ªå‹•åˆ·å¯¶ç®±
 Enable=1
 AutoRun=0
 [Repeat]
@@ -22,140 +22,135 @@ QUI=
 SetupOCXFile=
 [Comment]
 
-[Attachment]
-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
-
-
 [Script]
-Global Start,ÅçÃÒ¨÷¶b,§Ş¯à,Hwnd1
+Global Hwnd1, Start, é©—è­‰å·è»¸, æŠ€èƒ½
 Hwnd1 = Plugin.Window.MousePoint()
-Dim int_Map,NpcX,NpcY,NpcX2,NpcY2,¹ï¸Ü©µ¿ğ,µ¥«İ©µ¿ğ,´M§äÀH¾÷©µ¿ğ,Äİ¥ú¨é
 Start = 0
-NpcX = 553
-NpcY = 382
-NpcX2 = 532
-NpcY2 = 270
-¹ï¸Ü©µ¿ğ = 300
-//------ ³]©w¥H¤U
-µ¥«İ©µ¿ğ = 3000
-//µ¥«İ¶¤¤Í¨ì 0=¤£µ¥«İ
-´M§äÀH¾÷©µ¿ğ = 5
-ÅçÃÒ¨÷¶b = 115
-Äİ¥ú¨é = 112
-§Ş¯à = 113
-//------ ³]©w¥H¤W
+//------ è¨­å®šä»¥ä¸‹
+Npc = array(553, 382)
+Npc2 = array(532, 270)
+å°è©±å»¶é² = 300
+ç­‰å¾…å»¶é² = 3500
+//ç­‰å¾…éšŠå‹åˆ° 0=ä¸ç­‰å¾…
+å°‹æ‰¾éš¨æ©Ÿå»¶é² = 3
+é©—è­‰å·è»¸ = 115
+å±¬å…‰åˆ¸ = 112
+æŠ€èƒ½ = 113
+Map = 27
+//å‰¯æœ¬åœ°åœ–
+//------ è¨­å®šä»¥ä¸Š
 
-Call ¤jºz³]©w()
-PID=BeginThread(ÅçÃÒ§Ş¯à)
+Call å¤§æ¼ è¨­å®š()
+PID=BeginThread(é©—è­‰æŠ€èƒ½)
 Do
-	now_map = Plugin.Memory.Read32Bit(Hwnd1, &H0015F258)
-	now_map_X = Plugin.Memory.Read32Bit(Hwnd1, &H010F07A8)
-	now_map_Y = Plugin.Memory.Read32Bit(Hwnd1, &H010F07AC)
-	Npc_Msg = Plugin.Memory.Read32Bit(Hwnd1, &H00EB78B0)
-	³Ì¤j¦å = int(Plugin.Memory.Read32Bit(Hwnd1, &H01107BF0))
-	¦å = int(Plugin.Memory.Read32Bit(Hwnd1, &H01107BEC))
-	¦å¶q = fix((¦å / ³Ì¤j¦å) * 100)
+	now_map = int(Plugin.Memory.Read32Bit(Hwnd1, &H0015F258))
+	now_map_X = int(Plugin.Memory.Read32Bit(Hwnd1, &H010F07A8))
+	now_map_Y = int(Plugin.Memory.Read32Bit(Hwnd1, &H010F07AC))
+	Npc_Msg = int(Plugin.Memory.Read32Bit(Hwnd1, &H00EB78B0))
+	æœ€å¤§è¡€ = int(Plugin.Memory.Read32Bit(Hwnd1, &H01107BF0))
+	è¡€ = int(Plugin.Memory.Read32Bit(Hwnd1, &H01107BEC))
+	è¡€é‡ = fix((è¡€ / æœ€å¤§è¡€) * 100)
 
 	If Npc_Msg > 0 Then 
-		TracePrint "¥dµ¡enter"
-		call «öÁä(13,1,¹ï¸Ü©µ¿ğ)
+		TracePrint "å¡çª— Enter"
+		call æŒ‰éµ(13,1,å°è©±å»¶é²)
 	End If
 	
-	If ¦å¶q = 0 Then 
-		Call Plugin.Msg.Tips(HP & "±z¤w¦º¤`!")
+	If è¡€é‡ = 0 Then 
+		Call Plugin.Msg.Tips(HP & "æ‚¨å·²æ­»äº¡!")
 		Delay 1000
 	ElseIf now_map = 16 And now_map_X = 216 And now_map_Y = 209 Then
-		TracePrint "³Ğ«Ø©Î¾P·´°Æ¥»"
-		dm_ret = dm.FindStr(225,43,920,345,"¤@¯ë°Æ¥»","ffffff-000000",0.9,intX,intY)
+		TracePrint "å‰µå»ºæˆ–éŠ·æ¯€å‰¯æœ¬"
+		dm_ret = dm.FindStr(225,43,920,345,"ä¸€èˆ¬å‰¯æœ¬","ffffff-000000",0.9,intX,intY)
 		If intX > 0 And intY > 0 Then 
-			dm.MoveTo intX + 30, intY + 50
-			Delay ¹ï¸Ü©µ¿ğ
-			dm_ret = dm.FindStr(225,43,920,345,"°Æ¥»¶Ç°e­û|°Æ¥»|°e­û","94bdf7-000000",1.0,intX,intY)
+			dm.MoveTo intX + 25, intY + 25
+			Delay å°è©±å»¶é²
+			dm_ret = dm.FindStr(225,43,920,345,"å‰¯æœ¬å‚³é€å“¡|å‰¯|æœ¬|å‚³|é€|å“¡","94bdf7-000000",1.0,intX,intY)
 			If intX > 0 And intY > 0 Then 
 				Start = 0
 				Val_inst = Plugin.Memory.Read32Bit(Hwnd1, &H01107FD0)
-				call °Æ¥»¸ê°T(Val_inst)
+				call å‰¯æœ¬è³‡è¨Š(Val_inst)
 			End If
 		End If
 	ElseIf now_map = 16 And now_map_X = 217 And now_map_Y = 276 Then
-		TracePrint "Äİ¥ú¨é¦^°Æ¥»"
-		call «öÁä(Äİ¥ú¨é&",13,13,13",0,¹ï¸Ü©µ¿ğ)
-	ElseIf now_map = 27 And now_map_X = 35 And now_map_Y = 57 Then
-		TracePrint "°Æ¥»¶}©l"
-		If Start = 0 Then 
-			Delay µ¥«İ©µ¿ğ
-			dm.MoveTo NpcX, NpcY
-			Delay ¹ï¸Ü©µ¿ğ
-			dm_ret = dm.FindStr(473,292,628,526,"¥¨ÆsÄ_½c","94bdf7-000000",1.0,intX,intY)
-			If intX > 0 And intY > 0 Then 
-				dm.MoveTo NpcX, NpcY
-				dm.RightClick
-				Delay ¹ï¸Ü©µ¿ğ
-				Call «öÁä(13,1,¹ï¸Ü©µ¿ğ)
-				Start = Start + 1
-				TracePrint "¶¥¬q: " & Start
-			End If
-		End If
-	ElseIf now_map = 27 And now_map_X = 98 And now_map_Y = 80 Then
-		//TracePrint "´M§ä: [Ä_½cªhÆs]"
-		If Start = 1 Then
-			Start = Start + 1
-			TracePrint "¶¥¬q: " & Start
-		ElseIf Start >= 2 And Start < 7 Then
-			dm.MoveTo NpcX2, NpcY2
-			Delay ¹ï¸Ü©µ¿ğ
-			dm_ret = dm.FindStr(349,140,701,490,"Ä_½cªhÆs","94bdf7-000000",1.0,intX,intY)
-			If intX > 0 And intY > 0 Then 
-				If Start <> 7 Then
-					´M§ä©µ¿ğ = fix(((´M§äÀH¾÷©µ¿ğ * rnd)+0.5)*1000)
-					TracePrint "´M§äÄ_½cªhÆs©µ¿ğ:"& ´M§ä©µ¿ğ
-				Delay ´M§ä©µ¿ğ
-				End If
-				dm.MoveTo NpcX2, NpcY2
-				dm.RightClick
-				Start = Start + 1
-				TracePrint "¶¥¬q: " & Start
-			End If
-		Else 
-			//Do
-				dm.MoveTo NpcX2, NpcY2
-				Delay ¹ï¸Ü©µ¿ğ
-				dm_ret = dm.FindStr(349,140,701,490,"Ä_½c","94bdf7-000000",1.0,intX,intY)
+		TracePrint "å±¬å…‰åˆ¸å›å‰¯æœ¬"
+		call æŒ‰éµ(å±¬å…‰åˆ¸&",13,13,13",0,å°è©±å»¶é²)
+	ElseIf now_map = Map Then
+		If now_map_X = 35 And now_map_Y = 57 Then
+			TracePrint "å‰¯æœ¬é–‹å§‹"
+			If Start = 0 Then 
+				Delay ç­‰å¾…å»¶é²
+				dm.MoveTo Npc(0), Npc(1)
+				Delay å°è©±å»¶é²
+				dm_ret = dm.FindStr(473,292,628,526,"å·¨é±·å¯¶ç®±","94bdf7-000000",1.0,intX,intY)
 				If intX > 0 And intY > 0 Then 
-					dm.MoveTo NpcX2, NpcY2
+					dm.RightClick
+					Delay å°è©±å»¶é²
+					Call æŒ‰éµ(13,1,å°è©±å»¶é²)
+					Start = Start + 1
+					TracePrint "éšæ®µ: " & Start
+				End If
+			End If
+		ElseIf now_map_X = 98 And now_map_Y = 80 Then
+			//TracePrint "å°‹æ‰¾: [å¯¶ç®±æ²¼é±·]"
+			If Start = 1 Then
+				Start = Start + 1
+				TracePrint "éšæ®µ: " & Start
+			ElseIf Start >= 2 And Start < 7 Then
+				dm.MoveTo Npc2(0), Npc2(1)
+				Delay å°è©±å»¶é²
+				dm_ret = dm.FindStr(349,140,701,490,"å¯¶ç®±æ²¼é±·","94bdf7-000000",1.0,intX,intY)
+				If intX > 0 And intY > 0 Then 
+					If Start <> 7 Then
+						å°‹æ‰¾å»¶é² = fix(((å°‹æ‰¾éš¨æ©Ÿå»¶é² * rnd)+0.5)*1000)
+						TracePrint "å°‹æ‰¾å¯¶ç®±æ²¼é±·å»¶é²:"& å°‹æ‰¾å»¶é²
+						Delay å°‹æ‰¾å»¶é²
+					End If
 					dm.RightClick
 					Start = Start + 1
-					TracePrint "¶¥¬q: " & Start
+					TracePrint "éšæ®µ: " & Start
 				End If
-			//Loop Until intX > 0 And intY > 0
+			Else 
+				//Do
+					dm.MoveTo Npc2(0), Npc2(1)
+					Delay å°è©±å»¶é²
+					dm_ret = dm.FindStr(349,140,701,490,"å¯¶ç®±","94bdf7-000000",1.0,intX,intY)
+					If intX > 0 And intY > 0 Then 
+						dm.RightClick
+						Start = Start + 1
+						TracePrint "éšæ®µ: " & Start
+					End If
+				//Loop Until intX > 0 And intY > 0
+			End If
 		End If
-	ElseIf now_map <> 27 And now_map <> 16 Then
-		TracePrint ¦a¹Ï & "¶i¿ù°Æ¥»Â÷¶}" & now_map
+	ElseIf now_map <> Map And now_map <> 16 Then
+		TracePrint åœ°åœ– & "é€²éŒ¯å‰¯æœ¬é›¢é–‹" & now_map
 		Start = 0
-		call «öÁä(Äİ¥ú¨é&",13,13,13",0,¹ï¸Ü©µ¿ğ)
+		call æŒ‰éµ(å±¬å…‰åˆ¸&",13,13,13",0,å°è©±å»¶é²)
 	End If
 	Delay 1000
 Loop
 
-Sub ÅçÃÒ§Ş¯à()
+Sub é©—è­‰æŠ€èƒ½()
 Delay 500
-Call ¤jºz³]©w()
+Call å¤§æ¼ è¨­å®š()
 Do
-	If Start = 1 Or Start = 7 Then
-		dm_ret = dm.FindPic(10, 520, 255, 740, "C:\dm\ban.bmp", "000000", 0.8, 0, intX, intY)
+	If Start = 1 Or Start = 7 Then 
+		TracePrint "æ”»æ“Š"
+		dm_ret = dm.FindStr(10, 520, 255, 740,"ã€é©—è­‰ç³»çµ±ã€‘:è«‹ä½¿ç”¨é©—è­‰å·è»¸é€²è¡Œé©—è­‰","ffb5de-000000",1.0,intX,intY)
 		If intX > 0 And intY > 0 Then 
-			Call ÅçÃÒ()
+			Call é©—è­‰()
 		Else
-			dm.KeyPress §Ş¯à
+			dm.KeyPress æŠ€èƒ½
 		End If
 	Else
-		Delay 1000
+		Delay 200
 	End If
 Loop
 End Sub
 
-Function ÅçÃÒ()
-	call «öÁä(ÅçÃÒ¨÷¶b, 11, 20)
+Function é©—è­‰()
+	call æŒ‰éµ(é©—è­‰å·è»¸, 11, 20)
 	dm_ret = dm.FindPic(0, 0, 1024, 768, "C:\dm\msg.bmp", "000000", 0.9, 0, intX, intY)
 	If intX > 0 And intY > 0 Then 
 		dm_ret = dm.FindStr(intX, intY, intX+280, intY+180, "=?", "000000-000000", 1.0, intX, intY)
@@ -175,70 +170,70 @@ Function ÅçÃÒ()
 			Next
 			verify = Eval(verify2)
 			Call Plugin.Bkgnd.SendString(Hwnd1, verify)
-			Call Plugin.Msg.Tips("ÅçÃÒ´£¥Ü: " & verify)
+			Call Plugin.Msg.Tips("é©—è­‰æç¤º: " & verify)
 			dm.KeyPress 13
 		End If
 	End If
 End Function
 
-Function °Æ¥»¸ê°T(Val_inst)
+Function å‰¯æœ¬è³‡è¨Š(Val_inst)
 	dm.RightClick 
-	Delay ¹ï¸Ü©µ¿ğ
+	Delay å°è©±å»¶é²
 	If Val_inst = 2780228778 Then
-		¿ï¶µ = 0
+		é¸é … = 0
 	ElseIf Val_inst = 4004661672 Then
-		¿ï¶µ = 0
+		é¸é … = 0
 	ElseIf Val_inst = 1471307954 Then
-		¿ï¶µ = 0
+		é¸é … = 0
 	ElseIf Val_inst = 1218739907 Then
-		¿ï¶µ = 0
+		é¸é … = 0
 	ElseIf Val_inst = 3349806254 Then
-		¿ï¶µ = 0
+		é¸é … = 0
 	ElseIf Val_inst = 3953438386 Then
-		¿ï¶µ = 0
+		é¸é … = 0
 	ElseIf Val_inst = 1103063210 Then
-		¿ï¶µ = 0
+		é¸é … = 0
 	ElseIf Val_inst = 1958760879 Then
-		¿ï¶µ = 0
+		é¸é … = 0
 	ElseIf Val_inst = 1269331392 Then
-		¿ï¶µ = 0
+		é¸é … = 0
 	ElseIf Val_inst = 1789245371 Then
-		¿ï¶µ = 0
+		é¸é … = 0
 	ElseIf Val_inst = 1288100537 Then
-		¿ï¶µ = 0
+		é¸é … = 0
 	Else
-		¿ï¶µ = 1
+		é¸é … = 1
 	End If
-	If ¿ï¶µ = 1 Then
-		Call «öÁä("40,40,40,40,40,40,40,13,13,40,13",0,¹ï¸Ü©µ¿ğ)
-	ElseIf ¿ï¶µ = 0 Then
-		Call «öÁä("13,40,40,13,13",0,¹ï¸Ü©µ¿ğ)
+	If é¸é … = 1 Then
+		Call æŒ‰éµ("40,40,40,40,40,40,40,13,13,40,13",0,å°è©±å»¶é²)
+	ElseIf é¸é … = 0 Then
+		Call æŒ‰éµ("13,40,40,13,13",0,å°è©±å»¶é²)
 	End If
 End Function
 
-Function «öÁä(«öÁä²Õ,¦¸¼Æ,©µ¿ğ)
+Function æŒ‰éµ(æŒ‰éµçµ„,æ¬¡æ•¸,å»¶é²)
 	Dim arr
-	arr = Split(«öÁä²Õ, ",")
-	If ¦¸¼Æ > 0 Then
-		For i = 1 To ¦¸¼Æ
-			TracePrint "«ö:" & «öÁä²Õ & "¦¸¼Æ:" & i & "©µ¿ğ:" & ©µ¿ğ
-			dm.KeyPress «öÁä²Õ
-			Delay ©µ¿ğ
+	arr = Split(æŒ‰éµçµ„, ",")
+	If æ¬¡æ•¸ > 0 Then
+		For i = 1 To æ¬¡æ•¸
+			TracePrint "æŒ‰:" & æŒ‰éµçµ„ & "æ¬¡æ•¸:" & i & "å»¶é²:" & å»¶é²
+			dm.KeyPress æŒ‰éµçµ„
+			Delay å»¶é²
 		Next
 	ElseIf UBOUND(arr) > 0 Then
 		For i = 0 To UBOUND(arr)
-			TracePrint "«ö:" & arr(i) & "¦¸¼Æ:" & i+1 & "©µ¿ğ:" & ©µ¿ğ
+			TracePrint "æŒ‰:" & arr(i) & "æ¬¡æ•¸:" & i+1 & "å»¶é²:" & å»¶é²
 			dm.KeyPress arr(i)
 			if arr(i) = 40 Then
 				Delay 30
 			Else
-				Delay ©µ¿ğ
+				Delay å»¶é²
 			End If
 		Next
 	End If
 End Function
 
-Function ¤jºz³]©w()
+Function å¤§æ¼ è¨­å®š()
 	set dm = createobject("dm.dmsoft")
 	base_path = dm.GetBasePath()
 	dm_ret = dm.SetPath(base_path)
