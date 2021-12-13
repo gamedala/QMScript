@@ -23,7 +23,8 @@ SetupOCXFile=
 [Comment]
 
 [Script]
-Global Hwnd1,當前地圖,周圍人數,負重量,血量,掉寶糖,魔潮,打寶地圖
+Global Hwnd1,當前地圖,周圍人數,負重量,血量,狀態名稱,狀態按鍵,打寶地圖
+
 Call 大漠設定()
 技能按鍵 = 114
 技能延遲 = 700
@@ -35,8 +36,10 @@ Call 大漠設定()
 //回到硬幣區用
 掉寶糖 = 117
 魔潮 = 116
+狀態名稱 = array(1152,252)
+狀態按鍵 = array(116,117)
 //魔潮、掉寶糖按鍵0=不開啟
-打寶地圖 = 12
+打寶地圖 = 0
 //打寶地圖調試可查看打怪地區地圖ID修改
 復活選項 = 1
 //0=關閉復活 1=重生點 2=原地復活
@@ -50,7 +53,7 @@ Do
 		call 記憶體()
 		If 血量 < 1 Then 
 			TracePrint "Call復活"
-			Call 復活(1)
+			Call 復活(復活選項)
 		ElseIf 負重量 >= 90 And 當前地圖 <> 16 Then
 			TracePrint "負重回家"
 			call 按鍵(蝴蝶翅膀, 1, 250)
@@ -77,19 +80,32 @@ Loop
 
 //自動輔助
 Sub test()
-Delay 1000
 set dm = createobject("dm.dmsoft")
-base_path = dm.GetBasePath()
-dm_ret = dm.SetPath(base_path)
-dm_ret = dm.BindWindow(Hwnd1,"gdi","dx2","dx",4)
+dm_ret = dm.BindWindow(Hwnd1, "gdi", "dx2", "dx", 4)
+arr1 = 狀態名稱
+arr2 = 狀態按鍵
+Delay 100
     Do
 		If 當前地圖 = 打寶地圖 Then 
-			call 狀態(1152,魔潮)
-			Call 狀態(252, 掉寶糖)
+			For i = 0 to UBOUND(arr1)
+				If arr2(i) <> 0 Then 
+					call 狀態(arr1(i), arr2(i))
+				End If
+			Next
 			Delay 2000
 		End If
     Loop
 End Sub
+
+Function 狀態(狀態ID,按鍵)
+do
+	buffid = Plugin.Memory.Find32Bit(Hwnd1, 狀態ID, &H01108064, &H011080A6, 4)
+	If buffid = 0 Then 
+		dm.KeyPress 按鍵
+		TracePrint "補狀態: " & 狀態ID & "按鍵: " & 按鍵
+	End If
+loop Until buffid <> 0
+End Function
 
 Function 驗證()
 	Call 按鍵(驗證卷軸, 11, 20)
@@ -116,7 +132,7 @@ Function 驗證()
 			verify = Eval(verify)
 			TracePrint "驗證碼: " & verify
 			Call Plugin.Bkgnd.SendString(Hwnd1, verify)
-			Call 按鍵(13, 1, 100)
+			Call 按鍵(13, 2, 100)
 		End If
 	End If
 End Function
@@ -171,7 +187,7 @@ Function 存倉(物品, 顏色, 相似度)
 				dm.KeyUp 18
 				//Goto 重新開始
 			End If
-		Loop Until  intX > 0 And intY > 0
+		Loop Until intX > 0 And intY > 0
 	Else
 		TracePrint "[Error] 倉庫未開啟無法存放"
 		Delay 1000
@@ -191,15 +207,6 @@ Function 關閉倉庫()
 		TracePrint "[ERROR] 找不到倉庫關閉"
 		Delay 1000
 	End If
-End Function
-
-Function 狀態(狀態ID,按鍵)
-狀態 = Plugin.Memory.Find32Bit(Hwnd1, 狀態ID, &H01108064, &H011080A6, 4)
-If 狀態 = 0 Then 
-    //Call Plugin.Bkgnd.KeyPress(Hwnd1, 按鍵)
-    dm.KeyPress 按鍵
-	TracePrint "補狀態: " & 狀態ID
-End If
 End Function
 
 Function 復活(Run)
@@ -233,9 +240,10 @@ Function 復活(Run)
 End Function
 
 
-Function 滑鼠(左右建, 類型, 次數, 延遲)
-	For i = 0 To 次數
-		If 左右 = 左 Then 
+Function 滑鼠(左右, 類型, 次數, 延遲)
+	For 次數
+		TracePrint "按:" & 左右 & "類型:" & 類型 & "次數:" & 次數 & "延遲:" & 延遲
+		If 左右 = "左" Then 
 			If 類型 = 0 Then 
 				dm.LeftClick
 			ElseIf 類型 = 1 Then
@@ -243,7 +251,7 @@ Function 滑鼠(左右建, 類型, 次數, 延遲)
 			ElseIf 類型 = 2 Then
 				dm.LeftUp
 			End If
-		ElseIf 左右 = 右 Then 
+		ElseIf 左右 = "右" Then 
 			If 類型 = 0 Then 
 				dm.RightClick
 			ElseIf 類型 = 1 Then
@@ -253,28 +261,23 @@ Function 滑鼠(左右建, 類型, 次數, 延遲)
 			End If
 		End If
 		Delay 延遲
-		TracePrint "按:" & 左右建 & "類型:" & 類型 & "次數:" & 次數 & "延遲:" & 延遲
 	Next
 End Function
 
 Function 按鍵(按鍵組,次數,延遲)
-	Dim arr
-	arr = Split(按鍵組, ",")
-	If 次數 > 0 Then
-		For i = 1 To 次數
-			TracePrint "按:" & 按鍵組 & "次數:" & i & "延遲:" & 延遲
-			dm.KeyPress 按鍵組
-			Delay 延遲
+	If 次數 > 0 Then 
+		Key = 按鍵組
+		For (次數-1)
+			按鍵組 = 按鍵組&","&Key
 		Next
-	ElseIf UBOUND(arr) > 0 Then
-		For i = 0 To UBOUND(arr)
-			TracePrint "按:" & arr(i) & "次數:" & i+1 & "延遲:" & 延遲
+	End If
+	Dim arr
+	arr = Split(","&按鍵組, ",")
+	If UBOUND(arr) > 1 or ( UBOUND(arr) > 0 and 次數 > 0 ) Then 
+		For i = 1 to UBOUND(arr)
+			TracePrint "按:" & arr(i) & "次數:" & i & "延遲:" & 延遲
 			dm.KeyPress arr(i)
-			if arr(i) = 40 Then
-				Delay 30
-			Else
-				Delay 延遲
-			End If
+			Delay 延遲
 		Next
 	End If
 End Function
@@ -288,7 +291,7 @@ Function 記憶體()
 	血 = int(Plugin.Memory.Read32Bit(Hwnd1, &H01107BEC))
 	負重量 = fix((負重 / 最大負重) * 100)
 	血量 = fix((血 / 最大血) * 100)
-	TracePrint "地圖:" & 當前地圖 & " 負重:" & 負重量 & " 血量:" & 血量
+	//TracePrint "地圖:" & 當前地圖 & " 負重:" & 負重量 & " 血量:" & 血量
 End Function
 
 Function 大漠設定()
