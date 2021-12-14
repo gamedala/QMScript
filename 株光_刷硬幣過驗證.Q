@@ -9,8 +9,8 @@ StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
 MacroID=8324cd58-57ae-4c71-a243-96ff412e444d
-Description=®è¥ú_¨êµw¹ô¹LÅçÃÒ
-Enable=0
+Description=æ ªå…‰_åˆ·ç¡¬å¹£éé©—è­‰
+Enable=1
 AutoRun=0
 [Repeat]
 Type=1
@@ -23,73 +23,70 @@ SetupOCXFile=
 [Comment]
 
 [Script]
-Global Hwnd1,·í«e¦a¹Ï,©P³ò¤H¼Æ,­t­«¶q,¦å¶q,ª¬ºA¦WºÙ,ª¬ºA«öÁä,¥´Ä_¦a¹Ï
+Global Hwnd1,ç•¶å‰åœ°åœ–,å‘¨åœäººæ•¸,è² é‡é‡,è¡€é‡,ç‹€æ…‹åç¨±,ç‹€æ…‹æŒ‰éµ,æ‰“å¯¶åœ°åœ–
 
-Call ¤jºz³]©w()
-§Ş¯à«öÁä = 114
-§Ş¯à©µ¿ğ = 700
-//¦Û¦æ½Õ¾ã§Ş¯à©µ¿ğ
-½¹½º¯Í»H = 120
-»aÃÇ¯Í»H = 113
-ÅçÃÒ¨÷¶b = 115
-Äİ¥ú¨é = 112
-//¦^¨ìµw¹ô°Ï¥Î
-±¼Ä_¿} = 117
-Å]¼é = 116
-ª¬ºA¦WºÙ = array(1152,252)
-ª¬ºA«öÁä = array(116,117)
-//Å]¼é¡B±¼Ä_¿}«öÁä0=¤£¶}±Ò
-¥´Ä_¦a¹Ï = 0
-//¥´Ä_¦a¹Ï½Õ¸Õ¥i¬d¬İ¥´©Ç¦a°Ï¦a¹ÏID­×§ï
-´_¬¡¿ï¶µ = 1
-//0=Ãö³¬´_¬¡ 1=­«¥ÍÂI 2=­ì¦a´_¬¡
+Call å¤§æ¼ è¨­å®š()
+æŠ€èƒ½æŒ‰éµ = array(114)
+æŠ€èƒ½å»¶é² = array(400)
+//è‡ªè¡Œèª¿æ•´æŠ€èƒ½å»¶é²
+ç‰©å“æŒ‰éµ = array(120,113,115,112)
+//è´è¶ç¿…è†€,è’¼è …ç¿…è†€,é©—è­‰å·è»¸,å±¬å…‰åˆ¸
+ç‹€æ…‹åç¨± = array(1152,252)
+ç‹€æ…‹æŒ‰éµ = array(116,117)
+//é­”æ½®,æ‰å¯¶ç³–æŒ‰éµ0=ä¸é–‹å•Ÿ
+æ‰“å¯¶åœ°åœ– = 12
+//æ‰“å¯¶åœ°åœ–èª¿è©¦å¯æŸ¥çœ‹æ‰“æ€ªåœ°å€åœ°åœ–IDä¿®æ”¹
+å¾©æ´»é¸é … = 1
+//0=é—œé–‰å¾©æ´» 1=é‡ç”Ÿé» 2=åŸåœ°å¾©æ´»
 PIDID_01 = BeginThread(test)
 Do
 	Delay 400
-	dm_ret = dm.FindStr(10, 520, 255, 740,"¡iÅçÃÒ¨t²Î¡j:½Ğ¨Ï¥ÎÅçÃÒ¨÷¶b¶i¦æÅçÃÒ","ffb5de-000000",1.0,intX,intY)
+	dm_ret = dm.FindStr(10, 520, 255, 740,"ã€é©—è­‰ç³»çµ±ã€‘:è«‹ä½¿ç”¨é©—è­‰å·è»¸é€²è¡Œé©—è­‰","ffb5de-000000",1.0,intX,intY)
 	If intX > 0 And intY > 0 Then 
-		call ÅçÃÒ()
+		call é©—è­‰()
 	Else 
-		call °O¾ĞÅé()
-		If ¦å¶q < 1 Then 
-			TracePrint "Call´_¬¡"
-			Call ´_¬¡(´_¬¡¿ï¶µ)
-		ElseIf ­t­«¶q >= 90 And ·í«e¦a¹Ï <> 16 Then
-			TracePrint "­t­«¦^®a"
-			call «öÁä(½¹½º¯Í»H, 1, 250)
-		ElseIf ­t­«¶q >= 90 And ·í«e¦a¹Ï = 16 Then
-			TracePrint "¦s©ñª««~"
-			call §äNPC(501,374,920,683,"¥d´¶ªA°È","¥d´¶©Ô")
-			call «öÁä("40,13", 0, 250)
-			Call ¦s­Ü("µw¹ô", "ffffde-000000", 0.75)
-			call Ãö³¬­Ü®w()
-		ElseIf ·í«e¦a¹Ï = 16 Then
-			TracePrint "¦^¥h¥´Ä_"
-			call «öÁä(Äİ¥ú¨é&",13,13,40,40,13,13,13", 0, 250)
-		ElseIf ·í«e¦a¹Ï = ¥´Ä_¦a¹Ï Then 
-			If ©P³ò¤H¼Æ > 5 Then 
-				dm.KeyPress §Ş¯à«öÁä
-				Delay §Ş¯à©µ¿ğ
-				dm.KeyPress »aÃÇ¯Í»H
+		call è¨˜æ†¶é«”()
+		If è¡€é‡ < 1 Then 
+			TracePrint "Callå¾©æ´»"
+			Call å¾©æ´»(å¾©æ´»é¸é …)
+		ElseIf è² é‡é‡ >= 90 And ç•¶å‰åœ°åœ– <> 16 Then
+			TracePrint "è² é‡å›å®¶"
+			call æŒ‰éµ(ç‰©å“æŒ‰éµ(0), 1, 250)
+		ElseIf è² é‡é‡ >= 90 And ç•¶å‰åœ°åœ– = 16 Then
+			TracePrint "å­˜æ”¾ç‰©å“"
+			call æ‰¾NPC(501,374,920,683,"å¡æ™®æœå‹™","å¡æ™®æ‹‰")
+			call æŒ‰éµ("40,13", 0, 250)
+			Call å­˜å€‰("ç¡¬å¹£", "ffffde-000000", 0.75)
+			call é—œé–‰å€‰åº«()
+		ElseIf ç•¶å‰åœ°åœ– = 16 Then
+			TracePrint "å›å»æ‰“å¯¶"
+			call æŒ‰éµ(ç‰©å“æŒ‰éµ(3)&",13,13,40,40,13,13,13", 0, 250)
+		ElseIf ç•¶å‰åœ°åœ– = æ‰“å¯¶åœ°åœ– Then 
+			If å‘¨åœäººæ•¸ > 5 Then 
+				For i = 0 to UBOUND(æŠ€èƒ½æŒ‰éµ)
+					dm.KeyPress æŠ€èƒ½æŒ‰éµ(i)
+					Delay æŠ€èƒ½å»¶é²(i)
+				Next
+				dm.KeyPress ç‰©å“æŒ‰éµ(1)
 			Else
-				dm.KeyPress »aÃÇ¯Í»H
+				dm.KeyPress ç‰©å“æŒ‰éµ(1)
 			End If
 		End If
 	End If
 Loop
 
-//¦Û°Ê»²§U
+//è‡ªå‹•è¼”åŠ©
 Sub test()
 set dm = createobject("dm.dmsoft")
 dm_ret = dm.BindWindow(Hwnd1, "gdi", "dx2", "dx", 4)
-arr1 = ª¬ºA¦WºÙ
-arr2 = ª¬ºA«öÁä
+arr1 = ç‹€æ…‹åç¨±
+arr2 = ç‹€æ…‹æŒ‰éµ
 Delay 100
     Do
-		If ·í«e¦a¹Ï = ¥´Ä_¦a¹Ï Then 
+		If ç•¶å‰åœ°åœ– = æ‰“å¯¶åœ°åœ– Then 
 			For i = 0 to UBOUND(arr1)
 				If arr2(i) <> 0 Then 
-					call ª¬ºA(arr1(i), arr2(i))
+					call ç‹€æ…‹(arr1(i), arr2(i))
 				End If
 			Next
 			Delay 2000
@@ -97,32 +94,32 @@ Delay 100
     Loop
 End Sub
 
-Function ª¬ºA(ª¬ºAID,«öÁä)
+Function ç‹€æ…‹(ç‹€æ…‹ID,æŒ‰éµ)
 do
-	buffid = Plugin.Memory.Find32Bit(Hwnd1, ª¬ºAID, &H01108064, &H011080A6, 4)
+	buffid = Plugin.Memory.Find32Bit(Hwnd1, ç‹€æ…‹ID, &H01108064, &H011080A6, 4)
 	If buffid = 0 Then 
-		dm.KeyPress «öÁä
-		TracePrint "¸Éª¬ºA: " & ª¬ºAID & "«öÁä: " & «öÁä
+		dm.KeyPress æŒ‰éµ
+		TracePrint "è£œç‹€æ…‹: " & ç‹€æ…‹ID & "æŒ‰éµ: " & æŒ‰éµ
 	End If
 loop Until buffid <> 0
 End Function
 
-Function ÅçÃÒ()
-	Call «öÁä(ÅçÃÒ¨÷¶b, 11, 20)
-	dm_ret = dm.FindStr(0, 0, 1024, 768,"¡iÅçÃÒ¨t²Î¡j","000000-000000",1.0,intX,intY)
+Function é©—è­‰()
+	Call æŒ‰éµ(ç‰©å“æŒ‰éµ(2), 11, 20)
+	dm_ret = dm.FindStr(0, 0, 1024, 768,"ã€é©—è­‰ç³»çµ±ã€‘","000000-000000",1.0,intX,intY)
 	If intX > 0 And intY > 0 Then 
-		TracePrint "§ä¨ì: ¡iÅçÃÒ¨t²Î¡j"
+		TracePrint "æ‰¾åˆ°: ã€é©—è­‰ç³»çµ±ã€‘"
 		dm_ret = dm.FindStr(intX, intY, intX+280, intY+180, "=?", "000000-000000", 1.0, intX, intY)
 		If intX > 0 And intY > 0 Then 
-			TracePrint "§ä¨ì: =?"
+			TracePrint "æ‰¾åˆ°: =?"
 			Delay 500
 			Dim verify
-			¤å¦r = dm.Ocr(intX - 110, intY -7, intX , intY + 7,"000000-000000",1.0)
-			TracePrint "§ä¨ì: " & ¤å¦r
-			n = Len(¤å¦r)
+			æ–‡å­— = dm.Ocr(intX - 110, intY -7, intX , intY + 7,"000000-000000",1.0)
+			TracePrint "æ‰¾åˆ°: " & æ–‡å­—
+			n = Len(æ–‡å­—)
 			i = 1
 			For n
-				y = Mid(¤å¦r, i, 1)
+				y = Mid(æ–‡å­—, i, 1)
 				m = Asc(y)
 				If m >0 And m<>32 And y <> "=" Then
 					verify = verify & y
@@ -130,31 +127,31 @@ Function ÅçÃÒ()
 				i = i+1
 			Next
 			verify = Eval(verify)
-			TracePrint "ÅçÃÒ½X: " & verify
+			TracePrint "é©—è­‰ç¢¼: " & verify
 			Call Plugin.Bkgnd.SendString(Hwnd1, verify)
-			Call «öÁä(13, 2, 100)
+			Call æŒ‰éµ(13, 2, 100)
 		End If
 	End If
 End Function
 
-Function §äNPC(iX1,iY1,iX2,iY2,¦WºÙ,¦WºÙ2)
+Function æ‰¾NPC(iX1,iY1,iX2,iY2,åç¨±,åç¨±2)
 	NPC = int(Plugin.Memory.Read32Bit(Hwnd1, &H00EB78B0))
 	MENU = int(Plugin.Memory.Read32Bit(Hwnd1, &H00EB78B4))
 	do While NPC = 0 And MENU = 0
-		dm_ret = dm.FindStr(iX1, iY1, iX2, iY2, ¦WºÙ, "ffffff-000000", 1, intX, intY)
+		dm_ret = dm.FindStr(iX1, iY1, iX2, iY2, åç¨±, "ffffff-000000", 1, intX, intY)
 		If intX > 0 And intY > 0 Then 
 			dm.MoveTo intX+25, intY+25
 			Delay 1000
-			dm_ret = dm.FindStr(intX, intY, intX + 140, intY + 140, ¦WºÙ2, "94bdf7-000000", 1, intX, intY)
+			dm_ret = dm.FindStr(intX, intY, intX + 140, intY + 140, åç¨±2, "94bdf7-000000", 1, intX, intY)
 			If intX > 0 And intY > 0 Then 
 				dm.LeftClick
 				Delay 1000
 			Else
-				TracePrint "[ERROR] §ä¤£¨ì:" & ¦WºÙ2
+				TracePrint "[ERROR] æ‰¾ä¸åˆ°:" & åç¨±2
 				Delay 1000
 			End If
 		Else
-			TracePrint "[ERROR] §ä¤£¨ì:" & ¦WºÙ
+			TracePrint "[ERROR] æ‰¾ä¸åˆ°:" & åç¨±
 			Delay 1000
 		End If
 		NPC = int(Plugin.Memory.Read32Bit(Hwnd1, &H00EB78B0))
@@ -163,138 +160,143 @@ Function §äNPC(iX1,iY1,iX2,iY2,¦WºÙ,¦WºÙ2)
 	Loop
 End Function
 
-Function ¦s­Ü(ª««~, ÃC¦â, ¬Û¦ü«×)
-	­Ü®w = int(Plugin.Memory.Read32Bit(Hwnd1, &H00EB7948))
-	//Rem ­«·s¶}©l
-	If ­Ü®w <> 0 Then
+Function å­˜å€‰(ç‰©å“, é¡è‰², ç›¸ä¼¼åº¦)
+	å€‰åº« = int(Plugin.Memory.Read32Bit(Hwnd1, &H00EB7948))
+	//Rem é‡æ–°é–‹å§‹
+	If å€‰åº« <> 0 Then
 		Do
-			dm_ret = dm.FindStr(0, 0, 1024, 768, "ª««~Äæ", "000000-000000", 1, intX, intY)
+			dm_ret = dm.FindStr(0, 0, 1024, 768, "ç‰©å“æ¬„", "000000-000000", 1, intX, intY)
 			If intX > 0 And intY > 0 Then 
 				Do 
-					dm_ret = dm.FindStr(intX+20, intY+15, intX + 250, intY + 175, ª««~, ÃC¦â, ¬Û¦ü«×, intX2, intY2)
+					dm_ret = dm.FindStr(intX+20, intY+15, intX + 250, intY + 175, ç‰©å“, é¡è‰², ç›¸ä¼¼åº¦, intX2, intY2)
 					If intX2 > 0 And intY2 > 0 Then 
 						dm.MoveTo intX2 + 12, intY2 + 20
 						dm.KeyDown 18
 						dm.RightClick
 						dm.KeyUp 18
-						delay 500
+						delay 100
 					End If
 				Loop Until intX2 < 0 And intY2 < 0
-				TracePrint "ª««~: [" & ª««~ & "] ¦s©ñ§¹¦¨"
+				TracePrint "ç‰©å“: [" & ç‰©å“ & "] å­˜æ”¾å®Œæˆ"
 			Else 
 				dm.KeyDown 18
 				dm.KeyPress 69
 				dm.KeyUp 18
-				//Goto ­«·s¶}©l
+				//Goto é‡æ–°é–‹å§‹
 			End If
 		Loop Until intX > 0 And intY > 0
 	Else
-		TracePrint "[Error] ­Ü®w¥¼¶}±ÒµLªk¦s©ñ"
+		TracePrint "[Error] å€‰åº«æœªé–‹å•Ÿç„¡æ³•å­˜æ”¾"
 		Delay 1000
 	End If
 End Function
 
-Function Ãö³¬­Ü®w()
-	­Ü®w = int(Plugin.Memory.Read32Bit(Hwnd1, &H00EB7948))
-	If ­Ü®w > 0 Then
-		dm_ret = dm.FindStr(373, 111, 676, 595, "Ãö³¬", "000000-000000", 1, intX3, intY3)
+Function é—œé–‰å€‰åº«()
+	å€‰åº« = int(Plugin.Memory.Read32Bit(Hwnd1, &H00EB7948))
+	If å€‰åº« > 0 Then
+		dm_ret = dm.FindStr(373, 111, 676, 595, "é—œé–‰", "000000-000000", 1, intX3, intY3)
 		If intX3 > 0 And intY3 > 0 Then 
 			dm.MoveTo intX3, intY3
 			dm.LeftClick 
-			TracePrint "Ãö³¬­Ü®w"
+			TracePrint "é—œé–‰å€‰åº«"
 		End If
 	Else
-		TracePrint "[ERROR] §ä¤£¨ì­Ü®wÃö³¬"
+		TracePrint "[ERROR] æ‰¾ä¸åˆ°å€‰åº«é—œé–‰"
 		Delay 1000
 	End If
 End Function
 
-Function ´_¬¡(Run)
+Function å¾©æ´»(Run)
 	If Run >0 Then
-		Die = array("","²¾°Ê¨ìÀx¦s³õ©Ò","¦b­ì¦a´_")
+		Die = array("","ç§»å‹•åˆ°å„²å­˜å ´æ‰€","åœ¨åŸåœ°å¾©")
 		Do
 			dm.KeyPress 27
 			Delay 250
 			dm_ret = dm.FindStr(345, 435, 674, 565, Die(Run), "000000-313131", 1.0, intX, intY)
 		Loop Until intX > 0 And intY > 0
-		TracePrint "§ä¨ìÃöÁä¦r: [²¾°Ê¨ìÀx¦s³õ©Ò]"
+		TracePrint "æ‰¾åˆ°é—œéµå­—: [ç§»å‹•åˆ°å„²å­˜å ´æ‰€]"
 		If Run = 1 Then
 			Do
 				dm.MoveTo intX, intY
-    			Call ·Æ¹«("¥ª", 0, 1, 250)
-				dm_ret = dm.FindStr(352,289,661,435, "½T»{", "000000-313131", 1.0, intX2, intY2)
+    			Call æ»‘é¼ ("å·¦", 0, 1, 250)
+				dm_ret = dm.FindStr(352,289,661,435, "ç¢ºèª", "000000-313131", 1.0, intX2, intY2)
 			Loop Until intX2 > 0 And intY2 > 0
-			TracePrint "§ä¨ìÃöÁä¦r: [½T»{]"
+			TracePrint "æ‰¾åˆ°é—œéµå­—: [ç¢ºèª]"
 		ElseIf Run = 2 Then
 			intX2 = intX
 			intY2 = intY
 		End If
 		Do
 			dm.MoveTo intX2, intY2
-    		Call ·Æ¹«("¥ª", 0, 1, 250)
-			¦å = int(Plugin.Memory.Read32Bit(Hwnd1, &H01107BEC))
-		Loop Until ¦å > 1
+    		Call æ»‘é¼ ("å·¦", 0, 1, 250)
+			è¡€ = int(Plugin.Memory.Read32Bit(Hwnd1, &H01107BEC))
+		Loop Until è¡€ > 1
 		Delay 1000
-		TracePrint "½T»{: [´_¬¡]"
+		TracePrint "ç¢ºèª: [å¾©æ´»]"
 	End If
 End Function
 
 
-Function ·Æ¹«(¥ª¥k, Ãş«¬, ¦¸¼Æ, ©µ¿ğ)
-	For ¦¸¼Æ
-		TracePrint "«ö:" & ¥ª¥k & "Ãş«¬:" & Ãş«¬ & "¦¸¼Æ:" & ¦¸¼Æ & "©µ¿ğ:" & ©µ¿ğ
-		If ¥ª¥k = "¥ª" Then 
-			If Ãş«¬ = 0 Then 
+Function æ»‘é¼ (å·¦å³, é¡å‹, æ¬¡æ•¸, å»¶é²)
+	For æ¬¡æ•¸
+		TracePrint "æŒ‰:" & å·¦å³ & "é¡å‹:" & é¡å‹ & "æ¬¡æ•¸:" & æ¬¡æ•¸ & "å»¶é²:" & å»¶é²
+		If å·¦å³ = "å·¦" Then 
+			If é¡å‹ = 0 Then 
 				dm.LeftClick
-			ElseIf Ãş«¬ = 1 Then
+			ElseIf é¡å‹ = 1 Then
 				dm.LeftDown
-			ElseIf Ãş«¬ = 2 Then
+			ElseIf é¡å‹ = 2 Then
 				dm.LeftUp
 			End If
-		ElseIf ¥ª¥k = "¥k" Then 
-			If Ãş«¬ = 0 Then 
+		ElseIf å·¦å³ = "å³" Then 
+			If é¡å‹ = 0 Then 
 				dm.RightClick
-			ElseIf Ãş«¬ = 1 Then
+			ElseIf é¡å‹ = 1 Then
 				dm.RightDown
-			ElseIf Ãş«¬ = 2 Then
+			ElseIf é¡å‹ = 2 Then
 				dm.RightUp
 			End If
 		End If
-		Delay ©µ¿ğ
+		Delay å»¶é²
 	Next
 End Function
 
-Function «öÁä(«öÁä²Õ,¦¸¼Æ,©µ¿ğ)
-	If ¦¸¼Æ > 0 Then 
-		Key = «öÁä²Õ
-		For (¦¸¼Æ-1)
-			«öÁä²Õ = «öÁä²Õ&","&Key
+Function æŒ‰éµ(æŒ‰éµçµ„,æ¬¡æ•¸,å»¶é²)
+	If æ¬¡æ•¸ > 0 Then 
+		Key = æŒ‰éµçµ„
+		For (æ¬¡æ•¸-1)
+			æŒ‰éµçµ„ = æŒ‰éµçµ„&","&Key
 		Next
 	End If
 	Dim arr
-	arr = Split(","&«öÁä²Õ, ",")
-	If UBOUND(arr) > 1 or ( UBOUND(arr) > 0 and ¦¸¼Æ > 0 ) Then 
+	arr = Split(","&æŒ‰éµçµ„, ",")
+	If UBOUND(arr) > 1 or ( UBOUND(arr) > 0 and æ¬¡æ•¸ > 0 ) Then 
 		For i = 1 to UBOUND(arr)
-			TracePrint "«ö:" & arr(i) & "¦¸¼Æ:" & i & "©µ¿ğ:" & ©µ¿ğ
+			TracePrint "æŒ‰:" & arr(i) & "æ¬¡æ•¸:" & i & "å»¶é²:" & å»¶é²
 			dm.KeyPress arr(i)
-			Delay ©µ¿ğ
+			If arr(i) = 40 Then
+				Delay 50
+			Else
+				Delay å»¶é²
+			End If
+			
 		Next
 	End If
 End Function
 
-Function °O¾ĞÅé()
-	·í«e¦a¹Ï = int(Plugin.Memory.Read32Bit(Hwnd1, &H0015F258))
-	©P³ò¤H¼Æ = int(Plugin.Memory.Read32Bit(Hwnd1, &H00E78FF0))
-	³Ì¤j­t­« = int(Plugin.Memory.Read32Bit(Hwnd1, &H011040B4))
-	­t­« = int(Plugin.Memory.Read32Bit(Hwnd1, &H011040B8))
-	³Ì¤j¦å = int(Plugin.Memory.Read32Bit(Hwnd1, &H01107BF0))
-	¦å = int(Plugin.Memory.Read32Bit(Hwnd1, &H01107BEC))
-	­t­«¶q = fix((­t­« / ³Ì¤j­t­«) * 100)
-	¦å¶q = fix((¦å / ³Ì¤j¦å) * 100)
-	//TracePrint "¦a¹Ï:" & ·í«e¦a¹Ï & " ­t­«:" & ­t­«¶q & " ¦å¶q:" & ¦å¶q
+Function è¨˜æ†¶é«”()
+	ç•¶å‰åœ°åœ– = int(Plugin.Memory.Read32Bit(Hwnd1, &H0015F258))
+	å‘¨åœäººæ•¸ = int(Plugin.Memory.Read32Bit(Hwnd1, &H00E78FF0))
+	æœ€å¤§è² é‡ = int(Plugin.Memory.Read32Bit(Hwnd1, &H011040B4))
+	è² é‡ = int(Plugin.Memory.Read32Bit(Hwnd1, &H011040B8))
+	æœ€å¤§è¡€ = int(Plugin.Memory.Read32Bit(Hwnd1, &H01107BF0))
+	è¡€ = int(Plugin.Memory.Read32Bit(Hwnd1, &H01107BEC))
+	è² é‡é‡ = fix((è² é‡ / æœ€å¤§è² é‡) * 100)
+	è¡€é‡ = fix((è¡€ / æœ€å¤§è¡€) * 100)
+	//TracePrint "åœ°åœ–:" & ç•¶å‰åœ°åœ– & " è² é‡:" & è² é‡é‡ & " è¡€é‡:" & è¡€é‡
 End Function
 
-Function ¤jºz³]©w()
+Function å¤§æ¼ è¨­å®š()
 	set dm = createobject("dm.dmsoft")
 	base_path = dm.GetBasePath()
 	dm_ret = dm.SetPath(base_path)
