@@ -23,7 +23,7 @@ SetupOCXFile=
 [Comment]
 
 [Script]
-Global Hwnd1, Start, 驗證卷軸, 技能
+Global Hwnd1, Start, 驗證卷軸, 技能按鍵, 技能延遲
 Hwnd1 = Plugin.Window.MousePoint()
 Start = 0
 //------ 設定以下
@@ -33,9 +33,12 @@ Npc2 = array(532, 270)
 等待延遲 = 3500
 //等待隊友到 0=不等待
 尋找隨機延遲 = 3
+物品按鍵 = array(115,112)
+//驗證卷軸,屬光券
 驗證卷軸 = 115
 屬光券 = 112
-技能 = 113
+技能按鍵 = array(114)
+技能延遲 = array(100)
 Map = 27
 //副本地圖
 //------ 設定以上
@@ -74,7 +77,7 @@ Do
 		End If
 	ElseIf now_map = 16 And now_map_X = 217 And now_map_Y = 276 Then
 		TracePrint "屬光券回副本"
-		call 按鍵(屬光券&",13,13,13",0,對話延遲)
+		call 按鍵(物品按鍵(1)&",13,13,13",0,對話延遲)
 	ElseIf now_map = Map Then
 		If now_map_X = 35 And now_map_Y = 57 Then
 			TracePrint "副本開始"
@@ -126,7 +129,7 @@ Do
 	ElseIf now_map <> Map And now_map <> 16 Then
 		TracePrint 地圖 & "進錯副本離開" & now_map
 		Start = 0
-		call 按鍵(屬光券&",13,13,13",0,對話延遲)
+		call 按鍵(物品按鍵(1)&",13,13,13",0,對話延遲)
 	End If
 	Delay 1000
 Loop
@@ -134,6 +137,8 @@ Loop
 Sub 驗證技能()
 Delay 500
 Call 大漠設定()
+skill_Delay = 技能延遲
+skill_Key = 技能按鍵
 Do
 	If Start = 1 Or Start = 7 Then 
 		TracePrint "攻擊"
@@ -141,7 +146,10 @@ Do
 		If intX > 0 And intY > 0 Then 
 			Call 驗證()
 		Else
-			dm.KeyPress 技能
+			For i = 0 to UBOUND(skill_Key)
+				dm.KeyPress skill_Key(i)
+				Delay skill_Delay(i)
+			Next
 		End If
 	Else
 		Delay 200
@@ -150,7 +158,7 @@ Loop
 End Sub
 
 Function 驗證()
-	call 按鍵(驗證卷軸, 11, 20)
+	call 按鍵(物品按鍵(0), 11, 20)
 	dm_ret = dm.FindPic(0, 0, 1024, 768, "C:\dm\msg.bmp", "000000", 0.9, 0, intX, intY)
 	If intX > 0 And intY > 0 Then 
 		dm_ret = dm.FindStr(intX, intY, intX+280, intY+180, "=?", "000000-000000", 1.0, intX, intY)
@@ -212,23 +220,24 @@ Function 副本資訊(Val_inst)
 End Function
 
 Function 按鍵(按鍵組,次數,延遲)
-	Dim arr
-	arr = Split(按鍵組, ",")
-	If 次數 > 0 Then
-		For i = 1 To 次數
-			TracePrint "按:" & 按鍵組 & "次數:" & i & "延遲:" & 延遲
-			dm.KeyPress 按鍵組
-			Delay 延遲
+	If 次數 > 0 Then 
+		Key = 按鍵組
+		For (次數-1)
+			按鍵組 = 按鍵組&","&Key
 		Next
-	ElseIf UBOUND(arr) > 0 Then
-		For i = 0 To UBOUND(arr)
-			TracePrint "按:" & arr(i) & "次數:" & i+1 & "延遲:" & 延遲
+	End If
+	Dim arr
+	arr = Split(","&按鍵組, ",")
+	If UBOUND(arr) > 1 or ( UBOUND(arr) > 0 and 次數 > 0 ) Then 
+		For i = 1 to UBOUND(arr)
+			TracePrint "按:" & arr(i) & "次數:" & i & "延遲:" & 延遲
 			dm.KeyPress arr(i)
-			if arr(i) = 40 Then
-				Delay 30
+			If arr(i) = 40 Then
+				Delay 50
 			Else
 				Delay 延遲
 			End If
+			
 		Next
 	End If
 End Function
