@@ -44,7 +44,7 @@ Map = 27
 //------ 設定以上
 
 Call 大漠設定()
-PID=BeginThread(驗證技能)
+PID=BeginThread(技能)
 Do
 	now_map = int(Plugin.Memory.Read32Bit(Hwnd1, &H0015F258))
 	now_map_X = int(Plugin.Memory.Read32Bit(Hwnd1, &H010F07A8))
@@ -134,7 +134,7 @@ Do
 	Delay 1000
 Loop
 
-Sub 驗證技能()
+Sub 技能()
 Delay 500
 Call 大漠設定()
 skill_Delay = 技能延遲
@@ -142,47 +142,15 @@ skill_Key = 技能按鍵
 Do
 	If Start = 1 Or Start = 7 Then 
 		TracePrint "攻擊"
-		dm_ret = dm.FindStr(10, 520, 255, 740,"【驗證系統】:請使用驗證卷軸進行驗證","ffb5de-000000",1.0,intX,intY)
-		If intX > 0 And intY > 0 Then 
-			Call 驗證()
-		Else
-			For i = 0 to UBOUND(skill_Key)
-				dm.KeyPress skill_Key(i)
-				Delay skill_Delay(i)
-			Next
-		End If
+		For i = 0 to UBOUND(skill_Key)
+			dm.KeyPress skill_Key(i)
+			Delay skill_Delay(i)
+		Next
 	Else
 		Delay 200
 	End If
 Loop
 End Sub
-
-Function 驗證()
-	call 按鍵(物品按鍵(0), 11, 20)
-	dm_ret = dm.FindPic(0, 0, 1024, 768, "C:\dm\msg.bmp", "000000", 0.9, 0, intX, intY)
-	If intX > 0 And intY > 0 Then 
-		dm_ret = dm.FindStr(intX, intY, intX+280, intY+180, "=?", "000000-000000", 1.0, intX, intY)
-		If intX > 0 And intY > 0 Then 
-			Delay 500
-			verify = dm.Ocr(intX - 110, intY -7, intX , intY + 7,"000000-000000",1.0)
-			n = Len(verify)
-			i = 1
-			verify2 = "" 
-			For n
-				y = Mid(verify, i, 1)
-				m = Asc(y)
-				If m >0 And m<>32 Then
-					verify2 = verify2 & y
-				End If
-				i = i+1
-			Next
-			verify = Eval(verify2)
-			Call Plugin.Bkgnd.SendString(Hwnd1, verify)
-			Call Plugin.Msg.Tips("驗證提示: " & verify)
-			dm.KeyPress 13
-		End If
-	End If
-End Function
 
 Function 副本資訊(Val_inst)
 	dm.RightClick 
@@ -213,9 +181,9 @@ Function 副本資訊(Val_inst)
 		選項 = 1
 	End If
 	If 選項 = 1 Then
-		Call 按鍵("40,40,40,40,40,40,40,13,13,40,13",0,對話延遲)
+		Call 按鍵("40,40,40,40,40,40,40,40,13,13,40,13",0,對話延遲)
 	ElseIf 選項 = 0 Then
-		Call 按鍵("13,40,40,13,13",0,對話延遲)
+		Call 按鍵("40,13,40,40,13,13",0,對話延遲)
 	End If
 End Function
 
