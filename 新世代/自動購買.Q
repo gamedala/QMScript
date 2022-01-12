@@ -9,7 +9,7 @@ StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
 MacroID=25b7afe2-9e16-49c2-b844-b1455abc6864
-Description=¦Û°ÊÁÊ¶R
+Description=è‡ªå‹•è³¼è²·
 Enable=0
 AutoRun=0
 [Repeat]
@@ -26,50 +26,50 @@ SetupOCXFile=
 Do
     Key=WaitKey()    
     If Key = 120 Then 
-        BeginThread ÁÊ¶R
-        TracePrint "«ü©wµøµ¡"
+        BeginThread è³¼è²·
+        TracePrint "æŒ‡å®šè¦–çª—"
     End If
 Loop
 
-Sub ÁÊ¶R()
-	Call ¤jºz³]©w()
+Sub è³¼è²·()
+	Call å¤§æ¼ è¨­å®š()
 	Delay 100
     Do
         Key=WaitKey()
         If Key = 97  Then 
-            ¼Æ¶q³]©w = 15
-            TracePrint "¤pÁä½L«öÁä1"
+            æ•¸é‡è¨­å®š = 15
+            TracePrint "å°éµç›¤æŒ‰éµ1"
         ElseIf Key = 98  Then 
-            ¼Æ¶q³]©w = 20
-            TracePrint "¤pÁä½L«öÁä2"
+            æ•¸é‡è¨­å®š = 20
+            TracePrint "å°éµç›¤æŒ‰éµ2"
         ElseIf Key = 99 Then
-            ¼Æ¶q³]©w = 30
-            TracePrint "¤pÁä½L«öÁä3"
+            æ•¸é‡è¨­å®š = 30
+            TracePrint "å°éµç›¤æŒ‰éµ3"
         ElseIf Key = 100 Then
-            ¼Æ¶q³]©w = 40
-            TracePrint "¤pÁä½L«öÁä4"
+            æ•¸é‡è¨­å®š = 40
+            TracePrint "å°éµç›¤æŒ‰éµ4"
         ElseIf Key = 101 Then
-            ¼Æ¶q³]©w = 50
-            TracePrint "¤pÁä½L«öÁä5"
+            æ•¸é‡è¨­å®š = 50
+            TracePrint "å°éµç›¤æŒ‰éµ5"
         Else
-            ¼Æ¶q³]©w = 0
+            æ•¸é‡è¨­å®š = 0
         End If
-        ¼ÒÀÀ¾¹2 = Plugin.Window.MousePoint()
-        TracePrint ¼ÒÀÀ¾¹ & "-" & ¼ÒÀÀ¾¹2
+        æ¨¡æ“¬å™¨2 = Plugin.Window.MousePoint()
+        TracePrint æ¨¡æ“¬å™¨ & "-" & æ¨¡æ“¬å™¨2
         
-        If ¼ÒÀÀ¾¹2 = ¼ÒÀÀ¾¹ And ¼Æ¶q³]©w > 0 Then 
+        If æ¨¡æ“¬å™¨2 = æ¨¡æ“¬å™¨ And æ•¸é‡è¨­å®š > 0 Then 
             s = dm.Ocr(566, 232, 618, 257, "e5d4c7-1A2B38", 1.0)
-            TracePrint "¥Ø«e¼Æ¶q:" & s
-            »İ¨D = ¼Æ¶q³]©w - s
-            TracePrint "»İ¨D¼Æ¶q:" & »İ¨D
+            TracePrint "ç›®å‰æ•¸é‡:" & s
+            éœ€æ±‚ = æ•¸é‡è¨­å®š - s
+            TracePrint "éœ€æ±‚æ•¸é‡:" & éœ€æ±‚
             dm.MoveTo 553,455
             dm.LeftClick 
             Delay 200
-            n = Len(»İ¨D)
+            n = Len(éœ€æ±‚)
             i = 1
             For n
-                y = int(Mid(»İ¨D, i, 1))
-                Call ¼Æ¦rÁä½L(y)
+                y = int(Mid(éœ€æ±‚, i, 1))
+                Call æ•¸å­—éµç›¤(y)
                 i = i+1
             Next
             dm.MoveTo 600,600
@@ -81,8 +81,8 @@ Sub ÁÊ¶R()
     Loop
 End Sub
 
-Function ¼Æ¦rÁä½L(¼Æ¦r)
-    Select Case ¼Æ¦r
+Function æ•¸å­—éµç›¤(æ•¸å­—)
+    Select Case æ•¸å­—
     Case 0
         dm.MoveTo 1030,355
     Case 1
@@ -105,17 +105,17 @@ Function ¼Æ¦rÁä½L(¼Æ¦r)
         dm.MoveTo 960,425
     End Select
     dm.LeftClick 
-    TracePrint "ÂIÀ»:" & ¼Æ¦r
+    TracePrint "é»æ“Š:" & æ•¸å­—
     Delay 200
 End Function
 
-Function ¤jºz³]©w()
+Function å¤§æ¼ è¨­å®š()
     set dm = createobject("dm.dmsoft")
     base_path = dm.GetBasePath()
     dm_ret = dm.SetPath(base_path)
-    dm_ret = dm.SetDict(0,"·s¥@¥N.txt")
-    ¼ÒÀÀ¾¹ = Plugin.Window.MousePoint()
-    TracePrint ¼ÒÀÀ¾¹
-    dm_ret = dm.BindWindow(¼ÒÀÀ¾¹,"gdi","windows","windows",0)
+    dm_ret = dm.SetDict(0,"æ–°ä¸–ä»£.txt")
+    æ¨¡æ“¬å™¨ = Plugin.Window.MousePoint()
+    TracePrint æ¨¡æ“¬å™¨
+    dm_ret = dm.BindWindow(æ¨¡æ“¬å™¨,"gdi","windows","windows",0)
     TracePrint dm_ret
 End Function
