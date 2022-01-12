@@ -9,7 +9,7 @@ StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
 MacroID=149a0aca-efb3-4ac5-b1d1-345094eb07d0
-Description=¦Û°Ê³¨³½¦hµ¡
+Description=è‡ªå‹•é‡£é­šå¤šçª—
 Enable=0
 AutoRun=0
 [Repeat]
@@ -26,37 +26,37 @@ SetupOCXFile=
 Do
     Key=WaitKey()    
     If Key = 120 Then 
-        BeginThread ³¨³½¦h¶}
-        TracePrint "«ü©wµøµ¡"
+        BeginThread é‡£é­šå¤šé–‹
+        TracePrint "æŒ‡å®šè¦–çª—"
     End If
 Loop
 
-Sub ³¨³½¦h¶}()
-	Call ¤jºz()
+Sub é‡£é­šå¤šé–‹()
+	Call å¤§æ¼ ()
 	Delay 100
     Do
         dm_ret = dm.FindColor(1058, 486,1060, 487,"f9e9e0-000000",1,4,intX,intY)
         If intX >= 0 And intY >= 0  Then 
             dm.KeyPress 32
-            TracePrint ¼ÒÀÀ¾¹ & "³¨³½"
+            TracePrint æ¨¡æ“¬å™¨ & "é‡£é­š"
             fish = 1
         End If
         dm_ret = dm.FindColor(1058, 486,1060, 487,"d4f287-000000",0.95,4,intX,intY)
         If intX >= 0 And intY >= 0  Then 
             dm.KeyPress 32
-            TracePrint ¼ÒÀÀ¾¹ & "©Ô¬ñ"
+            TracePrint æ¨¡æ“¬å™¨ & "æ‹‰ç«¿"
             fish = 0
         End If
         Delay 500
     Loop
 End Sub
 
-Function ¤jºz()
+Function å¤§æ¼ ()
     set dm = createobject("dm.dmsoft")
     base_path = dm.GetBasePath()
     dm_ret = dm.SetPath(base_path)
-    ¼ÒÀÀ¾¹ = Plugin.Window.MousePoint()
-    TracePrint "¸j©wµøµ¡:" & ¼ÒÀÀ¾¹
-    dm_ret = dm.BindWindow(¼ÒÀÀ¾¹,"gdi","windows","windows",0)
-    TracePrint "¸j©w¬O§_¦¨¥\:" & dm_ret
+    æ¨¡æ“¬å™¨ = Plugin.Window.MousePoint()
+    TracePrint "ç¶å®šè¦–çª—:" & æ¨¡æ“¬å™¨
+    dm_ret = dm.BindWindow(æ¨¡æ“¬å™¨,"gdi","windows","windows",0)
+    TracePrint "ç¶å®šæ˜¯å¦æˆåŠŸ:" & dm_ret
 End Function
