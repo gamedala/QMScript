@@ -9,7 +9,7 @@ StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
 MacroID=25b7afe2-9e16-49c2-b844-b1455abc6864
-Description=自動購買
+Description=購買指定數量
 Enable=0
 AutoRun=0
 [Repeat]
