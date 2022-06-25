@@ -9,7 +9,7 @@ StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
 MacroID=95a9bb4c-e6a3-4dff-a8fb-4cd5a76b3b9a
-Description=§Æ±æCombo+¥ô°È
+Description=å¸Œæœ›Må§”è¨—ä»»å‹™
 Enable=0
 AutoRun=0
 [Repeat]
@@ -31,101 +31,101 @@ UEsDBBQAAgAIABS/2FTfjRpPzR8AAAjwAQAJABEAVUlQYWNrYWdlVVQNAAcqT7ZiKk+2YipPtmLtXQeY
 
 
 [Script]
-BeginThread ©Ş¯ó
-Sub ©Ş¯ó()
-    Call ¤jºz³]©w()
+BeginThread æ‹”è‰
+Sub æ‹”è‰()
+    Call å¤§æ¼ è¨­å®š()
     Delay 100
-    ¿ï¶µX = array(700,1050,700,1050)
-    ¿ï¶µY = array(530, 530, 630, 630)
-    ªì©l_Unix = ®É¶¡
-    ¥ô°È®É¶¡ = ®É¶¡
+    é¸é …X = array(700,1050,700,1050)
+    é¸é …Y = array(530, 530, 630, 630)
+    åˆå§‹_Unix = æ™‚é–“
+    ä»»å‹™æ™‚é–“ = æ™‚é–“
     Do
-    	If Form1.¥ô°È.Value = 1 And ®É¶¡ - ¥ô°È®É¶¡ > int(Form1.¥ô°È¶W®É.Text) Then 
-    		Call µ²§ô©Ò¦³APP
+    	If Form1.ä»»å‹™.Value = 1 And æ™‚é–“ - ä»»å‹™æ™‚é–“ > int(Form1.ä»»å‹™è¶…æ™‚.Text) Then 
+    		Call çµæŸæ‰€æœ‰APP
     	End If
-    	'ÀË´ú¬O§_¾Ô°«¤¶­±
-        dm_ret = dm.FindStr(1210, 7, 1265, 62, "¿ù»~", "f5f4ed-303030", 0.7, intX, intY)
+    	'æª¢æ¸¬æ˜¯å¦æˆ°é¬¥ä»‹é¢
+        dm_ret = dm.FindStr(1210, 7, 1265, 62, "éŒ¯èª¤", "f5f4ed-303030", 0.7, intX, intY)
         If intX > 0 Then
-			Unix = ®É¶¡
-        	'±Ò°Ê³sÄò§Ş
-            If Form1.³sÄò§Ş.Value = 1 Then 
+			Unix = æ™‚é–“
+        	'å•Ÿå‹•é€£çºŒæŠ€
+            If Form1.é€£çºŒæŠ€.Value = 1 Then 
                 If Form1.Combo.Value = 1 Then 
                     'combo
-                    dm_ret = dm.FindColor(1073,583,1074,600 + (Form1.¥\³t.ListIndex * 4  ),"db3ffb-505050",1.0,0,intX,intY)
+                    dm_ret = dm.FindColor(1073,583,1074,600 + (Form1.åŠŸé€Ÿ.ListIndex * 4  ),"db3ffb-505050",1.0,0,intX,intY)
                     If intX >= 0 and intY >= 0 Then 
-                        Call Áä½LÂIÀ»(32, 400)
+                        Call éµç›¤é»æ“Š(32, 400)
                     End If
                 End If
-                If Form1.§Ş¯à.Value = 1 Then 
+                If Form1.æŠ€èƒ½.Value = 1 Then 
                     'skill
                     dm_ret = dm.FindColor(1240,528,1245,537,"fffffb-000010",1.0,0,intX,intY)
                     If intX >= 0 and intY >= 0 Then
-                        Call Áä½LÂIÀ»(49, 100)
+                        Call éµç›¤é»æ“Š(49, 100)
                     End If
                 End If
                 If Form1.Fever.Value = 1 Then 
                     'Ferver
                     dm_ret = dm.FindColor(957,519,968,524,"fffffb-000010",1.0,0,intX,intY)
                     If intX >= 0 and intY >= 0 Then
-                        Call Áä½LÂIÀ»(50, 100)
+                        Call éµç›¤é»æ“Š(50, 100)
                     End If
                 End If
             End If
-            '±Ò°Ê¥ô°È
-            If ªì©l_Unix <= Unix Then 
-            	If Form1.¥ô°È.Value = 1  Then 
-                	Call ½T»{¥ô°È()
+            'å•Ÿå‹•ä»»å‹™
+            If åˆå§‹_Unix <= Unix Then 
+            	If Form1.ä»»å‹™.Value = 1  Then 
+                	Call ç¢ºèªä»»å‹™()
             	End If
-            	'±Ò°Ê¤À¸Ñ
-            	If Form1.¤À¸Ñ.Value = 1 Then 
-                	Call ¤À¸Ñ()
+            	'å•Ÿå‹•åˆ†è§£
+            	If Form1.åˆ†è§£.Value = 1 Then 
+                	Call åˆ†è§£()
             	End If
-            	ªì©l_Unix = Unix + 2
+            	åˆå§‹_Unix = Unix + 2
             End If
-        Else '¨S¦³¾Ô°«¤¶­±
+        Else 'æ²’æœ‰æˆ°é¬¥ä»‹é¢
 			Delay 200
-        	'¿ù»~±Æ°£
-            dm_ret = dm.FindStr(609, 491, 760, 515, "½T»{", "ffffff-303030", 0.7, intX, intY)
+        	'éŒ¯èª¤æ’é™¤
+            dm_ret = dm.FindStr(609, 491, 760, 515, "ç¢ºèª", "ffffff-303030", 0.7, intX, intY)
             If intX > 0 Then 
-            	call ·Æ¹«ÂIÀ»(intX, intY, 0)
+            	call æ»‘é¼ é»æ“Š(intX, intY, 0)
             Else 
             	Delay 100
-                dm_ret = dm.FindStr(60, 1, 151, 46, "[©e°U³B]", "EBECEE-141311", 0.7, intX, intY)
+                dm_ret = dm.FindStr(60, 1, 151, 46, "[å§”è¨—è™•]", "EBECEE-141311", 0.7, intX, intY)
                 If intX > 0 Then 
-                    If Form1.¥ô°È.Value = 1 Then 
-                        Call ¥ô°È(1234, 31)
+                    If Form1.ä»»å‹™.Value = 1 Then 
+                        Call ä»»å‹™(1234, 31)
                     End If 
                 Else
             		Delay 100
-                    //dm_ret = dm.FindStr(1206, 3, 1266, 63, "¿ù»~", "656462-151515|363635-151515|212020-151515", 0.63, intX, intY)
-                    dm_ret = dm.FindStr(1206, 3, 1266, 80, "¿ù»~", "737270-535251", 0.73, intX, intY)
-                    dm_ret = dm.FindStr(1206, 3, 1266, 80, "¿ù»~", "A7A6A3-101010|363635-000000", 0.73, intX2, intY2)
+                    //dm_ret = dm.FindStr(1206, 3, 1266, 63, "éŒ¯èª¤", "656462-151515|363635-151515|212020-151515", 0.63, intX, intY)
+                    dm_ret = dm.FindStr(1206, 3, 1266, 80, "éŒ¯èª¤", "737270-535251", 0.73, intX, intY)
+                    dm_ret = dm.FindStr(1206, 3, 1266, 80, "éŒ¯èª¤", "A7A6A3-101010|363635-000000", 0.73, intX2, intY2)
                     If intX > 0 or intX2 > 0 Then 
-                    	TracePrint "¿ù»~"
-                    	call ·Æ¹«ÂIÀ»(1200,35, 0)
+                    	TracePrint "éŒ¯èª¤"
+                    	call æ»‘é¼ é»æ“Š(1200,35, 0)
                     Else 
-                    	dm_ret = dm.FindStr(1206, 3, 1266, 63, "Ãö³¬", "ffffff-202020", 0.65, intX, intY)
+                    	dm_ret = dm.FindStr(1206, 3, 1266, 63, "é—œé–‰", "ffffff-202020", 0.65, intX, intY)
                     	If dm_ret = 0 Then 
-                    		TracePrint "Ãö³¬"
-                    		Call ·Æ¹«ÂIÀ»(intX, intY, 0)
+                    		TracePrint "é—œé–‰"
+                    		Call æ»‘é¼ é»æ“Š(intX, intY, 0)
                     	Else
                     		dm_ret = dm.FindStr(1135, 35, 1185, 62, "Skip", "ffffff-202020", 0.8, intX, intY)
                     		If dm_ret = 0 Then 
                     			TracePrint "Skip"
-                    			call ·Æ¹«ÂIÀ»(1200,35, 0)
+                    			call æ»‘é¼ é»æ“Š(1200,35, 0)
                     		Else 
-                    			dm_ret = dm.FindStr(1208,15,1267,75, "¿ù»~", "ffffff-202020", 0.75, intX, intY)
+                    			dm_ret = dm.FindStr(1208,15,1267,75, "éŒ¯èª¤", "ffffff-202020", 0.75, intX, intY)
                     			If intX > 0 Then 
-                    				TracePrint "¿ï³æ"
-                    				call ·Æ¹«ÂIÀ»(intX,intY, 1000)
+                    				TracePrint "é¸å–®"
+                    				call æ»‘é¼ é»æ“Š(intX,intY, 1000)
                     			Else 
-                    				'°{°h­«·sµn¤J
+                    				'é–ƒé€€é‡æ–°ç™»å…¥
             						Delay 100
             						dm_ret = dm.FindPic(997,2,1219,31,"WIFI.bmp","000000",0.9,0,intX,intY)
-                					If Form1.µn¤J.Value = 1 And intX > 0 Then 
-                						dm_ret = dm.FindStr(0, 0, 1280, 720, "§Æ±æM", "ffffff-303030", 0.9, intX, intY)
+                					If Form1.ç™»å…¥.Value = 1 And intX > 0 Then 
+                						dm_ret = dm.FindStr(0, 0, 1280, 720, "å¸Œæœ›M", "ffffff-303030", 0.9, intX, intY)
                 						If intX > 0 Then 
-                    						Call µn¤J
+                    						Call ç™»å…¥
                  						End If
 									End If
                     			End If
@@ -140,216 +140,216 @@ Sub ©Ş¯ó()
     Loop
 End Sub
 
-Sub ½T»{¥ô°È()
+Sub ç¢ºèªä»»å‹™()
     dm_ret = dm.FindStr(18, 281, 53, 315, "Quset", "ffffff-303030", 0.9, intX1, intY1)
     Delay 10
-    dm_ret = dm.FindStr(170, 290, 227, 315, "§¹¦¨", "DCC137-303030|F7F4BE-080B41", 0.65, intX, intY)
+    dm_ret = dm.FindStr(170, 290, 227, 315, "å®Œæˆ", "DCC137-303030|F7F4BE-080B41", 0.65, intX, intY)
     If intX1 > 0 Then 
-    	'¥ô°È§¹¦¨
+    	'ä»»å‹™å®Œæˆ
         If intX > 0 Then 
-            TracePrint "§¹¦¨¥ô°È"
-            Form1.ª¬ºA.Caption = "¡i§¹¦¨¥ô°È¡j"
-			Call ¥ô°È(intX, intY)
+            TracePrint "å®Œæˆä»»å‹™"
+            Form1.ç‹€æ…‹.Caption = "ã€å®Œæˆä»»å‹™ã€‘"
+			Call ä»»å‹™(intX, intY)
         Else 
-        	If Form1.¤£«ü©w¥ô°È.Value = 0 Then
-            	'«ü©w¥ô°È
+        	If Form1.ä¸æŒ‡å®šä»»å‹™.Value = 0 Then
+            	'æŒ‡å®šä»»å‹™
             	dm_ret = dm.FindColor(18,281,53,315, "DBF961-17064C", 0.99, 0, intX, intY)
             	If intX = -1  Then 
-                	Form1.ª¬ºA.Caption = "(«ü©w¥ô°È)"
-                	TracePrint "«ü©w¥ô°È"
-                	call ·Æ¹«ÂIÀ»(62,275, 500)
+                	Form1.ç‹€æ…‹.Caption = "(æŒ‡å®šä»»å‹™)"
+                	TracePrint "æŒ‡å®šä»»å‹™"
+                	call æ»‘é¼ é»æ“Š(62,275, 500)
             	End If
             Else 
-        		Form1.ª¬ºA.Caption = "±Ò°ÊAUTO"
+        		Form1.ç‹€æ…‹.Caption = "å•Ÿå‹•AUTO"
         		dm_ret = dm.FindStr(1180, 623, 1225, 639, "AUTO", "80e3f2-202020", 0.8, intX, intY)
         		If intX = - 1  Then 
-     	   			call ·Æ¹«ÂIÀ»(1200, 630, 1000)
+     	   			call æ»‘é¼ é»æ“Š(1200, 630, 1000)
         		End If
             End If
         End If
     ElseIf intX = - 1  Then
-		TracePrint "[±µ¥ô°È]"
-		Call ¥ô°È(1234, 31)
+		TracePrint "[æ¥ä»»å‹™]"
+		Call ä»»å‹™(1234, 31)
     End If
 End Sub
 
-//Sub ½T»{¥ô°È()
+//Sub ç¢ºèªä»»å‹™()
 //	dm_ret = dm.FindColor(18, 281, 53, 315, "DBF961-17064C", 0.99, 0, intX1, intY1)
 //	dm_ret = dm.FindColor(18, 281, 53, 315, "b27c23-000000", 0.99, 0, intX2, intY2)
 //	TracePrint "intX1 " & intX1 & " intY1 " & intY1
 //	TracePrint "intX2 " & intX2 & " intY2 " & intY2
 //    quset_fan = dm.Ocr(62, 272, 106, 291, "EEE57D-11100A|EAE498-111111", 0.5)
 //    Delay 10
-//    dm_ret = dm.FindStr(170,290,227,315, "§¹¦¨", "DCC137-303030|F7F4BE-080B41", 0.65, intX, intY)
+//    dm_ret = dm.FindStr(170,290,227,315, "å®Œæˆ", "DCC137-303030|F7F4BE-080B41", 0.65, intX, intY)
 //    If quset_fan <> "" Then 
-//    	'¥ô°È§¹¦¨
+//    	'ä»»å‹™å®Œæˆ
 //        If intX > 0 Then 
-//            TracePrint "§¹¦¨¥ô°È"
-//            Form1.ª¬ºA.Caption = "¡i§¹¦¨¥ô°È¡j"
-//			Call ¥ô°È(intX, intY)
+//            TracePrint "å®Œæˆä»»å‹™"
+//            Form1.ç‹€æ…‹.Caption = "ã€å®Œæˆä»»å‹™ã€‘"
+//			Call ä»»å‹™(intX, intY)
 //        Else 
-//        	If Form1.¤£«ü©w¥ô°È.Value = 0 Then
-//            	'«ü©w¥ô°È
+//        	If Form1.ä¸æŒ‡å®šä»»å‹™.Value = 0 Then
+//            	'æŒ‡å®šä»»å‹™
 //            	dm_ret = dm.FindColor(18,281,53,315, "DBF961-17064C", 0.99, 0, intX, intY)
 //            	If intX = -1  Then 
-//                	Form1.ª¬ºA.Caption = "(«ü©w¥ô°È)"
-//                	TracePrint "«ü©w¥ô°È"
-//                	call ·Æ¹«ÂIÀ»(62,275, 500)
+//                	Form1.ç‹€æ…‹.Caption = "(æŒ‡å®šä»»å‹™)"
+//                	TracePrint "æŒ‡å®šä»»å‹™"
+//                	call æ»‘é¼ é»æ“Š(62,275, 500)
 //            	End If
 //            Else 
-//        		Form1.ª¬ºA.Caption = "±Ò°ÊAUTO"
+//        		Form1.ç‹€æ…‹.Caption = "å•Ÿå‹•AUTO"
 //        		dm_ret = dm.FindStr(1180, 623, 1225, 639, "AUTO", "80e3f2-202020", 0.8, intX, intY)
 //        		If intX = - 1  Then 
-//     	   			call ·Æ¹«ÂIÀ»(1200, 630, 1000)
+//     	   			call æ»‘é¼ é»æ“Š(1200, 630, 1000)
 //        		End If
 //            End If
 //        End If
 //    ElseIf intX = - 1  Then
-//        TracePrint "[±µ¥ô°È]"
-//		Call ¥ô°È(1234, 31)
+//        TracePrint "[æ¥ä»»å‹™]"
+//		Call ä»»å‹™(1234, 31)
 //    End If
 //End Sub
 
-sub ¥ô°È(qx, qy)
-	'¨ú®øAUTO
-    If Form1.¨ú®øAUTO.Value = 1 Then 
-        Form1.ª¬ºA.Caption = "¨ú®øAUTO"
+sub ä»»å‹™(qx, qy)
+	'å–æ¶ˆAUTO
+    If Form1.å–æ¶ˆAUTO.Value = 1 Then 
+        Form1.ç‹€æ…‹.Caption = "å–æ¶ˆAUTO"
         dm_ret = dm.FindStr(1180, 623, 1225, 639, "AUTO", "80e3f2-202020", 0.8, intX, intY)
         If intX > 0 Then 
-     	   call ·Æ¹«ÂIÀ»(intX+20, intY, 1000)
+     	   call æ»‘é¼ é»æ“Š(intX+20, intY, 1000)
         End If
     End If
-    'ÂI¶}¦Cªí
-    Form1.ª¬ºA.Caption = "¨ú±o¥ô°È"
-    Call ·Æ¹«ÂIÀ»(qx, qy, 1000)
+    'é»é–‹åˆ—è¡¨
+    Form1.ç‹€æ…‹.Caption = "å–å¾—ä»»å‹™"
+    Call æ»‘é¼ é»æ“Š(qx, qy, 1000)
     For 5
-    	'¶i¤J©e°U©Ò
-    	dm_ret = dm.FindStr(876,536,1188,556, "©e|°U|³B", "99a1ad-202020", 0.7, intX, intY)
+    	'é€²å…¥å§”è¨—æ‰€
+    	dm_ret = dm.FindStr(876,536,1188,556, "å§”|è¨—|è™•", "99a1ad-202020", 0.7, intX, intY)
     	If intX > 0 Then 
-        	TracePrint "©e°U³B"
-        	Call ·Æ¹«ÂIÀ»(intX, intY, 2000)
+        	TracePrint "å§”è¨—è™•"
+        	Call æ»‘é¼ é»æ“Š(intX, intY, 2000)
         	Exit For
         Else 
         	Delay 200
     	End If
     Next
-    '½T»{¶i¤J©e°U©Ò
-    dm_ret = dm.FindStr(69,11,149,38, "[©e°U³B]", "EBECEE-141311", 0.75, intX, intY)
+    'ç¢ºèªé€²å…¥å§”è¨—æ‰€
+    dm_ret = dm.FindStr(69,11,149,38, "[å§”è¨—è™•]", "EBECEE-141311", 0.75, intX, intY)
     If intX > 0 Then 
-    	Call ¥ô°È«°Âí
-    	Call ¥ô°ÈÃø«×
-		Call ¥ô°È¶µ¥Ø
-        Form1.ª¬ºA.Caption = "µ²§ô¥ô°È"
-        ¥ô°È®É¶¡ = ®É¶¡
+    	Call ä»»å‹™åŸé®
+    	Call ä»»å‹™é›£åº¦
+		Call ä»»å‹™é …ç›®
+        Form1.ç‹€æ…‹.Caption = "çµæŸä»»å‹™"
+        ä»»å‹™æ™‚é–“ = æ™‚é–“
     End If
 End Sub
 
-Sub ¥ô°È«°Âí
-    '¿ï¾Ü¥ô°È«°Âí
-    «°Âí = Split(Form1.«°Âí.List, "|")
-	TracePrint «°Âí(Form1.«°Âí.ListIndex)
+Sub ä»»å‹™åŸé®
+    'é¸æ“‡ä»»å‹™åŸé®
+    åŸé® = Split(Form1.åŸé®.List, "|")
+	TracePrint åŸé®(Form1.åŸé®.ListIndex)
 	s=0
     Do
-        dm_ret = dm.FindStr(201,133,361,671, «°Âí(Form1.«°Âí.ListIndex), "ffffff-303030", 0.7, intX, intY)
+        dm_ret = dm.FindStr(201,133,361,671, åŸé®(Form1.åŸé®.ListIndex), "ffffff-303030", 0.7, intX, intY)
         If intX > 0 Then 
         	'TracePrint intX &", "&intY
-        	Form1.ª¬ºA.Caption = «°Âí(Form1.«°Âí.ListIndex) & "MovetoX " & intX & " MovetoY " & intY
+        	Form1.ç‹€æ…‹.Caption = åŸé®(Form1.åŸé®.ListIndex) & "MovetoX " & intX & " MovetoY " & intY
         	For 2
-        		call ·Æ¹«ÂIÀ»(intX, intY, 500)
+        		call æ»‘é¼ é»æ“Š(intX, intY, 500)
         	Next
             Exit Do
         Else 
-            If Form1.«°Âí.ListIndex < 1 Then 
-                TracePrint "¦V¤W©Ô"
-                call ·Æ°Ê(300, 400, 600, 2)
-            ElseIf Form1.«°Âí.ListIndex > 2 Then
-                TracePrint "¦V¤U©Ô"
-                call ·Æ°Ê(300, 600, 400, -2)
+            If Form1.åŸé®.ListIndex < 1 Then 
+                TracePrint "å‘ä¸Šæ‹‰"
+                call æ»‘å‹•(300, 400, 600, 2)
+            ElseIf Form1.åŸé®.ListIndex > 2 Then
+                TracePrint "å‘ä¸‹æ‹‰"
+                call æ»‘å‹•(300, 600, 400, -2)
             End If
             Delay 1000
         End If
         Delay 100
         s=s+1
-        TracePrint "´M§ä" & s
+        TracePrint "å°‹æ‰¾" & s
     Loop While intX = - 1 
 End Sub
 
-Sub ¥ô°ÈÃø«×
-    '¿ï¾ÜÃø©ö«×
-    Ãø«× = Split(Form1.Ãø«×.List, "|")
-	TracePrint Ãø«×(Form1.Ãø«×.ListIndex)
+Sub ä»»å‹™é›£åº¦
+    'é¸æ“‡é›£æ˜“åº¦
+    é›£åº¦ = Split(Form1.é›£åº¦.List, "|")
+	TracePrint é›£åº¦(Form1.é›£åº¦.ListIndex)
 	For 2
-		dm_ret = dm.FindStr(743,68,1148,101, Ãø«×(Form1.Ãø«×.ListIndex), "7d7d7d-303030", 0.7, intX, intY)
+		dm_ret = dm.FindStr(743,68,1148,101, é›£åº¦(Form1.é›£åº¦.ListIndex), "7d7d7d-303030", 0.7, intX, intY)
 		If intX > 0 Then 
-			Form1.ª¬ºA.Caption = Ãø«×(Form1.Ãø«×.ListIndex) & "MovetoX " & intX & " MovetoY " & intY
-			Call ·Æ¹«ÂIÀ»(intX, intY, 1000)
+			Form1.ç‹€æ…‹.Caption = é›£åº¦(Form1.é›£åº¦.ListIndex) & "MovetoX " & intX & " MovetoY " & intY
+			Call æ»‘é¼ é»æ“Š(intX, intY, 1000)
 		End If
 	Next
 End Sub
 
-Sub ¥ô°È¶µ¥Ø
-	'¿ï¾Ü¥ô°È
-	'ÀË¬d"©e°U³B¥ô°È"¦ì¸m
-	quest = dm.FindStr(649,232,759,274, "©e°U³B¥ô°È", "f5f4ed-303030", 0.75, intX, intY)
+Sub ä»»å‹™é …ç›®
+	'é¸æ“‡ä»»å‹™
+	'æª¢æŸ¥"å§”è¨—è™•ä»»å‹™"ä½ç½®
+	quest = dm.FindStr(649,232,759,274, "å§”è¨—è™•ä»»å‹™", "f5f4ed-303030", 0.75, intX, intY)
 	tempX = intX : tempY = intY
-	TracePrint "©e°U³B¥ô°È " & quest
+	TracePrint "å§”è¨—è™•ä»»å‹™ " & quest
 	s = 0 : ss = 0
-	©Çª«= Split(Form1.¿ï¶µ.List,"|") 
-	¦æ¼Æ = int(Form1.¿ï¶µ.ListIndex / 2)
-	Quest_s = int(Form1.¿ï¶µ.ListIndex) Mod 2
-	temp_¦æ¼Æ = -1
+	æ€ªç‰©= Split(Form1.é¸é ….List,"|") 
+	è¡Œæ•¸ = int(Form1.é¸é ….ListIndex / 2)
+	Quest_s = int(Form1.é¸é ….ListIndex) Mod 2
+	temp_è¡Œæ•¸ = -1
 
-	'·Æ°Ê
-	TracePrint "»İÀË´ú¨ì©e°U " & ¦æ¼Æ
-	Form1.ª¬ºA.Caption = "»İÀË´ú¨ì©e°U " & ¦æ¼Æ
-	ÀË¬d°j°é = 0
-	Do While ss <= ¦æ¼Æ And ÀË¬d°j°é <= ¦æ¼Æ
-		'§PÂ_²Ä´X¦æ¥ô°È
-		If ¦æ¼Æ = 0 Then 
-			'»İ­n¦V¤W·Æ°Ê
+	'æ»‘å‹•
+	TracePrint "éœ€æª¢æ¸¬åˆ°å§”è¨— " & è¡Œæ•¸
+	Form1.ç‹€æ…‹.Caption = "éœ€æª¢æ¸¬åˆ°å§”è¨— " & è¡Œæ•¸
+	æª¢æŸ¥è¿´åœˆ = 0
+	Do While ss <= è¡Œæ•¸ And æª¢æŸ¥è¿´åœˆ <= è¡Œæ•¸
+		'åˆ¤æ–·ç¬¬å¹¾è¡Œä»»å‹™
+		If è¡Œæ•¸ = 0 Then 
+			'éœ€è¦å‘ä¸Šæ»‘å‹•
 			If quest = 0 Then 
-				TracePrint "¦V¤W©Ô"
-				Form1.ª¬ºA.Caption = "¦V¤W©Ô"
-				Call ·Æ°Ê(875, 250, 600, 1)
+				TracePrint "å‘ä¸Šæ‹‰"
+				Form1.ç‹€æ…‹.Caption = "å‘ä¸Šæ‹‰"
+				Call æ»‘å‹•(875, 250, 600, 1)
 				Delay 1000
 			End If
 			Exit Do
-		ElseIf ¦æ¼Æ > 0 Then
-			'§PÂ_°_©lÂI¤U°Ñ¼Æ
+		ElseIf è¡Œæ•¸ > 0 Then
+			'åˆ¤æ–·èµ·å§‹é»ä¸‹åƒæ•¸
 			If quest = 0 Then 
-				temp_¦æ¼Æ = ¦æ¼Æ - 1 : quest = 1
+				temp_è¡Œæ•¸ = è¡Œæ•¸ - 1 : quest = 1
 			ElseIf quest = -1 Then 
-				temp_¦æ¼Æ = ¦æ¼Æ : quest = 1
+				temp_è¡Œæ•¸ = è¡Œæ•¸ : quest = 1
 			End If
-			TracePrint "temp_¦æ¼Æ " & temp_¦æ¼Æ
+			TracePrint "temp_è¡Œæ•¸ " & temp_è¡Œæ•¸
 			
-			If temp_¦æ¼Æ = 0 or temp_¦æ¼Æ = ss Then 
-				If temp_¦æ¼Æ = 0 Then 
+			If temp_è¡Œæ•¸ = 0 or temp_è¡Œæ•¸ = ss Then 
+				If temp_è¡Œæ•¸ = 0 Then 
 					tempY = tempY +20
 				End If
 				Exit Do
-			'¥ô°È¼È¦s¦æ¼Æ¤j©ó0
-			ElseIf temp_¦æ¼Æ > 0 Then 
-				TracePrint "¦V¤U©Ô"
-				Form1.ª¬ºA.Caption = "¦V¤U©Ô"
-				If ÀË¬d¼Æ >= 50 Then 
-					Call ·Æ°Ê(875, 600, 400, - 1 )
+			'ä»»å‹™æš«å­˜è¡Œæ•¸å¤§æ–¼0
+			ElseIf temp_è¡Œæ•¸ > 0 Then 
+				TracePrint "å‘ä¸‹æ‹‰"
+				Form1.ç‹€æ…‹.Caption = "å‘ä¸‹æ‹‰"
+				If æª¢æŸ¥æ•¸ >= 50 Then 
+					Call æ»‘å‹•(875, 600, 400, - 1 )
 				Else 
-					Call ·Æ°Ê(875, 600, 250, - 1 )
+					Call æ»‘å‹•(875, 600, 250, - 1 )
 				End If
 				
-				'°j°éÀË´ú¨ì©e°U
-				ÀË¬d¼Æ = 0
+				'è¿´åœˆæª¢æ¸¬åˆ°å§”è¨—
+				æª¢æŸ¥æ•¸ = 0
 				Do
-					ÀË¬d¼Æ = ÀË¬d¼Æ + 1
-					dm_ret = dm.FindStr(655,130,759,280, "©e°U³B¥ô°È", "f5f4ed-303030", 0.75, intX, intY)
+					æª¢æŸ¥æ•¸ = æª¢æŸ¥æ•¸ + 1
+					dm_ret = dm.FindStr(655,130,759,280, "å§”è¨—è™•ä»»å‹™", "f5f4ed-303030", 0.75, intX, intY)
 					If intX > 0 Then 
 						ss = ss + 1
-						Call ·Æ¹«ÂIÀ»(875, intY, 200)
-						If ss = temp_¦æ¼Æ Then 
+						Call æ»‘é¼ é»æ“Š(875, intY, 200)
+						If ss = temp_è¡Œæ•¸ Then 
 							Delay 200
-							'­«·s©w¦ì
-							dm_ret = dm.FindStr(655,130,759,280, "©e°U³B¥ô°È", "f5f4ed-303030", 0.75, intX, intY)
+							'é‡æ–°å®šä½
+							dm_ret = dm.FindStr(655,130,759,280, "å§”è¨—è™•ä»»å‹™", "f5f4ed-303030", 0.75, intX, intY)
 							tempX = intX : tempY = intY + 15
 						End If
 						//TracePrint "tempX " & tempX & " tempY " & tempY
@@ -357,181 +357,181 @@ Sub ¥ô°È¶µ¥Ø
 					Else 
 						Delay 2
 					End If
-				Loop While ÀË¬d¼Æ < 50
+				Loop While æª¢æŸ¥æ•¸ < 50
 				
-				TracePrint "ÀË´ú¨ì¦¸¼Æ: " & ss
-				Form1.ª¬ºA.Caption = "ÀË´ú¨ì©e°U: " & ss
+				TracePrint "æª¢æ¸¬åˆ°æ¬¡æ•¸: " & ss
+				Form1.ç‹€æ…‹.Caption = "æª¢æ¸¬åˆ°å§”è¨—: " & ss
 			End If
 		End If
-		ÀË¬d°j°é = ÀË¬d°j°é + 1
+		æª¢æŸ¥è¿´åœˆ = æª¢æŸ¥è¿´åœˆ + 1
 	Loop
-	'²¾°Ê¥ô°È®y¼Ğ
-	TracePrint "¿ï¾Ü¥ô°È " & ©Çª«(Form1.¿ï¶µ.ListIndex)
-	Form1.ª¬ºA.Caption = "¿ï¾Ü¥ô°È " & ©Çª«(Form1.¿ï¶µ.ListIndex)
-	If ¦æ¼Æ = 0 Then 
+	'ç§»å‹•ä»»å‹™åº§æ¨™
+	TracePrint "é¸æ“‡ä»»å‹™ " & æ€ªç‰©(Form1.é¸é ….ListIndex)
+	Form1.ç‹€æ…‹.Caption = "é¸æ“‡ä»»å‹™ " & æ€ªç‰©(Form1.é¸é ….ListIndex)
+	If è¡Œæ•¸ = 0 Then 
 		If Quest_s = 0 Then 
-			TracePrint "ÂIÀ»¥ô°È¥ª¤W"
-			Form1.ª¬ºA.Caption = "ÂIÀ»¥ô°È¥k¤U"
-			call ·Æ¹«ÂIÀ»(700, 530, 0)
+			TracePrint "é»æ“Šä»»å‹™å·¦ä¸Š"
+			Form1.ç‹€æ…‹.Caption = "é»æ“Šä»»å‹™å³ä¸‹"
+			call æ»‘é¼ é»æ“Š(700, 530, 0)
 		Else
-			TracePrint "ÂIÀ»¥ô°È¥k¤W"
-			Form1.ª¬ºA.Caption = "ÂIÀ»¥ô°È¥k¤U"
-			call ·Æ¹«ÂIÀ»(1050, 530, 0)
+			TracePrint "é»æ“Šä»»å‹™å³ä¸Š"
+			Form1.ç‹€æ…‹.Caption = "é»æ“Šä»»å‹™å³ä¸‹"
+			call æ»‘é¼ é»æ“Š(1050, 530, 0)
 		End If
 	Else 
 		If Quest_s = 0 Then 
-			TracePrint "ÂIÀ»¥ô°È¥ª¤U"
-			Form1.ª¬ºA.Caption = "ÂIÀ»¥ô°È¥ª¤U"
-			Call ·Æ¹«ÂIÀ»(tempX + 50, tempY + 370, 0)
+			TracePrint "é»æ“Šä»»å‹™å·¦ä¸‹"
+			Form1.ç‹€æ…‹.Caption = "é»æ“Šä»»å‹™å·¦ä¸‹"
+			Call æ»‘é¼ é»æ“Š(tempX + 50, tempY + 370, 0)
 		Else
-			TracePrint "ÂIÀ»¥ô°È¥k¤U"
-			Form1.ª¬ºA.Caption = "ÂIÀ»¥ô°È¥k¤U"
-			Call ·Æ¹«ÂIÀ»(tempX + 50 + 365, tempY + 370, 0)
+			TracePrint "é»æ“Šä»»å‹™å³ä¸‹"
+			Form1.ç‹€æ…‹.Caption = "é»æ“Šä»»å‹™å³ä¸‹"
+			Call æ»‘é¼ é»æ“Š(tempX + 50 + 365, tempY + 370, 0)
 		End If
 	End If
 	Delay 500
-	'Â÷¶}©e°U©Ò
-	call ·Æ¹«ÂIÀ»(35, 30, 1000)
-	Form1.ª¬ºA.Caption = "Ãö³¬©e°U©Ò"  
+	'é›¢é–‹å§”è¨—æ‰€
+	call æ»‘é¼ é»æ“Š(35, 30, 1000)
+	Form1.ç‹€æ…‹.Caption = "é—œé–‰å§”è¨—æ‰€"  
 End Sub
 
-Sub ·Æ°Ê(²¾°ÊX, ²¾°ÊA, ²¾°ÊB, ÅÜ¶q)
-    If ÅÜ¶q <> 0 Then 
-        dm.Moveto ²¾°ÊX, ²¾°ÊA
+Sub æ»‘å‹•(ç§»å‹•X, ç§»å‹•A, ç§»å‹•B, è®Šé‡)
+    If è®Šé‡ <> 0 Then 
+        dm.Moveto ç§»å‹•X, ç§»å‹•A
         dm.LeftDown 
         Do
-            ²¾°ÊA = ²¾°ÊA + ÅÜ¶q
+            ç§»å‹•A = ç§»å‹•A + è®Šé‡
             Delay 1
-            dm.Moveto ²¾°ÊX, ²¾°ÊA
-        Loop While ²¾°ÊA <> ²¾°ÊB
+            dm.Moveto ç§»å‹•X, ç§»å‹•A
+        Loop While ç§»å‹•A <> ç§»å‹•B
         dm.LeftUp 
-        TracePrint "·Æ°Êµ²§ô"	
+        TracePrint "æ»‘å‹•çµæŸ"	
     End If
 End Sub
 
-Sub ¤À¸Ñ
-	Form1.ª¬ºA.Caption = "¶}©l¤À¸Ñ"
-	If ¤À¸Ñ_Unix <= Unix Then 
-		dm_ret = dm.FindStr(1090, 52, 1119, 68, "­I¥]", "f5f4ed-303030", 0.9, intX, intY)
+Sub åˆ†è§£
+	Form1.ç‹€æ…‹.Caption = "é–‹å§‹åˆ†è§£"
+	If åˆ†è§£_Unix <= Unix Then 
+		dm_ret = dm.FindStr(1090, 52, 1119, 68, "èƒŒåŒ…", "f5f4ed-303030", 0.9, intX, intY)
 		If intX > 0 Then 
-			TracePrint "ÂI­I¥]"
-			call ·Æ¹«ÂIÀ»(intX, intY, 1000)
+			TracePrint "é»èƒŒåŒ…"
+			call æ»‘é¼ é»æ“Š(intX, intY, 1000)
 		End If
-		dm_ret = dm.FindStr(1099, 55, 1177, 76, "¸Ë³Æ¤À¸Ñ", "f5f4ed-303030", 0.9, intX, intY)
+		dm_ret = dm.FindStr(1099, 55, 1177, 76, "è£å‚™åˆ†è§£", "f5f4ed-303030", 0.9, intX, intY)
 		If intX > 0 Then 
-			TracePrint "ÂI¤À¸Ñ"
-			'¿ï¾Ü¸Ë³Æ¤À¸Ñ
-			Call ·Æ¹«ÂIÀ»(intX, intY, 1000)
-			'ÂIÀ»ªZ¾¹¤À¸Ñ
-			TracePrint "ÂIªZ¾¹"
-			Call ¤À¸Ñ¶µ¥Ø(831, 123)
-			'ÂIÀ»¨¾¨ã¤À¸Ñ
-			TracePrint "ÂI¨¾¨ã"
-			Call ¤À¸Ñ¶µ¥Ø(913, 123)
-			'Â÷¶}­I¥]
+			TracePrint "é»åˆ†è§£"
+			'é¸æ“‡è£å‚™åˆ†è§£
+			Call æ»‘é¼ é»æ“Š(intX, intY, 1000)
+			'é»æ“Šæ­¦å™¨åˆ†è§£
+			TracePrint "é»æ­¦å™¨"
+			Call åˆ†è§£é …ç›®(831, 123)
+			'é»æ“Šé˜²å…·åˆ†è§£
+			TracePrint "é»é˜²å…·"
+			Call åˆ†è§£é …ç›®(913, 123)
+			'é›¢é–‹èƒŒåŒ…
 			For 5
-				dm_ret = dm.FindStr(1210, 7, 1265, 62, "¿ù»~", "f5f4ed-303030", 0.7, intX, intY)
+				dm_ret = dm.FindStr(1210, 7, 1265, 62, "éŒ¯èª¤", "f5f4ed-303030", 0.7, intX, intY)
 				If intX > 5 Then 
 					Exit For
 				Else 
-					Call ·Æ¹«ÂIÀ»(32, 32, 2000)	
+					Call æ»‘é¼ é»æ“Š(32, 32, 2000)	
 				End If
 			Next
-			¤À¸Ñ_Unix = ®É¶¡ + (Form1.¤À¸Ñ®É¶¡.Value * 60)
+			åˆ†è§£_Unix = æ™‚é–“ + (Form1.åˆ†è§£æ™‚é–“.Value * 60)
 		End If
 	End If
-	Form1.ª¬ºA.Caption = "¤À¸Ñµ²§ô"
+	Form1.ç‹€æ…‹.Caption = "åˆ†è§£çµæŸ"
 End Sub
 
-Sub ¤À¸Ñ¶µ¥Ø(tackX, tackY)
-	'ÂIÀ»¨¾¨ã
-	Call ·Æ¹«ÂIÀ»(tackX, tackY, 1000)
-	dm_ret = dm.FindStr(945, 395, 1115, 420, "±z¨S¦³¥ô¦ó¶µ¥Ø", "f5f4ed-303030", 0.9, intX, intY)
+Sub åˆ†è§£é …ç›®(tackX, tackY)
+	'é»æ“Šé˜²å…·
+	Call æ»‘é¼ é»æ“Š(tackX, tackY, 1000)
+	dm_ret = dm.FindStr(945, 395, 1115, 420, "æ‚¨æ²’æœ‰ä»»ä½•é …ç›®", "f5f4ed-303030", 0.9, intX, intY)
 	If dm_ret = - 1  Then 
-		'ÂIÀ»¤@Áä¿ï¾Ü
-		Call ·Æ¹«ÂIÀ»(1037, 677, 1000)
-		'ÂIÀ»½T©w
-		Call ·Æ¹«ÂIÀ»(744, 576, 1000)
-		dm_ret = dm.FindStr(787, 177, 1263, 635, "¤Ä", "9bec0d-202020", 0.7, intX, intY)
-		TracePrint "¤Ä" & dm_ret
+		'é»æ“Šä¸€éµé¸æ“‡
+		Call æ»‘é¼ é»æ“Š(1037, 677, 1000)
+		'é»æ“Šç¢ºå®š
+		Call æ»‘é¼ é»æ“Š(744, 576, 1000)
+		dm_ret = dm.FindStr(787, 177, 1263, 635, "å‹¾", "9bec0d-202020", 0.7, intX, intY)
+		TracePrint "å‹¾" & dm_ret
 		If intX > 0 Then 
-			'ÂIÀ»¤À¸Ñ
-			Call ·Æ¹«ÂIÀ»(872, 677, 1000)
-			dm_ret = dm.FindStr(609, 491, 760, 515, "½T»{", "ffffff-303030", 0.7, intX, intY)
+			'é»æ“Šåˆ†è§£
+			Call æ»‘é¼ é»æ“Š(872, 677, 1000)
+			dm_ret = dm.FindStr(609, 491, 760, 515, "ç¢ºèª", "ffffff-303030", 0.7, intX, intY)
 			If intX > 0 Then 
-				'ÂIÀ»½T©w
-				Call ·Æ¹«ÂIÀ»(intX, intY, 1000)
+				'é»æ“Šç¢ºå®š
+				Call æ»‘é¼ é»æ“Š(intX, intY, 1000)
 			End If
 			For 2
-				call ·Æ¹«ÂIÀ»(1237, 33, 1000)
+				call æ»‘é¼ é»æ“Š(1237, 33, 1000)
 			Next
 		End If
 	End If
 End Sub
 
-Sub ·Æ¹«ÂIÀ»(tackX, tackY, timeD)
+Sub æ»‘é¼ é»æ“Š(tackX, tackY, timeD)
 	dm.MoveTo tackX, tackY
 	dm.LeftDown
 	dm.LeftUp 
 	Delay timeD
 End Sub
 
-Sub Áä½LÂIÀ»(key, timeD)
+Sub éµç›¤é»æ“Š(key, timeD)
 	dm.KeyDown key
 	dm.KeyUp key
 	Delay timeD
 End Sub
 
-Function ®É¶¡()
-	®É¶¡ = DateDiff("s", "1970/01/01 00:00:00", Now) - 28800
+Function æ™‚é–“()
+	æ™‚é–“ = DateDiff("s", "1970/01/01 00:00:00", Now) - 28800
 End Function
 
-Sub µ²§ô©Ò¦³APP()
-    Call Áä½LÂIÀ»(113,1000)
-    Call ·Æ¹«ÂIÀ»(920, 80, 1000)
-    µn¤J®É¶¡ = ®É¶¡ : tack = 0
-    Form1.ª¬ºA.Caption = "­«·sµn¤J"
+Sub çµæŸæ‰€æœ‰APP()
+    Call éµç›¤é»æ“Š(113,1000)
+    Call æ»‘é¼ é»æ“Š(920, 80, 1000)
+    ç™»å…¥æ™‚é–“ = æ™‚é–“ : tack = 0
+    Form1.ç‹€æ…‹.Caption = "é‡æ–°ç™»å…¥"
 End Sub
 
-Sub µn¤J
-	µn¤J®É¶¡ = ®É¶¡
+Sub ç™»å…¥
+	ç™»å…¥æ™‚é–“ = æ™‚é–“
     Do
-        '´M§äAPP
-        dm_ret = dm.FindStr(0, 0, 1280, 720, "§Æ±æM", "ffffff-303030", 0.9, intX, intY)
+        'å°‹æ‰¾APP
+        dm_ret = dm.FindStr(0, 0, 1280, 720, "å¸Œæœ›M", "ffffff-303030", 0.9, intX, intY)
         If intX > 0 Then 
-        	TracePrint "§Æ±æM" & intX & "-" & intY
-        	call ·Æ¹«ÂIÀ»(intX, intY, 100)
+        	TracePrint "å¸Œæœ›M" & intX & "-" & intY
+        	call æ»‘é¼ é»æ“Š(intX, intY, 100)
         Else 
-            dm_ret = dm.FindStr(710, 515, 756, 545, "½T»{", "ffffff-303030", 0.9, intX, intY)
+            dm_ret = dm.FindStr(710, 515, 756, 545, "ç¢ºèª", "ffffff-303030", 0.9, intX, intY)
             If intX > 0 Then 
-            	TracePrint "½T»{" & intX & "-" & intY
-            	call ·Æ¹«ÂIÀ»(intX, intY, 100)
+            	TracePrint "ç¢ºèª" & intX & "-" & intY
+            	call æ»‘é¼ é»æ“Š(intX, intY, 100)
             Else 
-                dm_ret = dm.FindStr(521, 477, 567, 508, "²¤¹L", "ffffff-303030", 0.9, intX, intY)
+                dm_ret = dm.FindStr(521, 477, 567, 508, "ç•¥é", "ffffff-303030", 0.9, intX, intY)
                 If intX > 0 Then 
-                	TracePrint "²¤¹L" & intX & "-" & intY
-                	call ·Æ¹«ÂIÀ»(intX, intY, 100)
+                	TracePrint "ç•¥é" & intX & "-" & intY
+                	call æ»‘é¼ é»æ“Š(intX, intY, 100)
                 Else 
                     If tack >= 2 Then 
-                    	Call µ²§ô©Ò¦³APP
+                    	Call çµæŸæ‰€æœ‰APP
                     Else
-                    	dm_ret = dm.FindStr(1168, 666, 1214, 696, "µn¥X", "ffffff-303030", 0.9, intX, intY)
+                    	dm_ret = dm.FindStr(1168, 666, 1214, 696, "ç™»å‡º", "ffffff-303030", 0.9, intX, intY)
                     	If intX > 0 Then 
                     		tack = tack + 1
-                    		TracePrint "µn¥X" & intX & "-" & intY
-                    		Call ·Æ¹«ÂIÀ»(intX - 200, intY, 100)
+                    		TracePrint "ç™»å‡º" & intX & "-" & intY
+                    		Call æ»‘é¼ é»æ“Š(intX - 200, intY, 100)
                     	Else 
-                        	dm_ret = dm.FindStr(583, 600, 696, 631, "¶}©l¹CÀ¸", "ffdf32-303030", 0.9, intX, intY)
+                        	dm_ret = dm.FindStr(583, 600, 696, 631, "é–‹å§‹éŠæˆ²", "ffdf32-303030", 0.9, intX, intY)
                         	If intX > 0 Then 
-                        		TracePrint "¶}©l¹CÀ¸" & intX & "-" & intY
-                            	call ·Æ¹«ÂIÀ»(intX, intY, Form1.µn¤J©µ¿ğ.Text)
-            					If Form1.¤£«ü©w¥ô°È.Value = 1 Then
+                        		TracePrint "é–‹å§‹éŠæˆ²" & intX & "-" & intY
+                            	call æ»‘é¼ é»æ“Š(intX, intY, Form1.ç™»å…¥å»¶é².Text)
+            					If Form1.ä¸æŒ‡å®šä»»å‹™.Value = 1 Then
 									dm_ret = dm.FindStr(1180, 623, 1225, 639, "A|U|T|O", "80e3f2-404040", 0.7, intX, intY)
         							If intX = - 1  Then 
-     	   								call ·Æ¹«ÂIÀ»(1203, 631, 1000)
+     	   								call æ»‘é¼ é»æ“Š(1203, 631, 1000)
         							End If
         						End If
-        						¥ô°È®É¶¡ = ®É¶¡
+        						ä»»å‹™æ™‚é–“ = æ™‚é–“
                             	Exit Do
                         	End If	
                     	End If
@@ -540,32 +540,32 @@ Sub µn¤J
             End If
         End If
         Delay 1000
-        If ®É¶¡ - µn¤J®É¶¡ > int(Form1.µn¤J¶W®É.Text) Then 
-        	Call µ²§ô©Ò¦³APP
+        If æ™‚é–“ - ç™»å…¥æ™‚é–“ > int(Form1.ç™»å…¥è¶…æ™‚.Text) Then 
+        	Call çµæŸæ‰€æœ‰APP
         End If
     Loop
 End Sub
 
-Sub ¤jºz³]©w()
-    TracePrint Plugin.File.GetFileLength("c:\dm\§Æ±æM\§Æ±æM.txt")
-    If Plugin.File.GetFileLength("c:\dm\§Æ±æM\§Æ±æM.txt") <> 4529 Then 
-        PutAttachment "c:\dm\§Æ±æM", "*"
-        TracePrint "ÄÀ©ñ¦r¨å."
+Sub å¤§æ¼ è¨­å®š()
+    TracePrint Plugin.File.GetFileLength("c:\dm\å¸Œæœ›M\å¸Œæœ›M.txt")
+    If Plugin.File.GetFileLength("c:\dm\å¸Œæœ›M\å¸Œæœ›M.txt") <> 4529 Then 
+        PutAttachment "c:\dm\å¸Œæœ›M", "*"
+        TracePrint "é‡‹æ”¾å­—å…¸."
     End If
     set dm = createobject("dm.dmsoft")
-    base_path = dm.GetBasePath() & "§Æ±æM"
+    base_path = dm.GetBasePath() & "å¸Œæœ›M"
     dm_ret = dm.SetPath(base_path)
-    dm_ret = dm.SetDict(0, "§Æ±æM.txt")
-    If Form1.¥y¬`.ListIndex = 0 Then 
+    dm_ret = dm.SetDict(0, "å¸Œæœ›M.txt")
+    If Form1.å¥æŸ„.ListIndex = 0 Then 
 		Hwnd = Plugin.Window.Find("LDPlayerMainFrame", 0)
-        ¼ÒÀÀ¾¹ = Plugin.Window.FindEx(Hwnd, 0, 0, 0)
-    	TracePrint "Hwnd " & Hwnd & " ¼ÒÀÀ¾¹ " & ¼ÒÀÀ¾¹
+        æ¨¡æ“¬å™¨ = Plugin.Window.FindEx(Hwnd, 0, 0, 0)
+    	TracePrint "Hwnd " & Hwnd & " æ¨¡æ“¬å™¨ " & æ¨¡æ“¬å™¨
     Else
-        ¼ÒÀÀ¾¹ = Plugin.Window.MousePoint()
+        æ¨¡æ“¬å™¨ = Plugin.Window.MousePoint()
     End If
-    dm_ret = dm.BindWindow(¼ÒÀÀ¾¹,"gdi","windows","windows",0)
-    TracePrint "¥y¬`: " & ¼ÒÀÀ¾¹ & " ¸j©w: " & dm_ret
-    Form1.ª¬ºA.Caption = "¥y¬`: " & ¼ÒÀÀ¾¹ & " ¸j©w: " & dm_ret
+    dm_ret = dm.BindWindow(æ¨¡æ“¬å™¨,"gdi","windows","windows",0)
+    TracePrint "å¥æŸ„: " & æ¨¡æ“¬å™¨ & " ç¶å®š: " & dm_ret
+    Form1.ç‹€æ…‹.Caption = "å¥æŸ„: " & æ¨¡æ“¬å™¨ & " ç¶å®š: " & dm_ret
 End Sub
 
 Sub OnThreadExit()
@@ -573,68 +573,68 @@ Sub OnThreadExit()
 End Sub
 
 Sub OnScriptExit()
-    Form1.ª¬ºA.Caption = "¸}¥»°±¤î"
+    Form1.ç‹€æ…‹.Caption = "è…³æœ¬åœæ­¢"
 End Sub
 
-sub ¿ï¶µ()
-    Select Case Form1.«°Âí.ListIndex
+sub é¸é …()
+    Select Case Form1.åŸé®.ListIndex
     Case 0
-        Select Case Form1.Ãø«×.ListIndex
+        Select Case Form1.é›£åº¦.ListIndex
         Case 0
-            Form1.¿ï¶µ.List = "Ä¨Û£ªüÀ¨|´Ë¤Ú¾÷|¤j«¢¤ñ|¤p¸J¨§"
+            Form1.é¸é ….List = "è˜‘è‡é˜¿å¬¤|æ£®å·´æ©Ÿ|å¤§å“ˆæ¯”|å°ç¢—è±†"
         Case 1
-            Form1.¿ï¶µ.List = "·P«_ªº©B©B|¦³­aªºÄ_½c|§Æ¨à|¤ìÀY¾÷¾¹¤H"
+            Form1.é¸é ….List = "æ„Ÿå†’çš„å’•å’•|æœ‰è‹”çš„å¯¶ç®±|å¸Œå…’|æœ¨é ­æ©Ÿå™¨äºº"
         Case 2
-            Form1.¿ï¶µ.List = "±Ó±¶ªº«¢¤ñ¨ß|¥¨¤jªº·nºuµæÀY|¬ü¤H³½¾Ô¤h|¤p§¯®V"
+            Form1.é¸é ….List = "æ•æ·çš„å“ˆæ¯”å…”|å·¨å¤§çš„æ–æ»¾èœé ­|ç¾äººé­šæˆ°å£«|å°å¦–å§¬"
         End Select
     Case 1
-        Select Case Form1.Ãø«×.ListIndex
+        Select Case Form1.é›£åº¦.ListIndex
         Case 0
-            Form1.¿ï¶µ.List = "Ä¨Û£ª¨ª¨|°@¸Ûªº¤p¸J¨§|Ãe§J¾ğ¥J|¤pÂÅÂB"
+            Form1.é¸é ….List = "è˜‘è‡çˆ¸çˆ¸|è™”èª çš„å°ç¢—è±†|é¾å…‹æ¨¹ä»”|å°è—é®«"
         Case 1
-            Form1.¿ï¶µ.List = "ªÅ¤â¹D¤ò¤òÂÎ|¤p¤ì°¨|¤j§¯®V|ªk®v©B©B"
+            Form1.é¸é ….List = "ç©ºæ‰‹é“æ¯›æ¯›èŸ²|å°æœ¨é¦¬|å¤§å¦–å§¬|æ³•å¸«å’•å’•"
         Case 2
-            Form1.¿ï¶µ.List = "§Æ¶Ù|¾ğ¤H«Â§Q|¤ÑÃÈÅ@½Ã|¬õ¿]ÂÎ"
+            Form1.é¸é ….List = "å¸Œå—¨|æ¨¹äººå¨åˆ©|å¤©è è­·è¡›|ç´…ç“¢èŸ²"
         End Select
     Case 2
-        Select Case Form1.Ãø«×.ListIndex
+        Select Case Form1.é›£åº¦.ListIndex
         Case 0
-            Form1.¿ï¶µ.List = "ÂÅ¿]ÂÎ|ªáÃe§J¾ğ¥J|ºµÄ_Ä_|ºµ¶ı¶ı"
+            Form1.é¸é ….List = "è—ç“¢èŸ²|èŠ±é¾å…‹æ¨¹ä»”|ç†Šå¯¶å¯¶|ç†Šåª½åª½"
         Case 1
-            Form1.¿ï¶µ.List = "ºµª¨ª¨|ªá¥P¤l©f©f|ªá¥P¤l©j©j|´ËªL¸ô§J"
+            Form1.é¸é ….List = "ç†Šçˆ¸çˆ¸|èŠ±ä»™å­å¦¹å¦¹|èŠ±ä»™å­å§å§|æ£®æ—è·¯å…‹"
         Case 2
-            Form1.¿ï¶µ.List = "¤K¤ö®ü©Ç|¯Q¾~|­·¼É¤p§¯®V|¾Ô¤h©B©B"
+            Form1.é¸é ….List = "å…«çˆªæµ·æ€ª|çƒé´‰|é¢¨æš´å°å¦–å§¬|æˆ°å£«å’•å’•"
         End Select
     Case 3
-        Select Case Form1.Ãø«×.ListIndex
+        Select Case Form1.é›£åº¦.ListIndex
         Case 0
-            Form1.¿ï¶µ.List = "Áà­®¾ğ¤H|¿ß«}¨kÀï|¿ûÅK¤ì°¨|»]Âû"
+            Form1.é¸é ….List = "é†œé™‹æ¨¹äºº|è²“å’ªç”·çˆµ|é‹¼éµæœ¨é¦¬|è’¸é›"
         Case 1
-            Form1.¿ï¶µ.List = "·¬¸­Ãe§J¾ğ¥J|¶W¯ÅÁÉ¨È³D|¯»¦£ªº³JÀY|¯Q¾~°Û¸Ö¯Z|¥i·Rªá¥P¤l©f|µæÀY¤ı|ºñ©Ç¤H|«ä¬K´ÁºµÄ_Ä_|³·ªáÃe§J¾ğ¥J|¯ó­ì¸ô§J|¶Àª÷Ä_½c|ÆF±Óªº¤ì°¨|­¸¤Ñ½Ş|¶Â¹u¿ß«}"
+            Form1.é¸é ….List = "æ¥“è‘‰é¾å…‹æ¨¹ä»”|è¶…ç´šè³½äºè›‡|ç²‰å¿™çš„è›‹é ­|çƒé´‰å”±è©©ç­|å¯æ„›èŠ±ä»™å­å¦¹|èœé ­ç‹|ç¶ æ€ªäºº|æ€æ˜¥æœŸç†Šå¯¶å¯¶|é›ªèŠ±é¾å…‹æ¨¹ä»”|è‰åŸè·¯å…‹|é»ƒé‡‘å¯¶ç®±|éˆæ•çš„æœ¨é¦¬|é£›å¤©è±¬|é»‘é´è²“å’ª"
         Case 2
-            Form1.¿ï¶µ.List = "¨k¤¤­µ¯Q¾~|º}«Gªá¥P¤l©f©f|°h¥ğªººµ¶ı¶ı|»ä­·¤p§¯®V|µµÂÅÂB|´cÅ]¤½¥D|¯ã®L¦Ï|¨k°ª­µ¯Q¾~|³±ÀI¦Ï§B§B|»Å¦Ç|¼ö¦å¯»¦£ªº³JÀY|³·­ì¸ô§J|·sÂAªá¥P¤l©f©f|¦B³·¤k¤ı|´cÅ]¤ı¤l"
+            Form1.é¸é ….List = "ç”·ä¸­éŸ³çƒé´‰|æ¼‚äº®èŠ±ä»™å­å¦¹å¦¹|é€€ä¼‘çš„ç†Šåª½åª½|é¢±é¢¨å°å¦–å§¬|ç´«è—é®«|æƒ¡é­”å…¬ä¸»|èƒ¯å¤ç¾Š|ç”·é«˜éŸ³çƒé´‰|é™°éšªç¾Šä¼¯ä¼¯|é…·ç°|ç†±è¡€ç²‰å¿™çš„è›‹é ­|é›ªåŸè·¯å…‹|æ–°é®®èŠ±ä»™å­å¦¹å¦¹|å†°é›ªå¥³ç‹|æƒ¡é­”ç‹å­"
         End Select
     End Select
-    Form1.¿ï¶µ.ListIndex = 0
+    Form1.é¸é ….ListIndex = 0
 End sub
 
-Event Form1.Ãø«×.SelectChange
-    Call ¿ï¶µ()
+Event Form1.é›£åº¦.SelectChange
+    Call é¸é …()
 End Event
-Event Form1.«°Âí.SelectChange
-    Call ¿ï¶µ()
+Event Form1.åŸé®.SelectChange
+    Call é¸é …()
 End Event
 
-Event Form1.¤À¸Ñ®É¶¡.Slide
-	Form1.®É¶¡.Caption = Form1.¤À¸Ñ®É¶¡.Value 
+Event Form1.åˆ†è§£æ™‚é–“.Slide
+	Form1.æ™‚é–“.Caption = Form1.åˆ†è§£æ™‚é–“.Value 
 End Event
 
 Event Form1.Load
-    Form1.¤À¸Ñ®É¶¡.Max = 360
-    Form1.¤À¸Ñ®É¶¡.Min = 10
-    Form1.®É¶¡.Caption = Form1.¤À¸Ñ®É¶¡.Value 
+    Form1.åˆ†è§£æ™‚é–“.Max = 360
+    Form1.åˆ†è§£æ™‚é–“.Min = 10
+    Form1.æ™‚é–“.Caption = Form1.åˆ†è§£æ™‚é–“.Value 
 End Event
 
-Event Form1.¥ô°È.Click
-	¥ô°È®É¶¡ = ®É¶¡
+Event Form1.ä»»å‹™.Click
+	ä»»å‹™æ™‚é–“ = æ™‚é–“
 End Event
