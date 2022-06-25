@@ -1,9 +1,9 @@
-﻿// Created by Microsoft (R) C/C++ Compiler Version 14.29.30141.0 (e57a0d76).
+﻿// Created by Microsoft (R) C/C++ Compiler Version 14.29.30141.0 (4f51353f).
 //
 // C:\Users\BOB\source\repos\DMcall\DMcall\Debug\dm.tlh
 //
-// C++ source equivalent of Win32 type library c:/dm/dm.dll
-// compiler-generated file created 03/22/22 at 13:45:18 - DO NOT EDIT!
+// C++ source equivalent of Win32 type library dm.dll
+// compiler-generated file created 03/31/22 at 21:52:37 - DO NOT EDIT!
 
 #pragma once
 #pragma pack(push, 8)
