@@ -1,0 +1,83 @@
+[General]
+SyntaxVersion=2
+BeginHotkey=121
+BeginHotkeyMod=0
+PauseHotkey=0
+PauseHotkeyMod=0
+StopHotkey=123
+StopHotkeyMod=0
+RunOnce=1
+EnableWindow=
+MacroID=4549043b-c8f5-453a-a0b5-83d4ea9b60f4
+Description=我的腳本1_自動備份
+Enable=1
+AutoRun=0
+[Repeat]
+Type=0
+Number=1
+[SetupUI]
+Type=2
+QUI=
+[Relative]
+SetupOCXFile=
+[Comment]
+
+[Script]
+Call 大漠設定()
+Delay 200
+Dim tpXY,toX,toY,sxitdo
+Do
+	If sxitdo = 1 Then 
+		Exit Do
+	End If
+    Call 移動座標(61, 8)
+	Delay 250
+Loop
+
+Sub 移動座標(toX, toY)
+	s = dm.Ocr(948, 0, 1003, 18, "ffffff-000031", 1.0)
+	tpXY = Split(s, "/")//分割字串
+	X = Sgn(toX - tpXY(0)) : Y = Sgn(toY - tpXY(1))
+	TracePrint "X " & tpXY(0) & " Y " & tpXY(1)
+
+	If toX = int(tpXY(0)) And toY = int(tpXY(1)) Then 
+		sxitdo = 1
+		TracePrint "找到位置停止"
+		Leftdown2 = False
+		dm.LeftUp
+	Else 
+		If X = 0 And Y = 1 Then '下
+			dm.MoveTo 510,350
+		ElseIf X = - 1  And Y = 1 Then '右下
+			dm.MoveTo 420,350
+		ElseIf X = -1 And Y = 0 Then '右
+			dm.MoveTo 420,410
+		ElseIf X = -1 And Y = -1 Then '右上
+			dm.MoveTo 420,450
+		ElseIf X = 0 And Y = -1 Then '上
+			dm.MoveTo 510,450
+		ElseIf X = 1 And Y = -1 Then '左上
+			dm.MoveTo 570,450
+		ElseIf X = 1 And Y = 0 Then '左
+			dm.MoveTo 570,410
+		ElseIf X = 1 And Y = 1 Then '左下
+			dm.MoveTo 570,350
+		End If
+		If Leftdown2 <> True Then 
+			dm.LeftDown 
+			Leftdown2 = True
+		End If
+	End If
+	//LeftDown 1
+End sub
+
+Function 大漠設定()
+	set dm = createobject("dm.dmsoft")
+	base_path = dm.GetBasePath()//獲取dll路徑
+	dm_ret = dm.SetPath(base_path)//全局路徑
+	dm_ret = dm.SetDict(0,"希望M.txt")//設定字庫
+	Hwnd = Plugin.Window.MousePoint()
+	//Hwnd = Plugin.Window.FindEx(Hwnd, 0, "Internet Explorer_Server", 0)
+	dm_ret = dm.BindWindow(Hwnd,"gdi","dx2","windows",4)//綁定窗口
+	TracePrint "窗口:" & Hwnd & " 綁定狀態:" & dm_ret
+End Function

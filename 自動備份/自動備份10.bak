@@ -1,0 +1,276 @@
+[General]
+SyntaxVersion=2
+BeginHotkey=121
+BeginHotkeyMod=0
+PauseHotkey=0
+PauseHotkeyMod=0
+StopHotkey=123
+StopHotkeyMod=0
+RunOnce=1
+EnableWindow=
+MacroID=8f7af498-3edb-4622-a82a-6ae35a6f39a2
+Description=FB-RO找怪
+Enable=0
+AutoRun=0
+[Repeat]
+Type=0
+Number=1
+[SetupUI]
+Type=2
+QUI=
+[Relative]
+SetupOCXFile=
+[Comment]
+
+[Script]
+Global TID
+Global Tread_i, Address, FirstColumn,Hwnd
+Hwnd = Plugin.Window.Find(0, "Ragnarok")
+Call IsLocking
+Do
+    For 10
+        //    PauseThread TID	
+        //    Auto_Stat 
+        //    ContinueThread TID
+        // MoveTo 0,0	//防止找圖檔到
+        //FindPic 9, 55, 1024, 768, "Attachment:\wolf.bmp", 0.6, intX, intY
+        FindCenterColor 3,90,1000,760,"008800",intX,intY
+        //  FindPic 9,55,1024,768,"Attachment:\777777.bmp",0.6,intX,intY
+        //    FindCenterColor 217,165,875,667,"845235",intX,intY
+        If    intX > 0 And intY > 0 Then 
+            Delay 50
+            //  MoveTo intX+10, intY+10
+            MoveTo intX,intY
+            LeftClick 1
+            Delay 200
+            //TracePrint "hit test"
+            Dim i, t 
+            t=3	//發呆秒數
+            i=0
+            While IsLocking //鎖定怪物判斷
+                i = i + 1
+                If i mod 2 = 0 Then 
+                    //  TracePrint "倒數"&(t*10-i)/10 &"秒" // (秒數*10-i)/10
+                    TracePrint "鎖定目標"&i/2 &"秒" 
+                End If
+                If i > t*1000/500 and IsAttack=0 or i > 15*1000/500 Then	// 秒數*1000/DelayTime
+                    TracePrint "攻擊逾時"&t&"秒，放棄目標"
+                    //                                        PauseThread TID
+                    //                                        KeyPress "F7", 1
+                    //                                          Delay 250
+                    //                                        ContinueThread TID
+                    Goto fly
+                End If
+                Delay 100*5
+            Wend
+            TracePrint ""
+            PauseThread TID
+            //MouseWheel - 2 	//撿垃圾
+            KeyPress "F7", 1
+            // TracePrint "撿垃圾"
+            ContinueThread TID
+            Delay 250
+        End If 
+    Next
+    Rem fly
+    PauseThread  TID	//防止順移喝水  
+    //    If IIfColor(250,38  ,"ffffff") or IIfColor(340,38 ,"ffffff") Then 
+    //        KeyPress "F9", 1
+    //        Delay 500
+    //        MessageBox "無蒼翅或大水"
+    //        ExitScript    	
+    //    End If
+    // KeyPress "F1", 1
+    teleport
+    Delay 800
+    ContinueThread TID//防止順移喝水
+Loop
+Sub Auto_Stat
+    //38覺醒 39 波克 132火捲 133風 130水 131地 33馬牌 12加速 10天次
+    //115 中毒
+    Call AutoState("F6", 39)    
+    //  Call AutoState("F5", 131) 
+    Call AutoState("w", 33)
+End Sub
+Function IsLocking
+	//pointer address
+    Dim ad : ad = &H004F9958    
+    ad = Plugin.Memory.Read32Bit(Hwnd, ad)
+    TracePrint ad
+    ad = ad + &H74
+    ad = Plugin.Memory.Read32Bit(Hwnd, ad)
+    TracePrint ad
+    ad = ad + &Hcc
+    ad = Plugin.Memory.Read32Bit(Hwnd, ad)
+    TracePrint ad
+    ad = ad + &H2c
+    ad = Plugin.Memory.Read32Bit(Hwnd, ad)
+    TracePrint ad
+    ad = ad + &H4e8
+    IsAttack_ad = ad + &HC
+    TracePrint IsAttack_ad
+    // TracePrint Hex(firstad) : ExitScript
+    //   TracePrint Plugin.Memory.Read8Bit(Hwnd,ad)
+    If Plugin.Memory.Read8Bit(Hwnd, ad) = "5" _
+    or Plugin.Memory.Read8Bit(Hwnd, ad) = "1" _
+    Then 
+        IsLocking=true
+    Else 
+        IsLocking=false
+    End If
+End Function
+Function IsAttack
+    //    TracePrint Plugin.Memory.Read8Bit(Hwnd,IsAttack_ad)
+    If Plugin.Memory.Read8Bit(Hwnd, IsAttack_ad) = "1" Then 
+        IsAttack=true
+    Else 
+        IsAttack=false
+    End If
+End Function
+//------Function Area-----------
+Function IIfColor(x,y,c)
+    IfColor x, y, c, 0 Then
+        IIfColor=True
+    Else 
+        IIfColor=False
+    End If
+End Function
+Sub Auto_Hp
+    Do
+        Call BadState("q", 115)
+        If IIfColor(130, 76, "E7BDAD") =false and IIfColor(340, 38, "ffffff")=false Then 
+            // KeyPress "F1", 1
+            teleport
+            TracePrint "損血過大順移!!"
+            Delay 600
+            While IIfColor(150, 76, "E7BDAD")=false and IIfColor(340, 38, "ffffff")=false
+                KeyPress "F4", 1
+                Delay 100
+            Wend
+            RestartScript 
+            // MessageBox ""
+            // TracePrint Lib.算法.隨機取姓名()
+            // ElseIf IIfColor(250, 38, "ffffff") or IIfColor(340, 38, "ffffff") Then
+        ElseIf IIfColor(250, 38, "ffffff") Then
+            KeyPress "F9", 1
+            Delay 500
+            MessageBox "無蒼翅或大水"
+            ExitScript    	
+            //elseIf (IIfColor(130, 76, "E7BDAD") = false or IIfColor(104, 76, "E7BDAD") = false) and Not(IIfColor(340,38 ,"ffffff")) Then
+        ElseIf IIfColor(140, 76, "E7BDAD") = false and Not (IIfColor(340, 38, "ffffff"))  Then
+            KeyPress "F4", 1
+            Delay 800+500
+        ElseIf IIfColor(150,76 , "E7BDAD") = false  and Not(IIfColor(456,37  ,"FFFFFF")) Then 		
+            // MouseWheel 1  
+            KeyPress "F8", 1
+            Delay 800
+            //TracePrint Lib.算法.隨機取姓名()
+        Else 
+            // Auto_Untie 
+            Auto_Stat 
+            Delay 1000
+        End If
+        Delay 200
+    Loop
+End Sub
+Sub Auto_Untie
+    Dim stat1, stat2
+    dim mode1,mode2
+    Dim poison//883 poison    
+    poison = "883"
+    stat1=poison
+    mode1 = false
+    mode2 = false
+    TracePrint Plugin.Memory.Read32Bit(Hwnd, &H011d1e84)
+    TracePrint Plugin.Memory.Read32Bit(Hwnd, &H011d1e88)
+    TracePrint Plugin.Memory.Read32Bit(Hwnd, &H011D1E8C)
+    TracePrint Plugin.Memory.Read32Bit(Hwnd, &H011D1E90)
+    If Plugin.Memory.Read32Bit(Hwnd, &H011d1e84) = stat1 Then 
+        mode1 = true
+    End If
+    If Plugin.Memory.Read32Bit(Hwnd, &H011d1e88) = stat1 Then 
+        mode1 = true
+    End If
+    If Plugin.Memory.Read32Bit(Hwnd, &H011D1E8C) = stat1 Then 
+        mode1 = true
+    End If
+    If Plugin.Memory.Read32Bit(Hwnd, &H011D1E90) = stat1 Then 
+        mode1 = true
+    End If
+    ///////
+    /*
+    If Plugin.Memory.Read32Bit(Hwnd, &H011d1e84) = stat2 Then 
+        mode2 = true
+    End If
+    If Plugin.Memory.Read32Bit(Hwnd, &H011d1e88) = stat2 Then 
+        mode2 = true
+    End If
+    If Plugin.Memory.Read32Bit(Hwnd, &H011D1E8C) = stat2 Then
+        mode2 = true
+    End If
+    If Plugin.Memory.Read32Bit(Hwnd, &H011D1E90) = stat2 Then
+        mode2 = true
+    End If
+    */
+    If mode1 = true Then 
+        KeyPress "Q", 1
+        Delay 200
+        TracePrint "以解毒"
+    End If
+    // TracePrint "並無中毒"
+    /*
+    if mode2 = false Then
+        KeyPress "F5", 1
+        Delay 200
+        // MessageBox "火捲"
+    End If
+    */
+End Sub
+Function  AutoState(HotKey,Code)	//hotkey,skill code
+    FirstColumn = &H011D1E84
+    For Tread_i = 0 To 6
+        Address = FirstColumn + 4 * Tread_i
+        //                TracePrint Hex(Address) & "/" & Plugin.Memory.Read8Bit(Hwnd, Address)
+        If Plugin.Memory.Read8Bit(Hwnd, Address) = CStr(Code) Then 
+            Exit Function 
+        End If
+    Next      
+    // MessageBox CStr(HotKey)
+    KeyPress CStr(HotKey), 1
+    If CStr(HotKey) = "F5" Then 
+        TracePrint "5555555"
+        RestartScript
+    End If
+    Delay 200
+End Function  
+Function BadState(HotKey,Code)	//hotkey,skill code
+    FirstColumn = &H011D1E84
+    For Tread_i = 0 To 6
+        Address = FirstColumn + 4 * Tread_i
+        //                TracePrint Hex(Address) & "/" & Plugin.Memory.Read8Bit(Hwnd, Address)
+        If Plugin.Memory.Read8Bit(Hwnd, Address) = CStr(Code) Then 
+            // KeyPress "F1", 1
+            teleport
+            Delay 600
+            KeyPress CStr(HotKey), 1
+            TracePrint ""
+            TracePrint "已解毒"
+            TracePrint ""
+            Delay 200
+            RestartScript
+        End If
+    Next     
+End Function
+Sub teleport
+    Dim ad : ad = &H011D1A0C
+    ad = Plugin.Memory.Read32Bit(Hwnd, ad)
+    TracePrint ad
+    If Fix(ad) > 10 Then 
+        Delay 800
+        KeyPress "F1", 1
+        Delay 100
+        KeyPress "Space", 1
+    Else 
+        KeyPress "s", 1
+    End If
+End Sub
