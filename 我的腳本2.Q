@@ -8,9 +8,9 @@ StopHotkey=123
 StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
-MacroID=02497fb7-619e-4cac-b512-b21aa6165a78
+MacroID=d648ca25-e29a-4e08-8c55-f91781525f02
 Description=我的腳本2
-Enable=0
+Enable=1
 AutoRun=0
 [Repeat]
 Type=0
@@ -22,102 +22,43 @@ QUI=
 SetupOCXFile=
 [Comment]
 
-[Script]
-//獲得遊戲窗口句柄和位置尺寸等信息以便使用後台操作
-hw=Plugin.Window.mousepoint()
-clintrect = Plugin.Window.GetClientRect(hw)
-Call Plugin.Window.Size(hw, 550, 400)
-rect=split(clintrect,"|",-1,1)
-xoffset=cint(rect(0))
-yoffset=cint(rect(1))
-xwinsize=cint(rect(2))
-ywinsize = cint(rect(3))
-TracePrint xwinsize & ywinsize
-If xwinsize<>550 or ywinsize<>400 Then
-    Call messagebox("請將鼠標放在遊戲窗口內啟動腳本。")
-    Goto QMScript_end
-End If 
+[Attachment]
+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
 
-UserVar fillredscale=14 "補血百分比"
-xcenter=49: ycenter=46: colorred="0000FF": r=32
-ang=(3.1415926*fillredscale/100)
-xred=cint(xcenter-r*sin(ang))
-yred=cint(ycenter+r*cos(ang))
-xbar=209: ybar=25: colorbar="000000"
-xmap1=420 :ymap1=20 :xmap2=530 :ymap2=100: coloranimy="0019A6": colorme="008C0D"
-xmapcenter=475: ymapcenter=60
-xhead=47: yhead=33: colorhead="000000"
-Rem start
-MoveTo xoffset+xwinsize/2,yoffset+ywinsize/2
-timestart=now
-Rem 尋找敵人
-ret=Plugin.BkgndColor.FindCenterColor(hw,xmap1+2,ymap1+2,xmap2-2,ymap2-2,coloranimy)
-If ret="-1|-1" Then
-    Call 人物移動
-Else 
-    zuobiao=split(ret,"|",-1,1)
-    x1=zuobiao(0)
-    y1=zuobiao(1)
-    xanimy=xwinsize/2+7+(x1-xmapcenter)*5
-    yanimy=ywinsize/2+(y1-ymapcenter)*5
-    Call 戰鬥
-End If 
-color1=Plugin.BkgndColor.GetPixelColor(hw,xhead,yhead)
-If color1<>clng("&H" & colorhead) Then
-    Goto QMScript_end
-End If 
-Goto 尋找敵人
-Rem QMScript_end
-howlong=datediff("n",timestart,now)
-Call MessageBox("鶴羽工具：遊戲結束。你共掛機約 " & howlong & " 分鐘時間。")
-EndScript 
-Sub 戰鬥
-    Call Plugin.Bkgnd.MoveTo(hw,xanimy,yanimy)
-    Delay 50
-    Call Plugin.Bkgnd.LeftClick(hw,xanimy,yanimy)
-    Delay 50
-    Call Plugin.Bkgnd.MoveTo(hw,xwinsize/2,ywinsize/2)
-    time1=now
-    Rem 等待怪物血條出現
-    color1=Plugin.BkgndColor.GetPixelColor(hw,xbar,ybar)
-    If color1<>clng("&H" & colorbar) Then
-        If datediff("s",time1,now)<3 Then
-            Call 檢查血量
-            Delay 20
-            Goto 等待怪物血條出現
-        Else 
-            Goto 戰鬥結束
-        End If 
-    End If 
-    killanimy=killanimy+1
-    Rem 等待戰鬥結束
-    Call 檢查血量
-    color1=Plugin.BkgndColor.GetPixelColor(hw,xbar,ybar)
-    If color1=clng("&H" & colorbar) Then
-        Delay 20
-        Goto 等待戰鬥結束
-    End If 
-    killanimy=killanimy+1
-    Delay 500
-    Rem 戰鬥結束
-    Call 檢查血量
-End Sub 
-//
-Sub 檢查血量
-    color1=Plugin.BkgndColor.GetPixelColor(hw,xred,yred)
-    If color1<>clng("&H" & colorred) Then
-        KeyPress 49,1
-        redbt=redbt-1
-        Delay 500
-    End If 
-End Sub 
-//
-Sub 人物移動
-    Call Plugin.Bkgnd.MoveTo(hw, xmove, ymove)
-    TracePrint xmove & "--" & ymove
-    Delay 100
-    Call Plugin.Bkgnd.LeftClick(hw,xmove,ymove)
-    Delay 1000
-    Call Plugin.Bkgnd.MoveTo(hw,xwinsize/2,ywinsize/2)
-    Delay 2000
+
+[Script]
+Call Dm_72231
+Delay 100
+Do
+	dm.moveto 200, 500
+	dm.LeftClick
+	//dm_ret = dm.Capture(0,0,1024,768,"screen.bmp")
+	Delay 200
+Loop
+
+
+Function Dm_72231()
+	Set dm = createobject("dm.dmsoft")
+	'註冊大漠
+	'dm_ret = dm.Reg("jv965720b239b8396b1b7df8b768c919e86e10f","jfiax8yhxfpyqy7")
+    base_path = dm.GetBasePath()
+    dm_ret = dm.SetPath(base_path)
+    'dm_ret = dm.SetDict(0, "驗證.txt")
+    Hwnd = Plugin.Window.MousePoint()
+    'RO綁定參數
+    'dm_ret = dm.BindWindowEx(Hwnd,"gdi","dx.mouse.position.lock.api|dx.mouse.clip.lock.api|dx.mouse.state.api|dx.mouse.api|dx.mouse.cursor","dx.keypad.state.api|dx.keypad.api","",0)
+    dm_ret = dm.BindWindowEx(hwnd,"dx2","dx.mouse.position.lock.api|dx.mouse.position.lock.message|dx.mouse.clip.lock.api|dx.mouse.input.lock.api|dx.mouse.state.api|dx.mouse.api","dx.keypad.input.lock.api|dx.keypad.state.api|dx.keypad.api","",4)
+
+    TracePrint "Hwnd:" & Hwnd & " dm_ret:" & dm_ret
+    TracePrint dm.GetLastError()
+End Function
+
+Sub OnScriptExit()
+   TracePrint "OnScriptExit"
+   dm.UnBindWindow
+End Sub
+
+Sub OnThreadExit()
+   TracePrint " OnThreadExit "
+   dm.UnBindWindow
 End Sub

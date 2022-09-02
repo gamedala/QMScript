@@ -1,0 +1,129 @@
+[General]
+SyntaxVersion=2
+BeginHotkey=121
+BeginHotkeyMod=0
+PauseHotkey=19
+PauseHotkeyMod=0
+StopHotkey=123
+StopHotkeyMod=0
+RunOnce=1
+EnableWindow=
+MacroID=b1d5f422-33b3-4522-be3a-61b1a6cafa20
+Description=光雨-驗證打怪UI_自動備份
+Enable=0
+AutoRun=0
+[Repeat]
+Type=0
+Number=1
+[SetupUI]
+Type=1
+QUI=Form1
+[Relative]
+SetupOCXFile=
+[Comment]
+
+[Attachment]
+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
+
+
+[UIPackage]
+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
+
+
+[Script]
+Call set_dm
+Do
+	If Plugin.Memory.Read32Bit(Hwnd, &H0015F25C) = Form1.打寶地圖.Text Then 
+		If 挑戰開始 = False Then 
+			dm_ret = dm.FindColor(911,269,1012,412, "635a72-020202", 1.0, 0, intX, intY)
+			If intX > 0 And intY > 0 Then 
+				dm.moveto intX,intY
+				滑鼠 ("右")
+				Do
+					Delay 50
+					鍵盤 (13)
+				Loop While int(Plugin.Memory.Read32Bit(Hwnd, &H00F80558)) > 0
+				挑戰開始 = True
+			End If
+		End If
+		dm_ret = dm.FindColor(855,538,1050,725, "292139-000000", 1.0, 0, intX, intY)
+		If intX > 0 And intY > 0 Then 
+			dm.moveto intX,intY
+			滑鼠 ("右")
+			Delay 100
+			鍵盤 (40)
+			Delay 100
+			鍵盤 (13)
+			挑戰成功 = False
+		End If
+	Else 
+		If 挑戰成功 = False Then 
+			dm_ret = dm.FindStr(1, 265, 223, 822, "副本破壞", "000000-000000", 1.0, intX, intY)
+			If intX > 0 Then 
+				dm.MoveTo intX , intY
+				滑鼠 ("左")
+				挑戰成功 = True
+			End If
+		End If
+		If int(Plugin.Memory.Read32Bit(Hwnd, &H00F8055C)) > 0 Then 
+			Select Case 選單次數
+			Case 0
+				鍵盤 (13)
+    			選單次數 = 選單次數 + 1
+			Case 1
+				For 2
+					鍵盤 (40)
+					Delay 100
+				Next
+				鍵盤(13)
+    			選單次數 = 0
+    			挑戰開始 = False
+			End Select
+		Else
+			If int(Plugin.Memory.Read32Bit(Hwnd, &H00F80558)) > 0 Then 
+				鍵盤(13)
+			Else
+				dm_ret = dm.FindStr(565,247,944,503,"露比道館挑戰","000000-000000",1.0,intX,intY)
+				If intX > 0 Then 
+					dm.MoveTo intX + 30, intY + 50
+					滑鼠("右")
+				End If
+			End If
+		End If
+	End If
+	Delay 500
+Loop
+
+Sub 鍵盤(keys)
+	dm.KeyDown keys
+	dm.KeyUp keys
+End Sub
+
+Sub 滑鼠(類型)
+	If 類型 = "左" Then 
+		dm.LeftDown
+		dm.LeftUp
+	ElseIf 類型 = "右" Then
+		dm.RightDown
+		dm.RightUp
+	End If
+End Sub
+
+sub set_dm()
+	Set dm = createobject("dm.dmsoft")
+    base_path = dm.GetBasePath()&"露比"
+    dm_ret = dm.SetPath(base_path)
+    dm_ret = dm.SetDict(0, "字典.txt")
+    Hwnd = Plugin.Window.Find(0, Form1.窗口標題.Text)
+    dm_ret = dm.BindWindow(Hwnd, "gdi", "dx2", "dx", 4)
+    TracePrint "Hwnd:" & Hwnd & " dm_ret:" & dm_ret
+End sub
+
+Sub OnThreadExit()
+    dm.UnBindWindow 
+End Sub
+
+Event Form1.取得地圖.Click
+	Hwnd = Plugin.Window.Find(0, Form1.窗口標題.Text)
+	Form1.打寶地圖.Text = Plugin.Memory.Read32Bit(Hwnd, &H0015F25C)
+End Event

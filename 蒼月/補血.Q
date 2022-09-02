@@ -38,8 +38,8 @@ HP少於多少 = 90
 //PIDID_01 = BeginThread(自動輔助)
 //PIDID_01 = BeginThread(記憶體)
 do
-	最大血 = int(Plugin.Memory.Read32Bit(句柄, &H01110B38))
-	血 = int(Plugin.Memory.Read32Bit(句柄, &H01110B34))
+	最大血 = int(Plugin.Memory.Read32Bit(句柄, &H01144148))
+	血 = int(Plugin.Memory.Read32Bit(句柄, &H01144144))
 	血量 = fix((血 / 最大血) * 100)
 	if 血量 < HP少於多少 Then
 		dm.KeyPress 補血按鍵

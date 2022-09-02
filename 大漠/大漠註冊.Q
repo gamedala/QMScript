@@ -28,9 +28,9 @@ UEsDBBQAAgAIAEw/CkFpA+Qdl5wLAACQDAAGABEAZG0uZGxsVVQNAAcuvyRQdzyLYbhBiWHs/XlUE8kf
 
 [Script]
 //釋放"附件"中自己新增的檔案到c:\dm目錄中，釋放Regdll.dll到plugin目錄中
-PutAttachment "c:\dm", "*.*"
-PutAttachment ".\plugin", "Regdll.dll"
-
+//PutAttachment "c:\dm", "*.*"
+//PutAttachment ".\plugin", "Regdll.dll"
+//
 //呼叫regdll.dll,註冊大漠外掛
 Call Plugin.Regdll.reg("c:\dm\dm.dll")
 

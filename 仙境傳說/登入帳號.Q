@@ -31,7 +31,8 @@ Do
     If Key = 120 Then 
 		Call 大漠()
 		Delay 100
-        call 登入
+		dm.KeyPress 13
+        'call 登入
         TracePrint "指定視窗"
     End If
     Delay 1000
@@ -68,7 +69,8 @@ Function 大漠()
     dm_ret = dm.SetPath(base_path)
 	dm_ret = dm.SetDict(0,"C:\dm\光雨.txt")
     句柄 = Plugin.Window.MousePoint()
-    dm_ret = dm.BindWindow(句柄, "gdi", "dx2", "dx", 4)
+    dm_ret = dm.BindWindow(句柄, "gdi", "dx2", "dx", 0)
+    'dm_ret = dm.BindWindowEx(句柄,"gdi","dx.mouse.position.lock.api|dx.mouse.clip.lock.api|dx.mouse.state.api|dx.mouse.api|dx.mouse.cursor","dx.keypad.state.api|dx.keypad.api","",0)
 	TracePrint "綁定視窗:" & 句柄 & "仙境傳說綁定是否成功:" & dm_ret
 	if 提示視窗 = 1 Then
 		MsgBox "綁定視窗:" & 句柄 & "仙境傳說綁定是否成功:" & dm_ret

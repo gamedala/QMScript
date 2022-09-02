@@ -1,0 +1,104 @@
+[General]
+SyntaxVersion=2
+BeginHotkey=121
+BeginHotkeyMod=0
+PauseHotkey=0
+PauseHotkeyMod=0
+StopHotkey=123
+StopHotkeyMod=0
+RunOnce=1
+EnableWindow=
+MacroID=20cf53ff-d361-4a47-96b1-c755a7975c28
+Description=驗證-購買指定物品
+Enable=1
+AutoRun=0
+[Repeat]
+Type=0
+Number=1
+[SetupUI]
+Type=2
+QUI=
+[Relative]
+SetupOCXFile=
+[Comment]
+
+[Attachment]
+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
+
+
+[Script]
+Call Dm_72231
+Delay 100
+Do
+'dm_ret = dm.Capture(0,0,1024,768,"C:\screen.bmp")
+    'verify = "哥布靈首領卡片[天]"
+    verifyGo 
+    Delay 1000
+Loop
+Function verifyGo()
+	dm_ret = dm.FindStr(0, 0, 1024, 768, "請輸入@safero進行驗證", "000000-000000", 1.0, intX, intY)
+	If intX > 0 Then 
+		TracePrint "驗證執行......"
+		Do
+			If int(Plugin.Memory.Read32Bit(Hwnd, &H00F80558)) <> 0 Then 
+				dm_ret = dm.FindStr(0, 0, 1024, 768, "外掛巡查官", "000000-000000", 1.0, intX, intY)
+				If intX > 0 Then 
+					TracePrint "定位對話視窗"
+					verify = dm.Ocr(intX-10, intY+54,intX+150, intY+66,"000000-000000",1.0)
+    				TracePrint "獲取指定物品: " & verify
+    				dm_ret = dm.FindStr(0, 0, 1024, 768, "在商店出售的項目", "000000-000000", 1.0, shopX, shopY)
+    				If shopX > 0 Then 
+        				TracePrint "定位商店視窗"
+        				For 2
+            				dm_ret = dm.FindStr(shopX + 60, shopY + 21, shopX + 165, shopY + 280, verify, "000000-000000", 1.0, intX, intY)
+            				If intX = - 1  Then 
+                				TracePrint "找不到指定物品 " & verify & " 向下滑動"
+                				dm.Moveto shopX +165,shopY + 21
+                				For 2
+                    				dm.WheelDown
+                				Next
+                				Delay 500
+            				Else 
+                				TracePrint "找到指定物品 " & verify & " 開始拖移"
+                				dm.Moveto intX - 20, intY + 5
+				                dm.LeftDown
+				                dm.Moveto shopX + 310, shopY + 200
+				                dm.Leftup 
+                				dm.KeyPress 13
+                				Exit Do
+            				End If
+        				Next
+    				End If
+				End If
+			Else 
+				TracePrint "輸入@safero驗證(ALT+9)"
+				dm.KeyDown 18
+				dm.KeyPress 57
+				dm.KeyUp 18
+			End If
+		Loop
+	End If
+End Function
+Function Dm_72231()
+    Set dm = createobject("dm.dmsoft")
+    '註冊大漠
+    'dm_ret = dm.Reg("jv965720b239b8396b1b7df8b768c919e86e10f","jfiax8yhxfpyqy7")
+    base_path = dm.GetBasePath()
+    dm_ret = dm.SetPath(base_path)
+    dm_ret = dm.SetDict(0, "aasd.txt")
+    Hwnd = Plugin.Window.MousePoint()
+    'RO綁定參數
+    'dm_ret = dm.BindWindowEx(Hwnd,"gdi","dx.mouse.position.lock.api|dx.mouse.clip.lock.api|dx.mouse.state.api|dx.mouse.api|dx.mouse.cursor","dx.keypad.state.api|dx.keypad.api","",0)
+    'dm_ret = dm.BindWindowEx(hwnd,"dx2","dx.mouse.position.lock.api|dx.mouse.position.lock.message|dx.mouse.clip.lock.api|dx.mouse.input.lock.api|dx.mouse.state.api|dx.mouse.api","dx.keypad.input.lock.api|dx.keypad.state.api|dx.keypad.api","",4)
+    
+    dm_ret = dm.BindWindow(Hwnd, "gdi", "normal", "normal", 0)
+    TracePrint "Hwnd:" & Hwnd & " dm_ret:" & dm_ret
+End Function
+Sub OnScriptExit()
+    TracePrint "OnScriptExit"
+    dm.UnBindWindow
+End Sub
+Sub OnThreadExit()
+    TracePrint " OnThreadExit "
+    dm.UnBindWindow
+End Sub

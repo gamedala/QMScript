@@ -10,7 +10,7 @@ RunOnce=1
 EnableWindow=
 MacroID=cbef10b8-c79c-4093-80cc-c0108ea15040
 Description=關閉按鍵精靈-熱點
-Enable=1
+Enable=0
 AutoRun=0
 [Repeat]
 Type=0
