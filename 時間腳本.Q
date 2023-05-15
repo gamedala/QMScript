@@ -24,6 +24,11 @@ SetupOCXFile=
 
 [Script]
 Do
+Call 輔助檢查("A", 45)
+Delay 1000
+Loop
+
+Do
 	時間戳 = DateDiff("s", "1970/01/01 00:00:00", Now) - 28800
 	Call 毫秒
 	If 時間戳 <> 時間 Then 
@@ -43,3 +48,12 @@ Sub 毫秒()
 	mstime = sc.eval ("new Date().getTime();")
 End Sub
 
+sub 輔助檢查(按鍵,時間)
+	TimeVar = DateDiff("s", runTime, time)
+	If TimeVar > 時間 Then 
+		KeyPress 按鍵, 1
+		runTime=time
+	Else 
+		TracePrint "時間:" & TimeVar
+	End If
+end sub

@@ -23,19 +23,6 @@ SetupOCXFile=
 [Comment]
 
 [Script]
-//GetSN = Plugin.Sys.GetHDDSN()
-//i = GetSN+123456
-//Traceprint i
-//a = InputBox("輸入")
-//TracePrint a
-//If int(a) = i Then
-//Call Plugin.Msg.Tips("正常")
-//Else
-//Call Plugin.Msg.Tips("失敗")
-//EndScript
-//End If
-//
-
 Dim Text, ans(9), arr(9)
 
 Text = "153"
