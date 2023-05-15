@@ -1,0 +1,88 @@
+[General]
+SyntaxVersion=2
+BeginHotkey=121
+BeginHotkeyMod=0
+PauseHotkey=19
+PauseHotkeyMod=0
+StopHotkey=123
+StopHotkeyMod=0
+RunOnce=1
+EnableWindow=
+MacroID=0f1f9f7b-4684-4b9b-b0db-81cb8a3f12a3
+Description=光雨道館_自動備份
+Enable=0
+AutoRun=0
+[Repeat]
+Type=0
+Number=1
+[SetupUI]
+Type=1
+QUI=Form1
+[Relative]
+SetupOCXFile=
+[Comment]
+
+[Attachment]
+UEsDBBQAAgAIAGA7slTFpKPyPQMAABgGAAAKABEAw/bB5KZyLnR4dFVUDQAH1J+EYmaqhGIbvX1iXVS9jmY1DO1Hmre49cpxnMQpnZu4ouABoOA1eJ6ZAa1W7AJapAGEkPgpqKloeAFEhSioOEm+lS40n/xdnzjHx8dhDqKhebVAhiiEM55BiDV0P+l4+cdBL+iFpCOE+7vkni33wt4iUfOeZFhNiVvrSnp8/+FCZ11odyfmzCUqUfDS2TQmN6ulZ6Ljq8eNpoWuzHZqHkycvJmlLkB21PZEqP3cFzqVhY6DREhBmNzHuxBfj4eHhYtx4SRTmwTdanADgZKKnSlRA17peP5tV939ERV0iJK9m3V3rq2n5BEMcg16/PzeQpfNWEDLeyG2kVKyJQTCk/GV0N+bl7v2ZhKoQg8wBQcfgYTBvAZiyeKo/fTRRoebGgIxigciswGdrakyDnCoaPb4+puNlq1G9iYsrUZRmkOKeoo5NBk6tXv907VLTNwsoNMWIIRVFUGrIVQ+q0Q93v610XlrEiiBYyp+hooQnUWv88fP45P3tz02DWqxmxigBnFb5iZFTmupDbCj49t/duF6E4QlVFdRZ4mVE2HUsF6ePUY6Pv94187/b5FUuJymIwUzRghOx9vnq3xUqXJlKwPNMvzGUs4snWrSyeSzbT3ZRhV4n0MpNqfdRkspz7APfCWgv/z9alTYOoTYB8HcmHsKXWrxjEUylIGtH/4jn05P0ex1MnGcs3fhHM3jn5tJuRmwdmezUuaadPgFM+c587NWjOa7XzcTvqHhELQaOHExwUJiimqsp6oB/fTpVUGGbrA2rKcceP6bpzEFJkFwPH6wF2dPh5kFn2E4cGDR5mh47ZrO5Tle9au5meJagoi9TfC3J1m7Js0SYV2++PE6eVmrQNAqrM+Bj3p/l5e9Aq6Vgn3gndKZAksNkxF2AlOIOyUrlSlKUNx5zoJyPUV1oBzIq+JhSDuVZypCtp2C++jIK4XjSJ24DJWGDELHR7ncVQrexyWMFDSl+1RYKZ2OmyW14K56KTiXOOBVky0zXVKwUnOH5VvuuWvHpuwQekJEd8VJH4lO+DYFX+9GTdhSnuOYK5zxsrVTh49Okc1DGoYXrxiVVaETfDmqZOUBU1FM6ZzmLsYxTsDx9MsPfz/329MdC4wY7+/+BVBLAQIXCxQAAgAIAGA7slTFpKPyPQMAABgGAAAKAAkAAAAAAAAAIACAgQAAAADD9sHkpnIudHh0VVQFAAfUn4RiUEsFBgAAAAABAAEAQQAAAHYDAAAAAA==
+
+
+[Script]
+Call set_dm
+Delay 100
+道館名稱 = array("", "初階道館", "中階道館", "高階道館", "夢魘道館", "地獄級道館", "百關道館")
+X軸 = array(0,0,162,169,177,185,185)
+Do
+	地圖 = dm.ReadString(hwnd,"011513C0",0,15)
+	If 地圖 = 領獎地圖 Then 
+		dm_ret = dm.FindStr(10, 706, 271, 744, "中場休息時間", "ce3929-000000", 1.0, intX, intY)
+		If intX > 0 Then 
+			Call 復活(2)
+			
+		End If
+	End If
+Loop
+
+Function 復活(Run)
+    If Run >0 Then
+        Die = array("","移動到儲存場所","在原地復")
+        TracePrint "[復活]"
+    	If 死亡通知 = 1 Then
+			訊息 ("人物已死亡選擇" & Die(Run))
+		End If
+        Do
+            dm.KeyPress 27
+            Delay 250
+            dm_ret = dm.FindStr(345, 435, 674, 565, Die(Run), "000000-313131", 1.0, intX, intY)
+        Loop Until intX > 0 And intY > 0
+        TracePrint "找到關鍵字: [移動到儲存場所]"
+        If Run = 1 Then
+            Do
+                dm.MoveTo intX, intY
+                dm.LeftClick
+                dm_ret = dm.FindStr(352,289,661,435, "確認", "000000-313131", 1.0, intX2, intY2)
+            Loop Until intX2 > 0 And intY2 > 0
+            TracePrint "找到關鍵字: [確認]"
+        ElseIf Run = 2 Then
+            intX2 = intX
+            intY2 = intY
+        End If
+        Do
+            dm.MoveTo intX2, intY2
+            dm.LeftClick 
+            Delay 200
+            '血 = int(Plugin.Memory.Read32Bit(Hwnd, &H011D0A14))
+            血 = int(Plugin.Memory.Read32Bit(Hwnd, &H01155E14))
+        Loop Until 血 > 1
+        TracePrint "確認: [復活]"
+    End If
+End Function
+
+Function set_dm()
+	Set dm = createobject("dm.dmsoft")
+	base_path = dm.GetBasePath() & "光雨"
+    dm_ret = dm.SetPath(base_path)
+    dm_ret = dm.SetDict(0, "關鍵字.txt")
+    Hwnd = Plugin.Window.Find(0, "Ragnarok")
+    dm_ret = dm.BindWindow(Hwnd, "gdi", "dx2", "dx", 4)
+    TracePrint "Hwnd:" & Hwnd & " dm_ret:" & dm_ret
+End Function

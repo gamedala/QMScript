@@ -1,0 +1,172 @@
+[General]
+SyntaxVersion=2
+BeginHotkey=121
+BeginHotkeyMod=0
+PauseHotkey=0
+PauseHotkeyMod=0
+StopHotkey=123
+StopHotkeyMod=0
+RunOnce=1
+EnableWindow=
+MacroID=88f5ce13-443b-4e9a-84d3-a0f8dd4b9545
+Description=自動甜心
+Enable=1
+AutoRun=0
+[Repeat]
+Type=0
+Number=1
+[SetupUI]
+Type=2
+QUI=
+[Relative]
+SetupOCXFile=
+[Comment]
+
+[Script]
+Call set_dm
+Delay 100
+/*
+Do
+	If int(Plugin.Memory.Read32Bit(Hwnd, &H00F05990)) > 0 Then 
+		Call 按鍵(13)
+//	Else 
+//		dm.MoveTo 741, 189
+//		dm.LeftClick
+	End If
+Loop
+*/
+Do
+	地圖 = dm.ReadString(hwnd, "011513C0", 0, 15)
+	If 地圖 = "ba_maison" Then 
+		Do
+			If int(Plugin.Memory.Read32Bit(Hwnd, &H00F05990)) > 0 Then 
+				dm_ret = dm.FindStr(69,423,138,442, "副本關閉", "000000-000000", 1.0, intX, intY)
+				If intX > - 1  Then 
+					Call 按鍵(40)
+					進入地圖 = 1
+				End If
+				Call 按鍵(13)
+				Delay 100
+				按下 = 按下 + 1
+			ElseIf 按下 <> 0 or "ba_maison" <> dm.ReadString(hwnd, "011513C0", 0, 15) Then
+				Exit Do
+			Else 
+				dm_ret = dm.FindStr(7,720,117,733, "目中的副本", "b5ffb5-000000", 1.0, intX, intY)
+				If intX > - 1  Then 
+					按下 = 按下 +1
+				Else 
+					Call 按鍵(120)
+					Delay 100
+				End If
+			End If
+		Loop
+		If 按下 > 0 Then 
+			dm_ret = dm.FindStr(232, 206, 599, 463, "捕獲甜心", "000000-000000", 1.0, intX, intY)
+			If intX > - 1 Then 
+				dm.MoveTo intX + 40, intY + 40
+				dm.LeftClick 
+			End If
+		End If
+	'進入甜心副本
+	ElseIf 地圖 = "1@bamq" Then
+		'Call 狀態(41,115)
+		If 進入地圖 = 1 Then 
+			Delay 1000
+			進入地圖 = 0
+		End If
+		Now_X = int (Plugin.Memory.Read32Bit(Hwnd, &H0113EA34))
+		Now_Y = int (Plugin.Memory.Read32Bit(Hwnd, &H0113EA38))
+		If Now_X = 32 and Now_Y = 37 Then 
+			dm.MoveTo 511, 378
+			dm.LeftDown 
+			dm.MoveTo 807, 389
+			Delay 200
+		ElseIf Now_X >= 36
+			dm.Leftup 
+			Delay 500 
+    		Do
+    			If int(Plugin.Memory.Read32Bit(Hwnd, &H00F05998)) Then 
+    				dm_ret = dm.FindStr(131, 89, 882, 600, "的心", "000000-000000", 1.0, intX, intY)
+    				If intX > - 1  Then 
+    					Call 按鍵(40)
+    				End If
+    				Call 按鍵(13)
+    			ElseIf int(Plugin.Memory.Read32Bit(Hwnd, &H00F05990)) Then
+    				Call 按鍵(13)
+    			Else 
+    				dm_ret = dm.FindColor(371, 193, 968, 517, "ffff55-000000", 1.0, 0, intX, intY)
+    				If intX > - 1 Then 
+    					dm.MoveTo intX, intY
+    					dm.LeftClick 
+    				End If
+    			End If		
+    		Loop While "1@bamq" = dm.ReadString(hwnd, "011513C0", 0, 15)
+		End If
+		
+	'不是指定地圖時自動回到指定副本
+	Else 
+		Delay 1000
+		dm_ret = dm.FindStr(69,423,138,442, "副本關閉", "000000-000000", 1.0, intX, intY)
+		If intX > - 1 Then 
+			dm.MoveTo intX, intY
+			dm.LeftClick 
+			按下 = 0
+			Delay 500
+		else
+			dm.MoveTo 858,93
+			dm.LeftClick 
+			Delay 500
+			'是否有對話出現
+			If int(Plugin.Memory.Read32Bit(Hwnd, &H00F05998)) > 0 Then 
+				call 按鍵(40)
+				Call 按鍵(13)
+				Delay 200
+				For 27
+					call 按鍵(40)
+				Next
+				Delay 500
+				Call 按鍵(13)
+				Delay 500
+				Call 按鍵(13)
+				Delay 500
+				For 13
+					call 按鍵(40)
+				Next
+				Delay 500
+				Call 按鍵(13)
+				Delay 500
+				Call 按鍵(13)
+				Delay 500
+				Call 按鍵(13)
+				Delay 500
+			End If
+		End If
+	End If
+Loop
+
+Function 按鍵(編號)
+	dm.KeyDown 編號
+	dm.KeyUp 編號
+End Function
+
+
+Function 狀態(狀態ID,按鍵ID)
+	do
+    	buffid = Plugin.Memory.Find32Bit(Hwnd, 狀態ID, &H01156294, &H01156308, 4)
+    	If buffid = 0 Then 
+        	call 按鍵(按鍵ID)
+        	TracePrint "補狀態: " & 狀態ID & "按鍵: " & 按鍵ID
+        	Delay 500
+    	End If
+	loop Until buffid <> 0
+End Function
+
+Function set_dm()
+    Set dm = createobject("dm.dmsoft")
+    base_path = dm.GetBasePath() + "光雨"
+    dm_ret = dm.SetPath(base_path)
+    dm_ret = dm.SetDict(0, "關鍵字.txt")
+    Hwnd = Plugin.Window.Find(0, "Ragnarok")
+    dm_ret = dm.BindWindow(Hwnd, "gdi", "dx2", "dx", 4)
+    TracePrint "Hwnd:" & Hwnd & " dm_ret:" & dm_ret
+End Function

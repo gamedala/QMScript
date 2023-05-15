@@ -45,11 +45,11 @@ Function 登入()
 	提示視窗 = 1
     關鍵字 = "6666"
     Do
-    	dm_ret = dm.FindStr(0, 0, 1024, 768, "光雨仙境", "0042bd-000000", 1.0, intX, intY)
+    	dm_ret = dm.FindStr(0, 0, 1024, 768, "仙境", "0042bd-000000", 1.0, intX, intY)
     	If intX > 0 And intY > 0 Then 
     		dm.KeyPress 13
     		Delay 200
-    		dm_ret = dm.FindStr(0, 0, 1024, 768, "光雨仙境", "000000-000000", 1.0, intX, intY)
+    		dm_ret = dm.FindStr(0, 0, 1024, 768, "仙境", "000000-000000", 1.0, intX, intY)
     		If intX > 0 And intY > 0 Then 
     			dm.SendString2 句柄, 密碼(次數)
     			Delay 100
