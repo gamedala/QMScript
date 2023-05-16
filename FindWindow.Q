@@ -24,7 +24,12 @@ SetupOCXFile=
 
 [Script]
 Declare Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Integer 
+Declare Function FindWindowEx Lib "user32" Alias "FindWindowExA" (ByVal hWndParent As Long, ByVal hWndChildAfter As Long, ByVal lpszClass As String, ByVal lpszWindow As String) As Long
 
-TracePrint FindWindow(0, "Ragnarok") '標題
+'TracePrint FindWindow(0, "Ragnarok") '標題
 
-TracePrint FindWindow("Ragnarok",0) '類名
+'TracePrint FindWindow("Ragnarok", 0)'類名
+
+Hwnd = FindWindow(0, "未命名 - 記事本")'標題
+
+TracePrint FindWindowEx(Hwnd, 0, "NotepadTextBox", 0) '父窗口,子窗口,類名,標題名
